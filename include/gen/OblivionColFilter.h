@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _OBLIVIONCOLFILTER_H_
 #define _OBLIVIONCOLFILTER_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Oblivion's ColFilter property for Havok. */
-struct OblivionColFilter {
+struct OblivionColFilter
+{
 	/*! Default Constructor */
 	NIFLIB_API OblivionColFilter();
 	/*! Default Destructor */
 	NIFLIB_API ~OblivionColFilter();
 	/*! Copy Constructor */
-	NIFLIB_API OblivionColFilter( const OblivionColFilter & src );
+	NIFLIB_API OblivionColFilter(const OblivionColFilter& src);
 	/*! Copy Operator */
-	NIFLIB_API OblivionColFilter & operator=( const OblivionColFilter & src );
+	NIFLIB_API OblivionColFilter& operator=(const OblivionColFilter& src);
 	/*! Sets mesh color in Oblivion Construction Set. */
 	OblivionLayer layer;
 	/*!
@@ -38,5 +40,5 @@ struct OblivionColFilter {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

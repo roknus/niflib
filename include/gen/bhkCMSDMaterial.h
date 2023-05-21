@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BHKCMSDMATERIAL_H_
 #define _BHKCMSDMATERIAL_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! per-chunk material, used in bhkCompressedMeshShapeData */
-struct bhkCMSDMaterial {
+struct bhkCMSDMaterial
+{
 	/*! Default Constructor */
 	NIFLIB_API bhkCMSDMaterial();
 	/*! Default Destructor */
 	NIFLIB_API ~bhkCMSDMaterial();
 	/*! Copy Constructor */
-	NIFLIB_API bhkCMSDMaterial( const bhkCMSDMaterial & src );
+	NIFLIB_API bhkCMSDMaterial(const bhkCMSDMaterial& src);
 	/*! Copy Operator */
-	NIFLIB_API bhkCMSDMaterial & operator=( const bhkCMSDMaterial & src );
+	NIFLIB_API bhkCMSDMaterial& operator=(const bhkCMSDMaterial& src);
 	/*! Material. */
 	SkyrimHavokMaterial skyrimMaterial;
 	/*! Always 1? */
@@ -32,5 +34,5 @@ struct bhkCMSDMaterial {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

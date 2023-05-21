@@ -10,54 +10,65 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiPSysPositionModifier.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiPSysPositionModifier::TYPE("NiPSysPositionModifier", &NiPSysModifier::TYPE );
+// Definition of TYPE constant
+const Type NiPSysPositionModifier::TYPE("NiPSysPositionModifier", &NiPSysModifier::TYPE);
 
-NiPSysPositionModifier::NiPSysPositionModifier() {
+NiPSysPositionModifier::NiPSysPositionModifier()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiPSysPositionModifier::~NiPSysPositionModifier() {
+NiPSysPositionModifier::~NiPSysPositionModifier()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiPSysPositionModifier::GetType() const {
+const Type& NiPSysPositionModifier::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiPSysPositionModifier::Create() {
+NiObject* NiPSysPositionModifier::Create()
+{
 	return new NiPSysPositionModifier;
 }
 
-void NiPSysPositionModifier::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiPSysPositionModifier::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Read( in, link_stack, info );
+	NiPSysModifier::Read(in, link_stack, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysPositionModifier::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiPSysPositionModifier::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Write( out, link_map, missing_link_stack, info );
+	NiPSysModifier::Write(out, link_map, missing_link_stack, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiPSysPositionModifier::asString( bool verbose ) const {
+std::string NiPSysPositionModifier::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -69,24 +80,31 @@ std::string NiPSysPositionModifier::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysPositionModifier::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiPSysPositionModifier::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPSysModifier::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiPSysPositionModifier::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiPSysPositionModifier::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPSysModifier::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiPSysPositionModifier::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiPSysPositionModifier::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPSysModifier::GetPtrs();
 	return ptrs;
 }

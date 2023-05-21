@@ -12,107 +12,145 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
 #include "../../include/NIF_IO.h"
-#include "../../include/obj/bhkPackedNiTriStripsShape.h"
+#include "../../include/ObjectRegistry.h"
 #include "../../include/gen/OblivionSubShape.h"
+#include "../../include/obj/bhkPackedNiTriStripsShape.h"
 #include "../../include/obj/hkPackedNiTriStripsData.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type bhkPackedNiTriStripsShape::TYPE("bhkPackedNiTriStripsShape", &bhkShapeCollection::TYPE );
+// Definition of TYPE constant
+const Type bhkPackedNiTriStripsShape::TYPE("bhkPackedNiTriStripsShape", &bhkShapeCollection::TYPE);
 
-bhkPackedNiTriStripsShape::bhkPackedNiTriStripsShape() : numSubShapes((unsigned short)0), unknownInt1((unsigned int)0), unknownInt2((unsigned int)0x014E9DD8), unknownFloat1(0.1f), unknownInt3((unsigned int)0), scaleCopy_(1.0, 1.0, 1.0), unknownFloat2(0.0f), unknownFloat3(0.1f), scale(1.0, 1.0, 1.0), unknownFloat4(0.0f), data(NULL) {
+bhkPackedNiTriStripsShape::bhkPackedNiTriStripsShape()
+	: numSubShapes((unsigned short)0)
+	, unknownInt1((unsigned int)0)
+	, unknownInt2((unsigned int)0x014E9DD8)
+	, unknownFloat1(0.1f)
+	, unknownInt3((unsigned int)0)
+	, scaleCopy_(1.0, 1.0, 1.0)
+	, unknownFloat2(0.0f)
+	, unknownFloat3(0.1f)
+	, scale(1.0, 1.0, 1.0)
+	, unknownFloat4(0.0f)
+	, data(NULL)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-bhkPackedNiTriStripsShape::~bhkPackedNiTriStripsShape() {
+bhkPackedNiTriStripsShape::~bhkPackedNiTriStripsShape()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & bhkPackedNiTriStripsShape::GetType() const {
+const Type& bhkPackedNiTriStripsShape::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * bhkPackedNiTriStripsShape::Create() {
+NiObject* bhkPackedNiTriStripsShape::Create()
+{
 	return new bhkPackedNiTriStripsShape;
 }
 
-void bhkPackedNiTriStripsShape::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void bhkPackedNiTriStripsShape::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
 	unsigned int block_num;
-	bhkShapeCollection::Read( in, link_stack, info );
-	if ( info.version <= 0x14000005 ) {
-		NifStream( numSubShapes, in, info );
+	bhkShapeCollection::Read(in, link_stack, info);
+	if(info.version <= 0x14000005)
+	{
+		NifStream(numSubShapes, in, info);
 		subShapes.resize(numSubShapes);
-		for (unsigned int i2 = 0; i2 < subShapes.size(); i2++) {
-			NifStream( subShapes[i2].layer, in, info );
-			NifStream( subShapes[i2].colFilter, in, info );
-			NifStream( subShapes[i2].unknownShort, in, info );
-			NifStream( subShapes[i2].numVertices, in, info );
-			NifStream( subShapes[i2].material, in, info );
+		for(unsigned int i2 = 0; i2 < subShapes.size(); i2++)
+		{
+			NifStream(subShapes[i2].layer, in, info);
+			NifStream(subShapes[i2].colFilter, in, info);
+			NifStream(subShapes[i2].unknownShort, in, info);
+			NifStream(subShapes[i2].numVertices, in, info);
+			NifStream(subShapes[i2].material, in, info);
 		};
 	};
-	NifStream( unknownInt1, in, info );
-	NifStream( unknownInt2, in, info );
-	NifStream( unknownFloat1, in, info );
-	NifStream( unknownInt3, in, info );
-	NifStream( scaleCopy_, in, info );
-	NifStream( unknownFloat2, in, info );
-	NifStream( unknownFloat3, in, info );
-	NifStream( scale, in, info );
-	NifStream( unknownFloat4, in, info );
-	NifStream( block_num, in, info );
-	link_stack.push_back( block_num );
+	NifStream(unknownInt1, in, info);
+	NifStream(unknownInt2, in, info);
+	NifStream(unknownFloat1, in, info);
+	NifStream(unknownInt3, in, info);
+	NifStream(scaleCopy_, in, info);
+	NifStream(unknownFloat2, in, info);
+	NifStream(unknownFloat3, in, info);
+	NifStream(scale, in, info);
+	NifStream(unknownFloat4, in, info);
+	NifStream(block_num, in, info);
+	link_stack.push_back(block_num);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void bhkPackedNiTriStripsShape::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void bhkPackedNiTriStripsShape::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	bhkShapeCollection::Write( out, link_map, missing_link_stack, info );
+	bhkShapeCollection::Write(out, link_map, missing_link_stack, info);
 	numSubShapes = (unsigned short)(subShapes.size());
-	if ( info.version <= 0x14000005 ) {
-		NifStream( numSubShapes, out, info );
-		for (unsigned int i2 = 0; i2 < subShapes.size(); i2++) {
-			NifStream( subShapes[i2].layer, out, info );
-			NifStream( subShapes[i2].colFilter, out, info );
-			NifStream( subShapes[i2].unknownShort, out, info );
-			NifStream( subShapes[i2].numVertices, out, info );
-			NifStream( subShapes[i2].material, out, info );
+	if(info.version <= 0x14000005)
+	{
+		NifStream(numSubShapes, out, info);
+		for(unsigned int i2 = 0; i2 < subShapes.size(); i2++)
+		{
+			NifStream(subShapes[i2].layer, out, info);
+			NifStream(subShapes[i2].colFilter, out, info);
+			NifStream(subShapes[i2].unknownShort, out, info);
+			NifStream(subShapes[i2].numVertices, out, info);
+			NifStream(subShapes[i2].material, out, info);
 		};
 	};
-	NifStream( unknownInt1, out, info );
-	NifStream( unknownInt2, out, info );
-	NifStream( unknownFloat1, out, info );
-	NifStream( unknownInt3, out, info );
-	NifStream( scaleCopy_, out, info );
-	NifStream( unknownFloat2, out, info );
-	NifStream( unknownFloat3, out, info );
-	NifStream( scale, out, info );
-	NifStream( unknownFloat4, out, info );
-	if ( info.version < VER_3_3_0_13 ) {
-		WritePtr32( &(*data), out );
-	} else {
-		if ( data != NULL ) {
-			map<NiObjectRef,unsigned int>::const_iterator it = link_map.find( StaticCast<NiObject>(data) );
-			if (it != link_map.end()) {
-				NifStream( it->second, out, info );
-				missing_link_stack.push_back( NULL );
-			} else {
-				NifStream( 0xFFFFFFFF, out, info );
-				missing_link_stack.push_back( data );
+	NifStream(unknownInt1, out, info);
+	NifStream(unknownInt2, out, info);
+	NifStream(unknownFloat1, out, info);
+	NifStream(unknownInt3, out, info);
+	NifStream(scaleCopy_, out, info);
+	NifStream(unknownFloat2, out, info);
+	NifStream(unknownFloat3, out, info);
+	NifStream(scale, out, info);
+	NifStream(unknownFloat4, out, info);
+	if(info.version < VER_3_3_0_13)
+	{
+		WritePtr32(&(*data), out);
+	}
+	else
+	{
+		if(data != NULL)
+		{
+			map<NiObjectRef, unsigned int>::const_iterator it =
+				link_map.find(StaticCast<NiObject>(data));
+			if(it != link_map.end())
+			{
+				NifStream(it->second, out, info);
+				missing_link_stack.push_back(NULL);
 			}
-		} else {
-			NifStream( 0xFFFFFFFF, out, info );
-			missing_link_stack.push_back( NULL );
+			else
+			{
+				NifStream(0xFFFFFFFF, out, info);
+				missing_link_stack.push_back(data);
+			}
+		}
+		else
+		{
+			NifStream(0xFFFFFFFF, out, info);
+			missing_link_stack.push_back(NULL);
 		}
 	}
 
@@ -120,7 +158,8 @@ void bhkPackedNiTriStripsShape::Write( ostream& out, const map<NiObjectRef,unsig
 	//--END CUSTOM CODE--//
 }
 
-std::string bhkPackedNiTriStripsShape::asString( bool verbose ) const {
+std::string bhkPackedNiTriStripsShape::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -130,8 +169,10 @@ std::string bhkPackedNiTriStripsShape::asString( bool verbose ) const {
 	numSubShapes = (unsigned short)(subShapes.size());
 	out << "  Num Sub Shapes:  " << numSubShapes << endl;
 	array_output_count = 0;
-	for (unsigned int i1 = 0; i1 < subShapes.size(); i1++) {
-		if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
+	for(unsigned int i1 = 0; i1 < subShapes.size(); i1++)
+	{
+		if(!verbose && (array_output_count > MAXARRAYDUMP))
+		{
 			out << "<Data Truncated. Use verbose mode to see complete listing.>" << endl;
 			break;
 		};
@@ -157,68 +198,95 @@ std::string bhkPackedNiTriStripsShape::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void bhkPackedNiTriStripsShape::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void bhkPackedNiTriStripsShape::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	bhkShapeCollection::FixLinks( objects, link_stack, missing_link_stack, info );
-	data = FixLink<hkPackedNiTriStripsData>( objects, link_stack, missing_link_stack, info );
+	bhkShapeCollection::FixLinks(objects, link_stack, missing_link_stack, info);
+	data = FixLink<hkPackedNiTriStripsData>(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> bhkPackedNiTriStripsShape::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> bhkPackedNiTriStripsShape::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = bhkShapeCollection::GetRefs();
-	if ( data != NULL )
+	if(data != NULL)
 		refs.push_back(StaticCast<NiObject>(data));
 	return refs;
 }
 
-std::list<NiObject *> bhkPackedNiTriStripsShape::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> bhkPackedNiTriStripsShape::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = bhkShapeCollection::GetPtrs();
 	return ptrs;
 }
 
 //--BEGIN MISC CUSTOM CODE--//
-Ref<hkPackedNiTriStripsData> bhkPackedNiTriStripsShape::GetData() const {
+Ref<hkPackedNiTriStripsData> bhkPackedNiTriStripsShape::GetData() const
+{
 	return data;
 }
 
-void bhkPackedNiTriStripsShape::SetData( hkPackedNiTriStripsData * n ) {
+void bhkPackedNiTriStripsShape::SetData(hkPackedNiTriStripsData* n)
+{
 	data = n;
 }
 
-vector<OblivionSubShape> bhkPackedNiTriStripsShape::GetSubShapes() const {
+vector<OblivionSubShape> bhkPackedNiTriStripsShape::GetSubShapes() const
+{
 	return subShapes;
 }
 
-void bhkPackedNiTriStripsShape::SetSubShapes( vector<OblivionSubShape>& value ) {
+void bhkPackedNiTriStripsShape::SetSubShapes(vector<OblivionSubShape>& value)
+{
 	numSubShapes = value.size();
 	subShapes = value;
 }
 
-Vector3 bhkPackedNiTriStripsShape::GetScale() const {
+Vector3 bhkPackedNiTriStripsShape::GetScale() const
+{
 	return scale;
 }
 
-void bhkPackedNiTriStripsShape::SetScale( const Vector3 & n ) {
-	scale = n;	
+void bhkPackedNiTriStripsShape::SetScale(const Vector3& n)
+{
+	scale = n;
 }
 
-void bhkPackedNiTriStripsShape::CalcMassProperties(float density, bool solid, float &mass, float &volume, Vector3 &center, InertiaMatrix& inertia)
+void bhkPackedNiTriStripsShape::CalcMassProperties(
+	float density,
+	bool solid,
+	float& mass,
+	float& volume,
+	Vector3& center,
+	InertiaMatrix& inertia)
 {
-	center = Vector3(0,0,0);
+	center = Vector3(0, 0, 0);
 	mass = 0.0f, volume = 0.0f;
 	inertia = InertiaMatrix::IDENTITY;
 
-	if (data != NULL)
+	if(data != NULL)
 	{
 		vector<Vector3> verts = data->GetVertices();
 		vector<Triangle> tris = data->GetTriangles();
-		Inertia::CalcMassPropertiesPolyhedron(verts, tris, density, solid, mass, volume, center, inertia);
+		Inertia::CalcMassPropertiesPolyhedron(
+			verts,
+			tris,
+			density,
+			solid,
+			mass,
+			volume,
+			center,
+			inertia);
 	}
 }
 //--END CUSTOM CODE--//

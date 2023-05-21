@@ -10,62 +10,75 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiPSysPlanarCollider.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiPSysPlanarCollider::TYPE("NiPSysPlanarCollider", &NiPSysCollider::TYPE );
+// Definition of TYPE constant
+const Type NiPSysPlanarCollider::TYPE("NiPSysPlanarCollider", &NiPSysCollider::TYPE);
 
-NiPSysPlanarCollider::NiPSysPlanarCollider() : width(0.0f), height(0.0f) {
+NiPSysPlanarCollider::NiPSysPlanarCollider()
+	: width(0.0f)
+	, height(0.0f)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiPSysPlanarCollider::~NiPSysPlanarCollider() {
+NiPSysPlanarCollider::~NiPSysPlanarCollider()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiPSysPlanarCollider::GetType() const {
+const Type& NiPSysPlanarCollider::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiPSysPlanarCollider::Create() {
+NiObject* NiPSysPlanarCollider::Create()
+{
 	return new NiPSysPlanarCollider;
 }
 
-void NiPSysPlanarCollider::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiPSysPlanarCollider::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysCollider::Read( in, link_stack, info );
-	NifStream( width, in, info );
-	NifStream( height, in, info );
-	NifStream( xAxis, in, info );
-	NifStream( yAxis, in, info );
+	NiPSysCollider::Read(in, link_stack, info);
+	NifStream(width, in, info);
+	NifStream(height, in, info);
+	NifStream(xAxis, in, info);
+	NifStream(yAxis, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysPlanarCollider::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiPSysPlanarCollider::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysCollider::Write( out, link_map, missing_link_stack, info );
-	NifStream( width, out, info );
-	NifStream( height, out, info );
-	NifStream( xAxis, out, info );
-	NifStream( yAxis, out, info );
+	NiPSysCollider::Write(out, link_map, missing_link_stack, info);
+	NifStream(width, out, info);
+	NifStream(height, out, info);
+	NifStream(xAxis, out, info);
+	NifStream(yAxis, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiPSysPlanarCollider::asString( bool verbose ) const {
+std::string NiPSysPlanarCollider::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -81,24 +94,31 @@ std::string NiPSysPlanarCollider::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysPlanarCollider::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiPSysPlanarCollider::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysCollider::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPSysCollider::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiPSysPlanarCollider::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiPSysPlanarCollider::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPSysCollider::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiPSysPlanarCollider::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiPSysPlanarCollider::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPSysCollider::GetPtrs();
 	return ptrs;
 }

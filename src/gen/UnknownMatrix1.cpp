@@ -3,21 +3,33 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/UnknownMatrix1.h"
 using namespace Niflib;
 
-//Constructor
-UnknownMatrix1::UnknownMatrix1() : unknownUint1((unsigned int)0), m11(0.0f), m12(0.0f), m13(0.0f), m21(0.0f), m22(0.0f), m23(0.0f), m31(0.0f), m32(0.0f), m33(0.0f) {};
+// Constructor
+UnknownMatrix1::UnknownMatrix1()
+	: unknownUint1((unsigned int)0)
+	, m11(0.0f)
+	, m12(0.0f)
+	, m13(0.0f)
+	, m21(0.0f)
+	, m22(0.0f)
+	, m23(0.0f)
+	, m31(0.0f)
+	, m32(0.0f)
+	, m33(0.0f){};
 
-//Copy Constructor
-UnknownMatrix1::UnknownMatrix1( const UnknownMatrix1 & src ) {
+// Copy Constructor
+UnknownMatrix1::UnknownMatrix1(const UnknownMatrix1& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-UnknownMatrix1 & UnknownMatrix1::operator=( const UnknownMatrix1 & src ) {
+// Copy Operator
+UnknownMatrix1& UnknownMatrix1::operator=(const UnknownMatrix1& src)
+{
 	this->unknownUint1 = src.unknownUint1;
 	this->m11 = src.m11;
 	this->m12 = src.m12;
@@ -31,8 +43,8 @@ UnknownMatrix1 & UnknownMatrix1::operator=( const UnknownMatrix1 & src ) {
 	return *this;
 };
 
-//Destructor
-UnknownMatrix1::~UnknownMatrix1() {};
+// Destructor
+UnknownMatrix1::~UnknownMatrix1(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

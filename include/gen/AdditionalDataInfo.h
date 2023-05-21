@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _ADDITIONALDATAINFO_H_
 #define _ADDITIONALDATAINFO_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!  */
-struct AdditionalDataInfo {
+struct AdditionalDataInfo
+{
 	/*! Default Constructor */
 	NIFLIB_API AdditionalDataInfo();
 	/*! Default Destructor */
 	NIFLIB_API ~AdditionalDataInfo();
 	/*! Copy Constructor */
-	NIFLIB_API AdditionalDataInfo( const AdditionalDataInfo & src );
+	NIFLIB_API AdditionalDataInfo(const AdditionalDataInfo& src);
 	/*! Copy Operator */
-	NIFLIB_API AdditionalDataInfo & operator=( const AdditionalDataInfo & src );
+	NIFLIB_API AdditionalDataInfo& operator=(const AdditionalDataInfo& src);
 	/*! Type of data in this channel */
 	int dataType;
 	/*! Number of bytes per element of this channel */
@@ -50,5 +52,5 @@ struct AdditionalDataInfo {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _SKINDATA_H_
 #define _SKINDATA_H_
@@ -13,19 +13,21 @@ All rights reserved.  Please see niflib.h for license. */
 // Include structures
 #include "SkinTransform.h"
 #include "SkinWeight.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Skinning data component. */
-struct SkinData {
+struct SkinData
+{
 	/*! Default Constructor */
 	NIFLIB_API SkinData();
 	/*! Default Destructor */
 	NIFLIB_API ~SkinData();
 	/*! Copy Constructor */
-	NIFLIB_API SkinData( const SkinData & src );
+	NIFLIB_API SkinData(const SkinData& src);
 	/*! Copy Operator */
-	NIFLIB_API SkinData & operator=( const SkinData & src );
+	NIFLIB_API SkinData& operator=(const SkinData& src);
 	/*! Offset of the skin from this bone in bind position. */
 	SkinTransform skinTransform;
 	/*!
@@ -36,14 +38,14 @@ struct SkinData {
 	/*! Radius for bounding sphere holding all vertices. */
 	float boundingSphereRadius;
 	/*! Unknown, always 0? */
-	Niflib::array<13,short > unknown13Shorts;
+	Niflib::array<13, short> unknown13Shorts;
 	/*! Number of weighted vertices. */
 	mutable unsigned short numVertices;
 	/*! The vertex weights. */
-	vector<SkinWeight > vertexWeights;
+	vector<SkinWeight> vertexWeights;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

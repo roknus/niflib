@@ -3,22 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/LimitedHingeDescriptor.h"
 #include "../../include/gen/MotorDescriptor.h"
 using namespace Niflib;
 
-//Constructor
-LimitedHingeDescriptor::LimitedHingeDescriptor() : minAngle(0.0f), maxAngle(0.0f), maxFriction(0.0f), enableMotor(false) {};
+// Constructor
+LimitedHingeDescriptor::LimitedHingeDescriptor()
+	: minAngle(0.0f)
+	, maxAngle(0.0f)
+	, maxFriction(0.0f)
+	, enableMotor(false){};
 
-//Copy Constructor
-LimitedHingeDescriptor::LimitedHingeDescriptor( const LimitedHingeDescriptor & src ) {
+// Copy Constructor
+LimitedHingeDescriptor::LimitedHingeDescriptor(const LimitedHingeDescriptor& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-LimitedHingeDescriptor & LimitedHingeDescriptor::operator=( const LimitedHingeDescriptor & src ) {
+// Copy Operator
+LimitedHingeDescriptor& LimitedHingeDescriptor::operator=(const LimitedHingeDescriptor& src)
+{
 	this->pivotA = src.pivotA;
 	this->axleA = src.axleA;
 	this->perp2AxleInA1 = src.perp2AxleInA1;
@@ -35,8 +41,8 @@ LimitedHingeDescriptor & LimitedHingeDescriptor::operator=( const LimitedHingeDe
 	return *this;
 };
 
-//Destructor
-LimitedHingeDescriptor::~LimitedHingeDescriptor() {};
+// Destructor
+LimitedHingeDescriptor::~LimitedHingeDescriptor(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

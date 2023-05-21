@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _MOTORDESCRIPTOR_H_
 #define _MOTORDESCRIPTOR_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!  */
-struct MotorDescriptor {
+struct MotorDescriptor
+{
 	/*! Default Constructor */
 	NIFLIB_API MotorDescriptor();
 	/*! Default Destructor */
 	NIFLIB_API ~MotorDescriptor();
 	/*! Copy Constructor */
-	NIFLIB_API MotorDescriptor( const MotorDescriptor & src );
+	NIFLIB_API MotorDescriptor(const MotorDescriptor& src);
 	/*! Copy Operator */
-	NIFLIB_API MotorDescriptor & operator=( const MotorDescriptor & src );
+	NIFLIB_API MotorDescriptor& operator=(const MotorDescriptor& src);
 	/*! Unknown */
 	float unknownFloat1;
 	/*! Unknown */
@@ -42,5 +44,5 @@ struct MotorDescriptor {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

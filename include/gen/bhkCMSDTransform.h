@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BHKCMSDTRANSFORM_H_
 #define _BHKCMSDTRANSFORM_H_
@@ -12,19 +12,21 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "QuaternionXYZW.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! A set of transformation data: translation and rotation */
-struct bhkCMSDTransform {
+struct bhkCMSDTransform
+{
 	/*! Default Constructor */
 	NIFLIB_API bhkCMSDTransform();
 	/*! Default Destructor */
 	NIFLIB_API ~bhkCMSDTransform();
 	/*! Copy Constructor */
-	NIFLIB_API bhkCMSDTransform( const bhkCMSDTransform & src );
+	NIFLIB_API bhkCMSDTransform(const bhkCMSDTransform& src);
 	/*! Copy Operator */
-	NIFLIB_API bhkCMSDTransform & operator=( const bhkCMSDTransform & src );
+	NIFLIB_API bhkCMSDTransform& operator=(const bhkCMSDTransform& src);
 	/*! A vector that moves the chunk by the specified amount. W is not used. */
 	Vector4 translation;
 	/*! Rotation. Reference point for rotation is bhkRigidBody translation. */
@@ -34,5 +36,5 @@ struct bhkCMSDTransform {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

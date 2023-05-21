@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _LIMITEDHINGEDESCRIPTOR_H_
 #define _LIMITEDHINGEDESCRIPTOR_H_
@@ -12,22 +12,24 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "MotorDescriptor.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!
  * This constraint allows rotation about a specified axis, limited by specified
  * boundaries.
  */
-struct LimitedHingeDescriptor {
+struct LimitedHingeDescriptor
+{
 	/*! Default Constructor */
 	NIFLIB_API LimitedHingeDescriptor();
 	/*! Default Destructor */
 	NIFLIB_API ~LimitedHingeDescriptor();
 	/*! Copy Constructor */
-	NIFLIB_API LimitedHingeDescriptor( const LimitedHingeDescriptor & src );
+	NIFLIB_API LimitedHingeDescriptor(const LimitedHingeDescriptor& src);
 	/*! Copy Operator */
-	NIFLIB_API LimitedHingeDescriptor & operator=( const LimitedHingeDescriptor & src );
+	NIFLIB_API LimitedHingeDescriptor& operator=(const LimitedHingeDescriptor& src);
 	/*! Pivot point around which the object will rotate. */
 	Vector4 pivotA;
 	/*! Axis of rotation. */
@@ -62,5 +64,5 @@ struct LimitedHingeDescriptor {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

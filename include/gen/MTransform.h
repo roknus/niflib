@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _MTRANSFORM_H_
 #define _MTRANSFORM_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!  */
-struct MTransform {
+struct MTransform
+{
 	/*! Default Constructor */
 	NIFLIB_API MTransform();
 	/*! Default Destructor */
 	NIFLIB_API ~MTransform();
 	/*! Copy Constructor */
-	NIFLIB_API MTransform( const MTransform & src );
+	NIFLIB_API MTransform(const MTransform& src);
 	/*! Copy Operator */
-	NIFLIB_API MTransform & operator=( const MTransform & src );
+	NIFLIB_API MTransform& operator=(const MTransform& src);
 	/*! Translation. */
 	Vector3 translation;
 	/*! Rotation. */
@@ -34,5 +36,5 @@ struct MTransform {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

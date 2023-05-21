@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _OBLIVIONSUBSHAPE_H_
 #define _OBLIVIONSUBSHAPE_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Havok Information for packed TriStrip shapes. */
-struct OblivionSubShape {
+struct OblivionSubShape
+{
 	/*! Default Constructor */
 	NIFLIB_API OblivionSubShape();
 	/*! Default Destructor */
 	NIFLIB_API ~OblivionSubShape();
 	/*! Copy Constructor */
-	NIFLIB_API OblivionSubShape( const OblivionSubShape & src );
+	NIFLIB_API OblivionSubShape(const OblivionSubShape& src);
 	/*! Copy Operator */
-	NIFLIB_API OblivionSubShape & operator=( const OblivionSubShape & src );
+	NIFLIB_API OblivionSubShape& operator=(const OblivionSubShape& src);
 	/*! Sets mesh color in Oblivion Construction Set. */
 	OblivionLayer layer;
 	/*!
@@ -42,5 +44,5 @@ struct OblivionSubShape {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

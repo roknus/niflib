@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _MESHDATA_H_
 #define _MESHDATA_H_
@@ -13,26 +13,28 @@ All rights reserved.  Please see niflib.h for license. */
 // Include structures
 #include "../Ref.h"
 #include "SemanticData.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiDataStream;
 
 /*!  */
-struct MeshData {
+struct MeshData
+{
 	/*! Default Constructor */
 	NIFLIB_API MeshData();
 	/*! Default Destructor */
 	NIFLIB_API ~MeshData();
 	/*! Copy Constructor */
-	NIFLIB_API MeshData( const MeshData & src );
+	NIFLIB_API MeshData(const MeshData& src);
 	/*! Copy Operator */
-	NIFLIB_API MeshData & operator=( const MeshData & src );
+	NIFLIB_API MeshData& operator=(const MeshData& src);
 	/*!
 	 * Reference to a data stream object which holds the data used by
 	 *             this reference.
 	 */
-	Ref<NiDataStream > stream;
+	Ref<NiDataStream> stream;
 	/*!
 	 * Sets whether this stream data is per-instance data for use in
 	 *             hardware instancing.
@@ -44,15 +46,15 @@ struct MeshData {
 	 */
 	mutable unsigned short numSubmeshes;
 	/*!  */
-	vector<unsigned short > submeshToRegionMap;
+	vector<unsigned short> submeshToRegionMap;
 	/*! Unknown. */
 	mutable int numComponents;
 	/*! Describes the semantic of each component. */
-	vector<SemanticData > componentSemantics;
+	vector<SemanticData> componentSemantics;
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

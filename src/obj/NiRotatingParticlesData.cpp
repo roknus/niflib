@@ -10,44 +10,53 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiRotatingParticlesData.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiRotatingParticlesData::TYPE("NiRotatingParticlesData", &NiParticlesData::TYPE );
+// Definition of TYPE constant
+const Type NiRotatingParticlesData::TYPE("NiRotatingParticlesData", &NiParticlesData::TYPE);
 
-NiRotatingParticlesData::NiRotatingParticlesData() : hasRotations2(false) {
+NiRotatingParticlesData::NiRotatingParticlesData()
+	: hasRotations2(false)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiRotatingParticlesData::~NiRotatingParticlesData() {
+NiRotatingParticlesData::~NiRotatingParticlesData()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiRotatingParticlesData::GetType() const {
+const Type& NiRotatingParticlesData::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiRotatingParticlesData::Create() {
+NiObject* NiRotatingParticlesData::Create()
+{
 	return new NiRotatingParticlesData;
 }
 
-void NiRotatingParticlesData::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiRotatingParticlesData::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiParticlesData::Read( in, link_stack, info );
-	if ( info.version <= 0x04020200 ) {
-		NifStream( hasRotations2, in, info );
-		if ( hasRotations2 ) {
+	NiParticlesData::Read(in, link_stack, info);
+	if(info.version <= 0x04020200)
+	{
+		NifStream(hasRotations2, in, info);
+		if(hasRotations2)
+		{
 			rotations2.resize(numVertices);
-			for (unsigned int i3 = 0; i3 < rotations2.size(); i3++) {
-				NifStream( rotations2[i3], in, info );
+			for(unsigned int i3 = 0; i3 < rotations2.size(); i3++)
+			{
+				NifStream(rotations2[i3], in, info);
 			};
 		};
 	};
@@ -56,16 +65,24 @@ void NiRotatingParticlesData::Read( istream& in, list<unsigned int> & link_stack
 	//--END CUSTOM CODE--//
 }
 
-void NiRotatingParticlesData::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiRotatingParticlesData::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiParticlesData::Write( out, link_map, missing_link_stack, info );
-	if ( info.version <= 0x04020200 ) {
-		NifStream( hasRotations2, out, info );
-		if ( hasRotations2 ) {
-			for (unsigned int i3 = 0; i3 < rotations2.size(); i3++) {
-				NifStream( rotations2[i3], out, info );
+	NiParticlesData::Write(out, link_map, missing_link_stack, info);
+	if(info.version <= 0x04020200)
+	{
+		NifStream(hasRotations2, out, info);
+		if(hasRotations2)
+		{
+			for(unsigned int i3 = 0; i3 < rotations2.size(); i3++)
+			{
+				NifStream(rotations2[i3], out, info);
 			};
 		};
 	};
@@ -74,7 +91,8 @@ void NiRotatingParticlesData::Write( ostream& out, const map<NiObjectRef,unsigne
 	//--END CUSTOM CODE--//
 }
 
-std::string NiRotatingParticlesData::asString( bool verbose ) const {
+std::string NiRotatingParticlesData::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -82,14 +100,18 @@ std::string NiRotatingParticlesData::asString( bool verbose ) const {
 	unsigned int array_output_count = 0;
 	out << NiParticlesData::asString();
 	out << "  Has Rotations 2:  " << hasRotations2 << endl;
-	if ( hasRotations2 ) {
+	if(hasRotations2)
+	{
 		array_output_count = 0;
-		for (unsigned int i2 = 0; i2 < rotations2.size(); i2++) {
-			if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
+		for(unsigned int i2 = 0; i2 < rotations2.size(); i2++)
+		{
+			if(!verbose && (array_output_count > MAXARRAYDUMP))
+			{
 				out << "<Data Truncated. Use verbose mode to see complete listing.>" << endl;
 				break;
 			};
-			if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
+			if(!verbose && (array_output_count > MAXARRAYDUMP))
+			{
 				break;
 			};
 			out << "      Rotations 2[" << i2 << "]:  " << rotations2[i2] << endl;
@@ -102,24 +124,31 @@ std::string NiRotatingParticlesData::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiRotatingParticlesData::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiRotatingParticlesData::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiParticlesData::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiParticlesData::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiRotatingParticlesData::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiRotatingParticlesData::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiParticlesData::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiRotatingParticlesData::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiRotatingParticlesData::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiParticlesData::GetPtrs();
 	return ptrs;
 }

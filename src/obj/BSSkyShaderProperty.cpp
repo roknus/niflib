@@ -11,72 +11,87 @@ All rights reserved.  Please see niflib.h for license. */
 
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/BSSkyShaderProperty.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type BSSkyShaderProperty::TYPE("BSSkyShaderProperty", &NiProperty::TYPE );
+// Definition of TYPE constant
+const Type BSSkyShaderProperty::TYPE("BSSkyShaderProperty", &NiProperty::TYPE);
 
-BSSkyShaderProperty::BSSkyShaderProperty() : shaderFlags1((SkyrimShaderPropertyFlags1)0), shaderFlags2((SkyrimShaderPropertyFlags2)0), uvScale(1.0, 1.0), skyObjectType((SkyObjectType)0) {
+BSSkyShaderProperty::BSSkyShaderProperty()
+	: shaderFlags1((SkyrimShaderPropertyFlags1)0)
+	, shaderFlags2((SkyrimShaderPropertyFlags2)0)
+	, uvScale(1.0, 1.0)
+	, skyObjectType((SkyObjectType)0)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-BSSkyShaderProperty::~BSSkyShaderProperty() {
+BSSkyShaderProperty::~BSSkyShaderProperty()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-const Type & BSSkyShaderProperty::GetType() const {
+const Type& BSSkyShaderProperty::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * BSSkyShaderProperty::Create() {
+NiObject* BSSkyShaderProperty::Create()
+{
 	return new BSSkyShaderProperty;
 }
 
-void BSSkyShaderProperty::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void BSSkyShaderProperty::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiProperty::Read( in, link_stack, info );
-	NifStream( shaderFlags1, in, info );
-	NifStream( shaderFlags2, in, info );
-	NifStream( uvOffset, in, info );
-	NifStream( uvScale, in, info );
-	NifStream( sourceTexture, in, info );
-	NifStream( skyObjectType, in, info );
+	NiProperty::Read(in, link_stack, info);
+	NifStream(shaderFlags1, in, info);
+	NifStream(shaderFlags2, in, info);
+	NifStream(uvOffset, in, info);
+	NifStream(uvScale, in, info);
+	NifStream(sourceTexture, in, info);
+	NifStream(skyObjectType, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-void BSSkyShaderProperty::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void BSSkyShaderProperty::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiProperty::Write( out, link_map, missing_link_stack, info );
-	NifStream( shaderFlags1, out, info );
-	NifStream( shaderFlags2, out, info );
-	NifStream( uvOffset, out, info );
-	NifStream( uvScale, out, info );
-	NifStream( sourceTexture, out, info );
-	NifStream( skyObjectType, out, info );
+	NiProperty::Write(out, link_map, missing_link_stack, info);
+	NifStream(shaderFlags1, out, info);
+	NifStream(shaderFlags2, out, info);
+	NifStream(uvOffset, out, info);
+	NifStream(uvScale, out, info);
+	NifStream(sourceTexture, out, info);
+	NifStream(skyObjectType, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-std::string BSSkyShaderProperty::asString( bool verbose ) const {
+std::string BSSkyShaderProperty::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
@@ -96,26 +111,33 @@ std::string BSSkyShaderProperty::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void BSSkyShaderProperty::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void BSSkyShaderProperty::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiProperty::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiProperty::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> BSSkyShaderProperty::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> BSSkyShaderProperty::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiProperty::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> BSSkyShaderProperty::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> BSSkyShaderProperty::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiProperty::GetPtrs();
 	return ptrs;
 }

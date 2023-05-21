@@ -10,80 +10,103 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiPSysEmitter.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiPSysEmitter::TYPE("NiPSysEmitter", &NiPSysModifier::TYPE );
+// Definition of TYPE constant
+const Type NiPSysEmitter::TYPE("NiPSysEmitter", &NiPSysModifier::TYPE);
 
-NiPSysEmitter::NiPSysEmitter() : speed(0.0f), speedVariation(0.0f), declination(0.0f), declinationVariation(0.0f), planarAngle(0.0f), planarAngleVariation(0.0f), initialRadius(0.0f), radiusVariation(0.0f), lifeSpan(0.0f), lifeSpanVariation(0.0f) {
+NiPSysEmitter::NiPSysEmitter()
+	: speed(0.0f)
+	, speedVariation(0.0f)
+	, declination(0.0f)
+	, declinationVariation(0.0f)
+	, planarAngle(0.0f)
+	, planarAngleVariation(0.0f)
+	, initialRadius(0.0f)
+	, radiusVariation(0.0f)
+	, lifeSpan(0.0f)
+	, lifeSpanVariation(0.0f)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiPSysEmitter::~NiPSysEmitter() {
+NiPSysEmitter::~NiPSysEmitter()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiPSysEmitter::GetType() const {
+const Type& NiPSysEmitter::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiPSysEmitter::Create() {
+NiObject* NiPSysEmitter::Create()
+{
 	return new NiPSysEmitter;
 }
 
-void NiPSysEmitter::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiPSysEmitter::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Read( in, link_stack, info );
-	NifStream( speed, in, info );
-	NifStream( speedVariation, in, info );
-	NifStream( declination, in, info );
-	NifStream( declinationVariation, in, info );
-	NifStream( planarAngle, in, info );
-	NifStream( planarAngleVariation, in, info );
-	NifStream( initialColor, in, info );
-	NifStream( initialRadius, in, info );
-	if ( info.version >= 0x0A040001 ) {
-		NifStream( radiusVariation, in, info );
+	NiPSysModifier::Read(in, link_stack, info);
+	NifStream(speed, in, info);
+	NifStream(speedVariation, in, info);
+	NifStream(declination, in, info);
+	NifStream(declinationVariation, in, info);
+	NifStream(planarAngle, in, info);
+	NifStream(planarAngleVariation, in, info);
+	NifStream(initialColor, in, info);
+	NifStream(initialRadius, in, info);
+	if(info.version >= 0x0A040001)
+	{
+		NifStream(radiusVariation, in, info);
 	};
-	NifStream( lifeSpan, in, info );
-	NifStream( lifeSpanVariation, in, info );
+	NifStream(lifeSpan, in, info);
+	NifStream(lifeSpanVariation, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysEmitter::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiPSysEmitter::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Write( out, link_map, missing_link_stack, info );
-	NifStream( speed, out, info );
-	NifStream( speedVariation, out, info );
-	NifStream( declination, out, info );
-	NifStream( declinationVariation, out, info );
-	NifStream( planarAngle, out, info );
-	NifStream( planarAngleVariation, out, info );
-	NifStream( initialColor, out, info );
-	NifStream( initialRadius, out, info );
-	if ( info.version >= 0x0A040001 ) {
-		NifStream( radiusVariation, out, info );
+	NiPSysModifier::Write(out, link_map, missing_link_stack, info);
+	NifStream(speed, out, info);
+	NifStream(speedVariation, out, info);
+	NifStream(declination, out, info);
+	NifStream(declinationVariation, out, info);
+	NifStream(planarAngle, out, info);
+	NifStream(planarAngleVariation, out, info);
+	NifStream(initialColor, out, info);
+	NifStream(initialRadius, out, info);
+	if(info.version >= 0x0A040001)
+	{
+		NifStream(radiusVariation, out, info);
 	};
-	NifStream( lifeSpan, out, info );
-	NifStream( lifeSpanVariation, out, info );
+	NifStream(lifeSpan, out, info);
+	NifStream(lifeSpanVariation, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiPSysEmitter::asString( bool verbose ) const {
+std::string NiPSysEmitter::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -106,24 +129,31 @@ std::string NiPSysEmitter::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysEmitter::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiPSysEmitter::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPSysModifier::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiPSysEmitter::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiPSysEmitter::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPSysModifier::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiPSysEmitter::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiPSysEmitter::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPSysModifier::GetPtrs();
 	return ptrs;
 }

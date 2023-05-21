@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _CAPSULEBV_H_
 #define _CAPSULEBV_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Capsule Bounding Volume */
-struct CapsuleBV {
+struct CapsuleBV
+{
 	/*! Default Constructor */
 	NIFLIB_API CapsuleBV();
 	/*! Default Destructor */
 	NIFLIB_API ~CapsuleBV();
 	/*! Copy Constructor */
-	NIFLIB_API CapsuleBV( const CapsuleBV & src );
+	NIFLIB_API CapsuleBV(const CapsuleBV& src);
 	/*! Copy Operator */
-	NIFLIB_API CapsuleBV & operator=( const CapsuleBV & src );
+	NIFLIB_API CapsuleBV& operator=(const CapsuleBV& src);
 	/*! Center */
 	Vector3 center;
 	/*! Origin */
@@ -35,5 +37,5 @@ struct CapsuleBV {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

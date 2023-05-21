@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BOUNDINGBOX_H_
 #define _BOUNDINGBOX_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Bounding box. */
-struct BoundingBox {
+struct BoundingBox
+{
 	/*! Default Constructor */
 	NIFLIB_API BoundingBox();
 	/*! Default Destructor */
 	NIFLIB_API ~BoundingBox();
 	/*! Copy Constructor */
-	NIFLIB_API BoundingBox( const BoundingBox & src );
+	NIFLIB_API BoundingBox(const BoundingBox& src);
 	/*! Copy Operator */
-	NIFLIB_API BoundingBox & operator=( const BoundingBox & src );
+	NIFLIB_API BoundingBox& operator=(const BoundingBox& src);
 	/*! Usually 1. */
 	unsigned int unknownInt;
 	/*! Translation vector. */
@@ -35,5 +37,5 @@ struct BoundingBox {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

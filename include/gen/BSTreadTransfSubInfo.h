@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BSTREADTRANSFSUBINFO_H_
 #define _BSTREADTRANSFSUBINFO_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Bethesda-specific node. */
-struct BSTreadTransfSubInfo {
+struct BSTreadTransfSubInfo
+{
 	/*! Default Constructor */
 	NIFLIB_API BSTreadTransfSubInfo();
 	/*! Default Destructor */
 	NIFLIB_API ~BSTreadTransfSubInfo();
 	/*! Copy Constructor */
-	NIFLIB_API BSTreadTransfSubInfo( const BSTreadTransfSubInfo & src );
+	NIFLIB_API BSTreadTransfSubInfo(const BSTreadTransfSubInfo& src);
 	/*! Copy Operator */
-	NIFLIB_API BSTreadTransfSubInfo & operator=( const BSTreadTransfSubInfo & src );
+	NIFLIB_API BSTreadTransfSubInfo& operator=(const BSTreadTransfSubInfo& src);
 	/*! Unknown */
 	int unknownInt1;
 	/*! Unknown */
@@ -43,5 +45,5 @@ struct BSTreadTransfSubInfo {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

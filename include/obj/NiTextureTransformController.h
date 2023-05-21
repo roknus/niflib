@@ -17,7 +17,8 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiFloatData;
@@ -28,7 +29,8 @@ typedef Ref<NiTextureTransformController> NiTextureTransformControllerRef;
  * Texture transformation controller. The target texture slot should have "Has
  * Texture Transform" enabled.
  */
-class NiTextureTransformController : public NiFloatInterpController {
+class NiTextureTransformController : public NiFloatInterpController
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiTextureTransformController();
@@ -45,20 +47,22 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 
@@ -72,7 +76,7 @@ public:
 	 * Retreives the texture slot that will be the target of this texture transform controller.
 	 * \param[in] n The new texture slot that will be animated by this controller.
 	 */
-	NIFLIB_API void SetTargetTextureSlot( TexType n );
+	NIFLIB_API void SetTargetTextureSlot(TexType n);
 
 	/*
 	 * Retreives the type of texture transformation that this controller applies.
@@ -84,7 +88,7 @@ public:
 	 * Sets the type of texture transformation that this controller applies.
 	 * \param[in] n The new way that this controller will animate the target texture.
 	 */
-	NIFLIB_API void SetTextureTransformType( TexTransform n );
+	NIFLIB_API void SetTextureTransformType(TexTransform n);
 
 	/*!
 	 * Retrives the float data used by this controller.
@@ -96,7 +100,7 @@ public:
 	 * Sets the float data used by this controller.
 	 * \param[in] n The new float data.
 	 */
-	NIFLIB_API void SetData( NiFloatData * n );
+	NIFLIB_API void SetData(NiFloatData* n);
 
 	/*!
 	 * This function will adjust the times in all the keys in the data objects
@@ -115,22 +119,34 @@ protected:
 	/*! Determines how this controller animates the UV Coordinates. */
 	TexTransform operation;
 	/*! Link to NiFloatData. */
-	Ref<NiFloatData > data;
+	Ref<NiFloatData> data;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

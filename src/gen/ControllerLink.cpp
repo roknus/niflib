@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/ControllerLink.h"
 #include "../../include/obj/NiInterpolator.h"
@@ -12,16 +12,29 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/obj/NiTimeController.h"
 using namespace Niflib;
 
-//Constructor
-ControllerLink::ControllerLink() : controller(NULL), interpolator(NULL), unknownLink2(NULL), unknownShort0((unsigned short)0), priority((byte)0), stringPalette(NULL), nodeNameOffset((unsigned int)-1), propertyTypeOffset((unsigned int)-1), controllerTypeOffset((unsigned int)-1), variable1Offset((unsigned int)-1), variable2Offset((unsigned int)-1) {};
+// Constructor
+ControllerLink::ControllerLink()
+	: controller(NULL)
+	, interpolator(NULL)
+	, unknownLink2(NULL)
+	, unknownShort0((unsigned short)0)
+	, priority((byte)0)
+	, stringPalette(NULL)
+	, nodeNameOffset((unsigned int)-1)
+	, propertyTypeOffset((unsigned int)-1)
+	, controllerTypeOffset((unsigned int)-1)
+	, variable1Offset((unsigned int)-1)
+	, variable2Offset((unsigned int)-1){};
 
-//Copy Constructor
-ControllerLink::ControllerLink( const ControllerLink & src ) {
+// Copy Constructor
+ControllerLink::ControllerLink(const ControllerLink& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-ControllerLink & ControllerLink::operator=( const ControllerLink & src ) {
+// Copy Operator
+ControllerLink& ControllerLink::operator=(const ControllerLink& src)
+{
 	this->targetName = src.targetName;
 	this->controller = src.controller;
 	this->interpolator = src.interpolator;
@@ -42,8 +55,8 @@ ControllerLink & ControllerLink::operator=( const ControllerLink & src ) {
 	return *this;
 };
 
-//Destructor
-ControllerLink::~ControllerLink() {};
+// Destructor
+ControllerLink::~ControllerLink(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _CONTROLLERLINK_H_
 #define _CONTROLLERLINK_H_
@@ -12,7 +12,8 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiTimeController;
@@ -26,23 +27,24 @@ class NiStringPalette;
  * and a sequence of interpolators that apply to this controllable object, via
  * links.
  */
-struct ControllerLink {
+struct ControllerLink
+{
 	/*! Default Constructor */
 	NIFLIB_API ControllerLink();
 	/*! Default Destructor */
 	NIFLIB_API ~ControllerLink();
 	/*! Copy Constructor */
-	NIFLIB_API ControllerLink( const ControllerLink & src );
+	NIFLIB_API ControllerLink(const ControllerLink& src);
 	/*! Copy Operator */
-	NIFLIB_API ControllerLink & operator=( const ControllerLink & src );
+	NIFLIB_API ControllerLink& operator=(const ControllerLink& src);
 	/*! Name of a controllable object in another NIF file. */
 	IndexString targetName;
 	/*! Link to a controller. */
-	Ref<NiTimeController > controller;
+	Ref<NiTimeController> controller;
 	/*! Link to an interpolator. */
-	Ref<NiInterpolator > interpolator;
+	Ref<NiInterpolator> interpolator;
 	/*! Unknown. */
-	Ref<NiObject > unknownLink2;
+	Ref<NiObject> unknownLink2;
 	/*! Unknown. */
 	unsigned short unknownShort0;
 	/*!
@@ -54,7 +56,7 @@ struct ControllerLink {
 	 * Refers to the NiStringPalette which contains the name of the controlled NIF
 	 * object.
 	 */
-	Ref<NiStringPalette > stringPalette;
+	Ref<NiStringPalette> stringPalette;
 	/*! The name of the animated node. */
 	IndexString nodeName;
 	/*!
@@ -107,5 +109,5 @@ struct ControllerLink {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

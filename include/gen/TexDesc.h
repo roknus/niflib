@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _TEXDESC_H_
 #define _TEXDESC_H_
@@ -12,23 +12,25 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiSourceTexture;
 
 /*! Texture description. */
-struct TexDesc {
+struct TexDesc
+{
 	/*! Default Constructor */
 	NIFLIB_API TexDesc();
 	/*! Default Destructor */
 	NIFLIB_API ~TexDesc();
 	/*! Copy Constructor */
-	NIFLIB_API TexDesc( const TexDesc & src );
+	NIFLIB_API TexDesc(const TexDesc& src);
 	/*! Copy Operator */
-	NIFLIB_API TexDesc & operator=( const TexDesc & src );
+	NIFLIB_API TexDesc& operator=(const TexDesc& src);
 	/*! NiSourceTexture object index. */
-	Ref<NiSourceTexture > source;
+	Ref<NiSourceTexture> source;
 	/*! 0=clamp S clamp T, 1=clamp S wrap T, 2=wrap S clamp T, 3=wrap S wrap T */
 	TexClampMode clampMode;
 	/*! 0=nearest, 1=bilinear, 2=trilinear, 3=..., 4=..., 5=... */
@@ -72,5 +74,5 @@ struct TexDesc {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

@@ -10,60 +10,75 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/bhkStiffSpringConstraint.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type bhkStiffSpringConstraint::TYPE("bhkStiffSpringConstraint", &bhkConstraint::TYPE );
+// Definition of TYPE constant
+const Type bhkStiffSpringConstraint::TYPE("bhkStiffSpringConstraint", &bhkConstraint::TYPE);
 
-bhkStiffSpringConstraint::bhkStiffSpringConstraint() : length(0.0f) {
+bhkStiffSpringConstraint::bhkStiffSpringConstraint()
+	: length(0.0f)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-bhkStiffSpringConstraint::~bhkStiffSpringConstraint() {
+bhkStiffSpringConstraint::~bhkStiffSpringConstraint()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & bhkStiffSpringConstraint::GetType() const {
+const Type& bhkStiffSpringConstraint::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * bhkStiffSpringConstraint::Create() {
+NiObject* bhkStiffSpringConstraint::Create()
+{
 	return new bhkStiffSpringConstraint;
 }
 
-void bhkStiffSpringConstraint::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void bhkStiffSpringConstraint::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	bhkConstraint::Read( in, link_stack, info );
-	NifStream( pivotA, in, info );
-	NifStream( pivotB, in, info );
-	NifStream( length, in, info );
+	bhkConstraint::Read(in, link_stack, info);
+	NifStream(pivotA, in, info);
+	NifStream(pivotB, in, info);
+	NifStream(length, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void bhkStiffSpringConstraint::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void bhkStiffSpringConstraint::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	bhkConstraint::Write( out, link_map, missing_link_stack, info );
-	NifStream( pivotA, out, info );
-	NifStream( pivotB, out, info );
-	NifStream( length, out, info );
+	bhkConstraint::Write(out, link_map, missing_link_stack, info);
+	NifStream(pivotA, out, info);
+	NifStream(pivotB, out, info);
+	NifStream(length, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string bhkStiffSpringConstraint::asString( bool verbose ) const {
+std::string bhkStiffSpringConstraint::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -78,24 +93,31 @@ std::string bhkStiffSpringConstraint::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void bhkStiffSpringConstraint::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void bhkStiffSpringConstraint::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	bhkConstraint::FixLinks( objects, link_stack, missing_link_stack, info );
+	bhkConstraint::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> bhkStiffSpringConstraint::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> bhkStiffSpringConstraint::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = bhkConstraint::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> bhkStiffSpringConstraint::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> bhkStiffSpringConstraint::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = bhkConstraint::GetPtrs();
 	return ptrs;
 }

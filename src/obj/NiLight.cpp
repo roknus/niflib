@@ -10,62 +10,74 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiLight.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiLight::TYPE("NiLight", &NiDynamicEffect::TYPE );
+// Definition of TYPE constant
+const Type NiLight::TYPE("NiLight", &NiDynamicEffect::TYPE);
 
-NiLight::NiLight() : dimmer(0.0f) {
+NiLight::NiLight()
+	: dimmer(0.0f)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiLight::~NiLight() {
+NiLight::~NiLight()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiLight::GetType() const {
+const Type& NiLight::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiLight::Create() {
+NiObject* NiLight::Create()
+{
 	return new NiLight;
 }
 
-void NiLight::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiLight::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiDynamicEffect::Read( in, link_stack, info );
-	NifStream( dimmer, in, info );
-	NifStream( ambientColor, in, info );
-	NifStream( diffuseColor, in, info );
-	NifStream( specularColor, in, info );
+	NiDynamicEffect::Read(in, link_stack, info);
+	NifStream(dimmer, in, info);
+	NifStream(ambientColor, in, info);
+	NifStream(diffuseColor, in, info);
+	NifStream(specularColor, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiLight::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiLight::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiDynamicEffect::Write( out, link_map, missing_link_stack, info );
-	NifStream( dimmer, out, info );
-	NifStream( ambientColor, out, info );
-	NifStream( diffuseColor, out, info );
-	NifStream( specularColor, out, info );
+	NiDynamicEffect::Write(out, link_map, missing_link_stack, info);
+	NifStream(dimmer, out, info);
+	NifStream(ambientColor, out, info);
+	NifStream(diffuseColor, out, info);
+	NifStream(specularColor, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiLight::asString( bool verbose ) const {
+std::string NiLight::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -81,59 +93,74 @@ std::string NiLight::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiLight::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiLight::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiDynamicEffect::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiDynamicEffect::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiLight::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiLight::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiDynamicEffect::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiLight::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiLight::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiDynamicEffect::GetPtrs();
 	return ptrs;
 }
 
 //--BEGIN MISC CUSTOM CODE--//
 
-float NiLight::GetDimmer() const {
+float NiLight::GetDimmer() const
+{
 	return dimmer;
 }
 
-void NiLight::SetDimmer( float value ) {
+void NiLight::SetDimmer(float value)
+{
 	dimmer = value;
 }
 
-Color3 NiLight::GetAmbientColor() const {
+Color3 NiLight::GetAmbientColor() const
+{
 	return ambientColor;
 }
 
-void NiLight::SetAmbientColor( Color3 value ) {
+void NiLight::SetAmbientColor(Color3 value)
+{
 	ambientColor = value;
 }
 
-Color3 NiLight::GetDiffuseColor() const {
+Color3 NiLight::GetDiffuseColor() const
+{
 	return diffuseColor;
 }
 
-void NiLight::SetDiffuseColor( Color3 value ) {
+void NiLight::SetDiffuseColor(Color3 value)
+{
 	diffuseColor = value;
 }
 
-Color3 NiLight::GetSpecularColor() const {
+Color3 NiLight::GetSpecularColor() const
+{
 	return specularColor;
 }
 
-void NiLight::SetSpecularColor( Color3 value ) {
+void NiLight::SetSpecularColor(Color3 value)
+{
 	specularColor = value;
 }
 

@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _PHYSXMATERIALREF_H_
 #define _PHYSXMATERIALREF_H_
@@ -12,30 +12,32 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiPhysXMaterialDesc;
 
 /*!  */
-struct physXMaterialRef {
+struct physXMaterialRef
+{
 	/*! Default Constructor */
 	NIFLIB_API physXMaterialRef();
 	/*! Default Destructor */
 	NIFLIB_API ~physXMaterialRef();
 	/*! Copy Constructor */
-	NIFLIB_API physXMaterialRef( const physXMaterialRef & src );
+	NIFLIB_API physXMaterialRef(const physXMaterialRef& src);
 	/*! Copy Operator */
-	NIFLIB_API physXMaterialRef & operator=( const physXMaterialRef & src );
+	NIFLIB_API physXMaterialRef& operator=(const physXMaterialRef& src);
 	/*! Unknown */
 	byte number;
 	/*! Unknown */
 	byte unknownByte1;
 	/*! PhysX Material Description */
-	Ref<NiPhysXMaterialDesc > materialDesc;
+	Ref<NiPhysXMaterialDesc> materialDesc;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

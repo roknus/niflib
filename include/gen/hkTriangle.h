@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _HKTRIANGLE_H_
 #define _HKTRIANGLE_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! A triangle with extra data used for physics. */
-struct hkTriangle {
+struct hkTriangle
+{
 	/*! Default Constructor */
 	NIFLIB_API hkTriangle();
 	/*! Default Destructor */
 	NIFLIB_API ~hkTriangle();
 	/*! Copy Constructor */
-	NIFLIB_API hkTriangle( const hkTriangle & src );
+	NIFLIB_API hkTriangle(const hkTriangle& src);
 	/*! Copy Operator */
-	NIFLIB_API hkTriangle & operator=( const hkTriangle & src );
+	NIFLIB_API hkTriangle& operator=(const hkTriangle& src);
 	/*! The triangle. */
 	Triangle triangle;
 	/*! Additional havok information on how triangles are welded. */
@@ -33,5 +35,5 @@ struct hkTriangle {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

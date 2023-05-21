@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BSTREADTRANSFINFO_H_
 #define _BSTREADTRANSFINFO_H_
@@ -12,26 +12,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "BSTreadTransfSubInfo.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Bethesda-specific node. */
-struct BSTreadTransfInfo {
+struct BSTreadTransfInfo
+{
 	/*! Default Constructor */
 	NIFLIB_API BSTreadTransfInfo();
 	/*! Default Destructor */
 	NIFLIB_API ~BSTreadTransfInfo();
 	/*! Copy Constructor */
-	NIFLIB_API BSTreadTransfInfo( const BSTreadTransfInfo & src );
+	NIFLIB_API BSTreadTransfInfo(const BSTreadTransfInfo& src);
 	/*! Copy Operator */
-	NIFLIB_API BSTreadTransfInfo & operator=( const BSTreadTransfInfo & src );
+	NIFLIB_API BSTreadTransfInfo& operator=(const BSTreadTransfInfo& src);
 	/*! Unknown Flag */
 	float unknownFloat1;
 	/*! Data */
-	Niflib::array<2,BSTreadTransfSubInfo > data;
+	Niflib::array<2, BSTreadTransfSubInfo> data;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

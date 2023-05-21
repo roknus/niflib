@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _QUATERNIONXYZW_H_
 #define _QUATERNIONXYZW_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! A quaternion as it appears in the havok objects. */
-struct QuaternionXYZW {
+struct QuaternionXYZW
+{
 	/*! Default Constructor */
 	NIFLIB_API QuaternionXYZW();
 	/*! Default Destructor */
 	NIFLIB_API ~QuaternionXYZW();
 	/*! Copy Constructor */
-	NIFLIB_API QuaternionXYZW( const QuaternionXYZW & src );
+	NIFLIB_API QuaternionXYZW(const QuaternionXYZW& src);
 	/*! Copy Operator */
-	NIFLIB_API QuaternionXYZW & operator=( const QuaternionXYZW & src );
+	NIFLIB_API QuaternionXYZW& operator=(const QuaternionXYZW& src);
 	/*! The x-coordinate. */
 	float x;
 	/*! The y-coordinate. */
@@ -35,5 +37,5 @@ struct QuaternionXYZW {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

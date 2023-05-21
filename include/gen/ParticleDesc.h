@@ -3,30 +3,32 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _PARTICLEDESC_H_
 #define _PARTICLEDESC_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Particle Description. */
-struct ParticleDesc {
+struct ParticleDesc
+{
 	/*! Default Constructor */
 	NIFLIB_API ParticleDesc();
 	/*! Default Destructor */
 	NIFLIB_API ~ParticleDesc();
 	/*! Copy Constructor */
-	NIFLIB_API ParticleDesc( const ParticleDesc & src );
+	NIFLIB_API ParticleDesc(const ParticleDesc& src);
 	/*! Copy Operator */
-	NIFLIB_API ParticleDesc & operator=( const ParticleDesc & src );
+	NIFLIB_API ParticleDesc& operator=(const ParticleDesc& src);
 	/*! Unknown. */
 	Vector3 translation;
 	/*! Unknown. */
-	Niflib::array<3,float > unknownFloats1;
+	Niflib::array<3, float> unknownFloats1;
 	/*! Unknown. */
 	float unknownFloat1;
 	/*! Unknown. */
@@ -39,5 +41,5 @@ struct ParticleDesc {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

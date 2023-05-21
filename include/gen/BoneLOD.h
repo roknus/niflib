@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BONELOD_H_
 #define _BONELOD_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Stores Bone Level of Detail info in a BSBoneLODExtraData */
-struct BoneLOD {
+struct BoneLOD
+{
 	/*! Default Constructor */
 	NIFLIB_API BoneLOD();
 	/*! Default Destructor */
 	NIFLIB_API ~BoneLOD();
 	/*! Copy Constructor */
-	NIFLIB_API BoneLOD( const BoneLOD & src );
+	NIFLIB_API BoneLOD(const BoneLOD& src);
 	/*! Copy Operator */
-	NIFLIB_API BoneLOD & operator=( const BoneLOD & src );
+	NIFLIB_API BoneLOD& operator=(const BoneLOD& src);
 	/*! Distance to cull? */
 	unsigned int distance;
 	/*! The bones name */
@@ -32,5 +34,5 @@ struct BoneLOD {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

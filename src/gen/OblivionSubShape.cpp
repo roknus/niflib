@@ -3,21 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/OblivionSubShape.h"
 using namespace Niflib;
 
-//Constructor
-OblivionSubShape::OblivionSubShape() : layer((OblivionLayer)0), colFilter((byte)0), unknownShort((unsigned short)0), numVertices((unsigned int)0), material((HavokMaterial)0) {};
+// Constructor
+OblivionSubShape::OblivionSubShape()
+	: layer((OblivionLayer)0)
+	, colFilter((byte)0)
+	, unknownShort((unsigned short)0)
+	, numVertices((unsigned int)0)
+	, material((HavokMaterial)0){};
 
-//Copy Constructor
-OblivionSubShape::OblivionSubShape( const OblivionSubShape & src ) {
+// Copy Constructor
+OblivionSubShape::OblivionSubShape(const OblivionSubShape& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-OblivionSubShape & OblivionSubShape::operator=( const OblivionSubShape & src ) {
+// Copy Operator
+OblivionSubShape& OblivionSubShape::operator=(const OblivionSubShape& src)
+{
 	this->layer = src.layer;
 	this->colFilter = src.colFilter;
 	this->unknownShort = src.unknownShort;
@@ -26,8 +33,8 @@ OblivionSubShape & OblivionSubShape::operator=( const OblivionSubShape & src ) {
 	return *this;
 };
 
-//Destructor
-OblivionSubShape::~OblivionSubShape() {};
+// Destructor
+OblivionSubShape::~OblivionSubShape(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

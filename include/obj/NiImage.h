@@ -17,7 +17,8 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiRawImageData;
@@ -25,7 +26,8 @@ class NiImage;
 typedef Ref<NiImage> NiImageRef;
 
 /*!  */
-class NiImage : public NiObject {
+class NiImage : public NiObject
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiImage();
@@ -42,45 +44,50 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
 	 * Used to check whether the texture referenced by this object is an external file.
-	 * \return True if the texture is stored in an external file, false if it is stored within this NIF file.
+	 * \return True if the texture is stored in an external file, false if it is stored within this
+	 * NIF file.
 	 */
 	NIFLIB_API bool IsTextureExternal() const;
 
 	/*!
-	 * Sets a new external file texture.  Removes any existing texture references, whether internal or external.
-	 * \param[in] file_name The file name of the external texture.  Often needs to follow game guidlines to be found.
+	 * Sets a new external file texture.  Removes any existing texture references, whether internal
+	 * or external. \param[in] file_name The file name of the external texture.  Often needs to
+	 * follow game guidlines to be found.
 	 */
-	NIFLIB_API void SetExternalTexture( string file_name );
+	NIFLIB_API void SetExternalTexture(string file_name);
 
 	/*!
-	 * Sets a new internal file texture.  Removes any existing texture references, whether internal or external.
-	 * \param[in] raw_image_data The NiRawImageData object that contains the texture image data.
+	 * Sets a new internal file texture.  Removes any existing texture references, whether internal
+	 * or external. \param[in] raw_image_data The NiRawImageData object that contains the texture
+	 * image data.
 	 */
-	NIFLIB_API void SetInternalTexture( NiRawImageData * raw_image_data );
+	NIFLIB_API void SetInternalTexture(NiRawImageData* raw_image_data);
 
 
 	/*!
-	 * Returns either the file name of the external texture, or the original file name of the internal one.
-	 * \return The name of the texture file.
+	 * Returns either the file name of the external texture, or the original file name of the
+	 * internal one. \return The name of the texture file.
 	 */
 	NIFLIB_API string GetTextureFileName() const;
 
@@ -98,26 +105,38 @@ protected:
 	/*! The filepath to the texture. */
 	IndexString fileName;
 	/*! Link to the internally stored image data. */
-	Ref<NiRawImageData > imageData;
+	Ref<NiRawImageData> imageData;
 	/*! Unknown.  Often seems to be 7. Perhaps m_uiMipLevels? */
 	unsigned int unknownInt;
 	/*! Unknown.  Perhaps fImageScale? */
 	float unknownFloat;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

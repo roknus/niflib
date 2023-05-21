@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _QTRANSFORM_H_
 #define _QTRANSFORM_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!  */
-struct QTransform {
+struct QTransform
+{
 	/*! Default Constructor */
 	NIFLIB_API QTransform();
 	/*! Default Destructor */
 	NIFLIB_API ~QTransform();
 	/*! Copy Constructor */
-	NIFLIB_API QTransform( const QTransform & src );
+	NIFLIB_API QTransform(const QTransform& src);
 	/*! Copy Operator */
-	NIFLIB_API QTransform & operator=( const QTransform & src );
+	NIFLIB_API QTransform& operator=(const QTransform& src);
 	/*! Translation. */
 	Vector3 translation;
 	/*! Rotation. */
@@ -34,5 +36,5 @@ struct QTransform {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

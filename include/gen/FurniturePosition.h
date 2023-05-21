@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _FURNITUREPOSITION_H_
 #define _FURNITUREPOSITION_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Describes a furniture position? */
-struct FurniturePosition {
+struct FurniturePosition
+{
 	/*! Default Constructor */
 	NIFLIB_API FurniturePosition();
 	/*! Default Destructor */
 	NIFLIB_API ~FurniturePosition();
 	/*! Copy Constructor */
-	NIFLIB_API FurniturePosition( const FurniturePosition & src );
+	NIFLIB_API FurniturePosition(const FurniturePosition& src);
 	/*! Copy Operator */
-	NIFLIB_API FurniturePosition & operator=( const FurniturePosition & src );
+	NIFLIB_API FurniturePosition& operator=(const FurniturePosition& src);
 	/*! Offset of furniture marker. */
 	Vector3 offset;
 	/*! Furniture marker orientation. */
@@ -47,5 +49,5 @@ struct FurniturePosition {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

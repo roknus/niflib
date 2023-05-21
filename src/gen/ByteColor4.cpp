@@ -3,21 +3,27 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/ByteColor4.h"
 using namespace Niflib;
 
-//Constructor
-ByteColor4::ByteColor4() : r((byte)0), g((byte)0), b((byte)0), a((byte)0) {};
+// Constructor
+ByteColor4::ByteColor4()
+	: r((byte)0)
+	, g((byte)0)
+	, b((byte)0)
+	, a((byte)0){};
 
-//Copy Constructor
-ByteColor4::ByteColor4( const ByteColor4 & src ) {
+// Copy Constructor
+ByteColor4::ByteColor4(const ByteColor4& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-ByteColor4 & ByteColor4::operator=( const ByteColor4 & src ) {
+// Copy Operator
+ByteColor4& ByteColor4::operator=(const ByteColor4& src)
+{
 	this->r = src.r;
 	this->g = src.g;
 	this->b = src.b;
@@ -25,8 +31,8 @@ ByteColor4 & ByteColor4::operator=( const ByteColor4 & src ) {
 	return *this;
 };
 
-//Destructor
-ByteColor4::~ByteColor4() {};
+// Destructor
+ByteColor4::~ByteColor4(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

@@ -10,56 +10,70 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiBlendPoint3Interpolator.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiBlendPoint3Interpolator::TYPE("NiBlendPoint3Interpolator", &NiBlendInterpolator::TYPE );
+// Definition of TYPE constant
+const Type NiBlendPoint3Interpolator::TYPE("NiBlendPoint3Interpolator", &NiBlendInterpolator::TYPE);
 
-NiBlendPoint3Interpolator::NiBlendPoint3Interpolator() {
+NiBlendPoint3Interpolator::NiBlendPoint3Interpolator()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiBlendPoint3Interpolator::~NiBlendPoint3Interpolator() {
+NiBlendPoint3Interpolator::~NiBlendPoint3Interpolator()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiBlendPoint3Interpolator::GetType() const {
+const Type& NiBlendPoint3Interpolator::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiBlendPoint3Interpolator::Create() {
+NiObject* NiBlendPoint3Interpolator::Create()
+{
 	return new NiBlendPoint3Interpolator;
 }
 
-void NiBlendPoint3Interpolator::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiBlendPoint3Interpolator::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiBlendInterpolator::Read( in, link_stack, info );
-	NifStream( pointValue, in, info );
+	NiBlendInterpolator::Read(in, link_stack, info);
+	NifStream(pointValue, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiBlendPoint3Interpolator::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiBlendPoint3Interpolator::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiBlendInterpolator::Write( out, link_map, missing_link_stack, info );
-	NifStream( pointValue, out, info );
+	NiBlendInterpolator::Write(out, link_map, missing_link_stack, info);
+	NifStream(pointValue, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiBlendPoint3Interpolator::asString( bool verbose ) const {
+std::string NiBlendPoint3Interpolator::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -72,35 +86,44 @@ std::string NiBlendPoint3Interpolator::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiBlendPoint3Interpolator::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiBlendPoint3Interpolator::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiBlendInterpolator::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiBlendInterpolator::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiBlendPoint3Interpolator::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiBlendPoint3Interpolator::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiBlendInterpolator::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiBlendPoint3Interpolator::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiBlendPoint3Interpolator::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiBlendInterpolator::GetPtrs();
 	return ptrs;
 }
 
 //--BEGIN MISC CUSTOM CODE--//
 
-Vector3 NiBlendPoint3Interpolator::GetPointValue() const {
+Vector3 NiBlendPoint3Interpolator::GetPointValue() const
+{
 	return pointValue;
 }
 
-void NiBlendPoint3Interpolator::SetPointValue( Vector3 value ) {
+void NiBlendPoint3Interpolator::SetPointValue(Vector3 value)
+{
 	pointValue = value;
 }
 

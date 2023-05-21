@@ -11,60 +11,76 @@ All rights reserved.  Please see niflib.h for license. */
 
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/BSRotAccumTransfInterpolator.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type BSRotAccumTransfInterpolator::TYPE("BSRotAccumTransfInterpolator", &NiTransformInterpolator::TYPE );
+// Definition of TYPE constant
+const Type BSRotAccumTransfInterpolator::TYPE(
+	"BSRotAccumTransfInterpolator",
+	&NiTransformInterpolator::TYPE);
 
-BSRotAccumTransfInterpolator::BSRotAccumTransfInterpolator() {
+BSRotAccumTransfInterpolator::BSRotAccumTransfInterpolator()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-BSRotAccumTransfInterpolator::~BSRotAccumTransfInterpolator() {
+BSRotAccumTransfInterpolator::~BSRotAccumTransfInterpolator()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-const Type & BSRotAccumTransfInterpolator::GetType() const {
+const Type& BSRotAccumTransfInterpolator::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * BSRotAccumTransfInterpolator::Create() {
+NiObject* BSRotAccumTransfInterpolator::Create()
+{
 	return new BSRotAccumTransfInterpolator;
 }
 
-void BSRotAccumTransfInterpolator::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void BSRotAccumTransfInterpolator::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiTransformInterpolator::Read( in, link_stack, info );
+	NiTransformInterpolator::Read(in, link_stack, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-void BSRotAccumTransfInterpolator::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void BSRotAccumTransfInterpolator::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiTransformInterpolator::Write( out, link_map, missing_link_stack, info );
+	NiTransformInterpolator::Write(out, link_map, missing_link_stack, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-std::string BSRotAccumTransfInterpolator::asString( bool verbose ) const {
+std::string BSRotAccumTransfInterpolator::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
@@ -78,26 +94,33 @@ std::string BSRotAccumTransfInterpolator::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void BSRotAccumTransfInterpolator::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void BSRotAccumTransfInterpolator::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiTransformInterpolator::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiTransformInterpolator::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> BSRotAccumTransfInterpolator::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> BSRotAccumTransfInterpolator::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiTransformInterpolator::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> BSRotAccumTransfInterpolator::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> BSRotAccumTransfInterpolator::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiTransformInterpolator::GetPtrs();
 	return ptrs;
 }

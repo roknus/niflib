@@ -9,116 +9,176 @@ All rights reserved.  Please see niflib.h for license. */
 #include "nif_math.h"
 #include <vector>
 
-namespace Niflib {
+namespace Niflib
+{
 
-class Inertia {
+class Inertia
+{
 public:
-
 	/*! Return mass and inertia matrix for a sphere of given radius and
 	 *	density.
 	 */
 	static void CalcMassPropertiesSphere(
-		float radius, 
-		float density, bool solid, 
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Return mass and inertia matrix for a box of given size and
 	 *   density.
 	 */
 	static void CalcMassPropertiesBox(
-		Vector3 size, 
-		float density, bool solid, 
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
-	/*! Return mass and inertia matrix for a cylinder of given radius, 
+		Vector3 size,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
+	/*! Return mass and inertia matrix for a cylinder of given radius,
 	 *   height and density.
 	 */
 	static void CalcMassPropertiesCylinder(
-		Vector3 startAxis, Vector3 endAxis, float radius,
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		Vector3 startAxis,
+		Vector3 endAxis,
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
-	/*! Return mass and inertia matrix for a capsule of given radius, 
+	/*! Return mass and inertia matrix for a capsule of given radius,
 	 *	height and density.
 	 */
 	static void CalcMassPropertiesCapsule(
-		Vector3 startAxis, Vector3 endAxis, float radius,
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		Vector3 startAxis,
+		Vector3 endAxis,
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Return mass and inertia matrix for a complex polyhedron
 	 */
 	static void CalcMassPropertiesPolyhedron(
-		const vector<Vector3>& vertices, 
-		const vector<Triangle>& triangles, 
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		const vector<Vector3>& vertices,
+		const vector<Triangle>& triangles,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Combine mass properties for a number of objects */
 	static void CombineMassProperties(
-		vector<float> masses, 
-		vector<float> volumes, 
-		vector<Vector3> centers, 
+		vector<float> masses,
+		vector<float> volumes,
+		vector<Vector3> centers,
 		vector<InertiaMatrix> inertias,
 		vector<Matrix44> transforms,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 public:
-
 // gcc does not like __stdcall
 #ifdef __GNUC__
-# define NIFLIB_STDCALL
+#	define NIFLIB_STDCALL
 #else
-# define NIFLIB_STDCALL __stdcall
+#	define NIFLIB_STDCALL __stdcall
 #endif
 
 	// Define external strategy helpers
 
 	/*! Return mass and inertia matrix for a sphere of given radius and
-	*	density.
-	*/
-	typedef void (NIFLIB_STDCALL * fnCalcMassPropertiesSphere)(
-		float radius, 
-		float density, bool solid, 
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+	 *	density.
+	 */
+	typedef void(NIFLIB_STDCALL* fnCalcMassPropertiesSphere)(
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Return mass and inertia matrix for a box of given size and
-	*   density.
-	*/
-	typedef void (NIFLIB_STDCALL * fnCalcMassPropertiesBox)(
-		Vector3 size, 
-		float density, bool solid, 
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+	 *   density.
+	 */
+	typedef void(NIFLIB_STDCALL* fnCalcMassPropertiesBox)(
+		Vector3 size,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
-	/*! Return mass and inertia matrix for a cylinder of given radius, 
-	*   height and density.
-	*/
-	typedef void (NIFLIB_STDCALL * fnCalcMassPropertiesCylinder)(
-		Vector3 startAxis, Vector3 endAxis, float radius,
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+	/*! Return mass and inertia matrix for a cylinder of given radius,
+	 *   height and density.
+	 */
+	typedef void(NIFLIB_STDCALL* fnCalcMassPropertiesCylinder)(
+		Vector3 startAxis,
+		Vector3 endAxis,
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
-	/*! Return mass and inertia matrix for a capsule of given radius, 
-	*	height and density.
-	*/
-	typedef void (NIFLIB_STDCALL * fnCalcMassPropertiesCapsule)(
-		Vector3 startAxis, Vector3 endAxis, float radius,  
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+	/*! Return mass and inertia matrix for a capsule of given radius,
+	 *	height and density.
+	 */
+	typedef void(NIFLIB_STDCALL* fnCalcMassPropertiesCapsule)(
+		Vector3 startAxis,
+		Vector3 endAxis,
+		float radius,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
-	/*! Return mass and inertia matrix for a capsule of given radius, 
-	*	height and density.
-	*/
-	typedef void (NIFLIB_STDCALL * fnCalcMassPropertiesPolyhedron)(
-		int nVerts, Vector3 const* verts, 
-		int nTris, Triangle const* tris,
-		float density, bool solid,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+	/*! Return mass and inertia matrix for a capsule of given radius,
+	 *	height and density.
+	 */
+	typedef void(NIFLIB_STDCALL* fnCalcMassPropertiesPolyhedron)(
+		int nVerts,
+		Vector3 const* verts,
+		int nTris,
+		Triangle const* tris,
+		float density,
+		bool solid,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Combine mass properties for a number of objects */
-	typedef void (NIFLIB_STDCALL * fnCombineMassProperties)(
+	typedef void(NIFLIB_STDCALL* fnCombineMassProperties)(
 		int nItems,
-		float* masses, float* volumes, Vector3* centers, InertiaMatrix* inertias, Matrix44* transforms,
-		float& mass, float& volume, Vector3& center, InertiaMatrix &inertia);
+		float* masses,
+		float* volumes,
+		Vector3* centers,
+		InertiaMatrix* inertias,
+		Matrix44* transforms,
+		float& mass,
+		float& volume,
+		Vector3& center,
+		InertiaMatrix& inertia);
 
 	/*! Define external MassProperty calculation method for Sphere */
 	static void SetCalcMassPropertiesSphere(fnCalcMassPropertiesSphere extRoutine);
@@ -137,11 +197,11 @@ public:
 
 	/*! Define external mass property combination routine */
 	static void SetCombineMassProperties(fnCombineMassProperties extRoutine);
-	
+
 
 private:
 	explicit Inertia();
 };
 
-}
+} // namespace Niflib
 #endif

@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _PARTICLE_H_
 #define _PARTICLE_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! particle array entry */
-struct Particle {
+struct Particle
+{
 	/*! Default Constructor */
 	NIFLIB_API Particle();
 	/*! Default Destructor */
 	NIFLIB_API ~Particle();
 	/*! Copy Constructor */
-	NIFLIB_API Particle( const Particle & src );
+	NIFLIB_API Particle(const Particle& src);
 	/*! Copy Operator */
-	NIFLIB_API Particle & operator=( const Particle & src );
+	NIFLIB_API Particle& operator=(const Particle& src);
 	/*! Particle velocity */
 	Vector3 velocity;
 	/*! Unknown */
@@ -41,5 +43,5 @@ struct Particle {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

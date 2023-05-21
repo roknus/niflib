@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _SHADERTEXDESC_H_
 #define _SHADERTEXDESC_H_
@@ -12,19 +12,21 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "TexDesc.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! An extended texture description for shader textures. */
-struct ShaderTexDesc {
+struct ShaderTexDesc
+{
 	/*! Default Constructor */
 	NIFLIB_API ShaderTexDesc();
 	/*! Default Destructor */
 	NIFLIB_API ~ShaderTexDesc();
 	/*! Copy Constructor */
-	NIFLIB_API ShaderTexDesc( const ShaderTexDesc & src );
+	NIFLIB_API ShaderTexDesc(const ShaderTexDesc& src);
 	/*! Copy Operator */
-	NIFLIB_API ShaderTexDesc & operator=( const ShaderTexDesc & src );
+	NIFLIB_API ShaderTexDesc& operator=(const ShaderTexDesc& src);
 	/*! Is it used? */
 	bool isUsed;
 	/*! The texture data. */
@@ -35,5 +37,5 @@ struct ShaderTexDesc {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

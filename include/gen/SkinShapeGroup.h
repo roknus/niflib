@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _SKINSHAPEGROUP_H_
 #define _SKINSHAPEGROUP_H_
@@ -12,29 +12,31 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "SkinShape.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Unknown. */
-struct SkinShapeGroup {
+struct SkinShapeGroup
+{
 	/*! Default Constructor */
 	NIFLIB_API SkinShapeGroup();
 	/*! Default Destructor */
 	NIFLIB_API ~SkinShapeGroup();
 	/*! Copy Constructor */
-	NIFLIB_API SkinShapeGroup( const SkinShapeGroup & src );
+	NIFLIB_API SkinShapeGroup(const SkinShapeGroup& src);
 	/*! Copy Operator */
-	NIFLIB_API SkinShapeGroup & operator=( const SkinShapeGroup & src );
+	NIFLIB_API SkinShapeGroup& operator=(const SkinShapeGroup& src);
 	/*! Counts unknown. */
 	mutable unsigned int numLinkPairs;
 	/*!
 	 * First link is a NiTriShape object.
 	 *             Second link is a NiSkinInstance object.
 	 */
-	vector<SkinShape > linkPairs;
+	vector<SkinShape> linkPairs;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

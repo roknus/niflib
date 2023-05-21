@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _CHANNELDATA_H_
 #define _CHANNELDATA_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Channel data */
-struct ChannelData {
+struct ChannelData
+{
 	/*! Default Constructor */
 	NIFLIB_API ChannelData();
 	/*! Default Destructor */
 	NIFLIB_API ~ChannelData();
 	/*! Copy Constructor */
-	NIFLIB_API ChannelData( const ChannelData & src );
+	NIFLIB_API ChannelData(const ChannelData& src);
 	/*! Copy Operator */
-	NIFLIB_API ChannelData & operator=( const ChannelData & src );
+	NIFLIB_API ChannelData& operator=(const ChannelData& src);
 	/*! Channel Type */
 	ChannelType type;
 	/*! Data Storage Convention */
@@ -35,5 +37,5 @@ struct ChannelData {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

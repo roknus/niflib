@@ -17,13 +17,15 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../gen/MatchGroup.h"
-namespace Niflib {
+namespace Niflib
+{
 
 class NiTriShapeData;
 typedef Ref<NiTriShapeData> NiTriShapeDataRef;
 
 /*! Holds mesh data using a list of singular triangles. */
-class NiTriShapeData : public NiTriBasedGeomData {
+class NiTriShapeData : public NiTriBasedGeomData
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiTriShapeData();
@@ -40,20 +42,22 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 
@@ -61,13 +65,13 @@ public:
 	 * A constructor which can be used to create a NiTriShapeData and initialize it with vertices.
 	 * \param[in] verts The verticies to initialize the NiTriShapeData with.
 	 */
-	NIFLIB_API NiTriShapeData( const vector<Triangle>& verts );
+	NIFLIB_API NiTriShapeData(const vector<Triangle>& verts);
 
 	//--Match Detection--//
-	
-	//Reimplemented only to casue match detection data to be cleared
-	//when vertices are updated.
-	NIFLIB_API virtual void SetVertices( const vector<Vector3> & in );
+
+	// Reimplemented only to casue match detection data to be cleared
+	// when vertices are updated.
+	NIFLIB_API virtual void SetVertices(const vector<Vector3>& in);
 
 	/*!
 	 * This function generates match detection data based on the current
@@ -107,12 +111,10 @@ public:
 	 * \param in A vector containing the new face data.  Maximum size is 65,535.
 	 * \sa ITriShapeData::GetTriangles
 	 */
-	NIFLIB_API virtual void SetTriangles( const vector<Triangle> & in );
+	NIFLIB_API virtual void SetTriangles(const vector<Triangle>& in);
 
 private:
-	bool hasTrianglesCalc(const NifInfo & info) const {
-		return (triangles.size() > 0);
-	};
+	bool hasTrianglesCalc(const NifInfo& info) const { return (triangles.size() > 0); };
 
 	//--END CUSTOM CODE--//
 protected:
@@ -121,26 +123,38 @@ protected:
 	/*! Do we have triangle data? */
 	mutable bool hasTriangles;
 	/*! Triangle data. */
-	vector<Triangle > triangles;
+	vector<Triangle> triangles;
 	/*! Number of shared normals groups. */
 	mutable unsigned short numMatchGroups;
 	/*! The shared normals. */
-	vector<MatchGroup > matchGroups;
+	vector<MatchGroup> matchGroups;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

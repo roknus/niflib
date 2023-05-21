@@ -11,44 +11,52 @@ All rights reserved.  Please see niflib.h for license. */
 
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiSortAdjustNode.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiSortAdjustNode::TYPE("NiSortAdjustNode", &NiNode::TYPE );
+// Definition of TYPE constant
+const Type NiSortAdjustNode::TYPE("NiSortAdjustNode", &NiNode::TYPE);
 
-NiSortAdjustNode::NiSortAdjustNode() : sortingMode((SortingMode)SORTING_INHERIT), unknownInt2((int)-1) {
+NiSortAdjustNode::NiSortAdjustNode()
+	: sortingMode((SortingMode)SORTING_INHERIT)
+	, unknownInt2((int)-1)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-NiSortAdjustNode::~NiSortAdjustNode() {
+NiSortAdjustNode::~NiSortAdjustNode()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiSortAdjustNode::GetType() const {
+const Type& NiSortAdjustNode::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiSortAdjustNode::Create() {
+NiObject* NiSortAdjustNode::Create()
+{
 	return new NiSortAdjustNode;
 }
 
-void NiSortAdjustNode::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiSortAdjustNode::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiNode::Read( in, link_stack, info );
-	NifStream( sortingMode, in, info );
-	if ( info.version <= 0x0A020000 ) {
-		NifStream( unknownInt2, in, info );
+	NiNode::Read(in, link_stack, info);
+	NifStream(sortingMode, in, info);
+	if(info.version <= 0x0A020000)
+	{
+		NifStream(unknownInt2, in, info);
 	};
 
 	//--BEGIN POST-READ CUSTOM CODE--//
@@ -56,15 +64,21 @@ void NiSortAdjustNode::Read( istream& in, list<unsigned int> & link_stack, const
 	//--END CUSTOM CODE--//
 }
 
-void NiSortAdjustNode::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiSortAdjustNode::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiNode::Write( out, link_map, missing_link_stack, info );
-	NifStream( sortingMode, out, info );
-	if ( info.version <= 0x0A020000 ) {
-		NifStream( unknownInt2, out, info );
+	NiNode::Write(out, link_map, missing_link_stack, info);
+	NifStream(sortingMode, out, info);
+	if(info.version <= 0x0A020000)
+	{
+		NifStream(unknownInt2, out, info);
 	};
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
@@ -72,7 +86,8 @@ void NiSortAdjustNode::Write( ostream& out, const map<NiObjectRef,unsigned int> 
 	//--END CUSTOM CODE--//
 }
 
-std::string NiSortAdjustNode::asString( bool verbose ) const {
+std::string NiSortAdjustNode::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
@@ -88,26 +103,33 @@ std::string NiSortAdjustNode::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiSortAdjustNode::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiSortAdjustNode::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 
-	NiNode::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiNode::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiSortAdjustNode::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiSortAdjustNode::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiNode::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiSortAdjustNode::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiSortAdjustNode::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiNode::GetPtrs();
 	return ptrs;
 }

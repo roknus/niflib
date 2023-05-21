@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _RAGDOLLDESCRIPTOR_H_
 #define _RAGDOLLDESCRIPTOR_H_
@@ -12,22 +12,24 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "MotorDescriptor.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!
  * This constraint defines a cone in which an object can rotate. The shape of the
  * cone can be controlled in two (orthogonal) directions.
  */
-struct RagdollDescriptor {
+struct RagdollDescriptor
+{
 	/*! Default Constructor */
 	NIFLIB_API RagdollDescriptor();
 	/*! Default Destructor */
 	NIFLIB_API ~RagdollDescriptor();
 	/*! Copy Constructor */
-	NIFLIB_API RagdollDescriptor( const RagdollDescriptor & src );
+	NIFLIB_API RagdollDescriptor(const RagdollDescriptor& src);
 	/*! Copy Operator */
-	NIFLIB_API RagdollDescriptor & operator=( const RagdollDescriptor & src );
+	NIFLIB_API RagdollDescriptor& operator=(const RagdollDescriptor& src);
 	/*! The point where the constraint is attached to its parent rigidbody. */
 	Vector4 pivotA;
 	/*!
@@ -87,5 +89,5 @@ struct RagdollDescriptor {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

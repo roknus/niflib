@@ -5,13 +5,14 @@ All rights reserved.  Please see niflib.h for license. */
 #define _MATERIAL_COLLECTION_H_
 
 #include "Ref.h"
-#include "gen/enums.h"
 #include "dll_export.h"
+#include "gen/enums.h"
 #include "nif_versions.h"
-#include <vector>
 #include <string>
+#include <vector>
 
-namespace Niflib {
+namespace Niflib
+{
 
 using namespace std;
 
@@ -38,9 +39,9 @@ class NiImage;
  * A helper class used to gather and create material and texturing information
  * in a NIF version independant way.
  */
-class MatTexCollection {
+class MatTexCollection
+{
 public:
-
 	/*
 	 * Constructor which optionally allows you to specify the root of a scene
 	 * to gather material information from.  This is equivalent to creating the
@@ -49,7 +50,7 @@ public:
 	 * information from.  If set to NULL (the default) no information will be
 	 * gathered.
 	 */
-	NIFLIB_API MatTexCollection( NiAVObject * scene_root = NULL );
+	NIFLIB_API MatTexCollection(NiAVObject* scene_root = NULL);
 
 	/*! Destructor */
 	NIFLIB_API ~MatTexCollection();
@@ -62,7 +63,7 @@ public:
 	 * \param[in] scene_root The root node of the scene to gather material
 	 * information from.
 	 */
-	NIFLIB_API void GatherMaterials( NiAVObject * scene_root );
+	NIFLIB_API void GatherMaterials(NiAVObject* scene_root);
 
 	/*!
 	 * Clears all materials and textures stored in this collection.
@@ -84,7 +85,7 @@ public:
 	 * be less than the number reported by GetNumMaterials.
 	 * \return The material wrapper stored at the specified index.
 	 */
-	NIFLIB_API MaterialWrapper GetMaterial( unsigned int index );
+	NIFLIB_API MaterialWrapper GetMaterial(unsigned int index);
 
 	/*
 	 * Reports the number of textures indexed by this collection.
@@ -100,7 +101,7 @@ public:
 	 * be less than the number reported by GetNumTextures.
 	 * \return The texture wrapper stored at the specified index.
 	 */
-	NIFLIB_API TextureWrapper GetTexture( unsigned int index );
+	NIFLIB_API TextureWrapper GetTexture(unsigned int index);
 
 	/*
 	 * Retrieves the texture index of the texture wrapper that encloses the
@@ -109,7 +110,7 @@ public:
 	 * \return The index of the matching texture, or NO_TEXTURE if a match is
 	 * not found.
 	 */
-	NIFLIB_API unsigned int GetTextureIndex( NiSourceTexture * src_tex );
+	NIFLIB_API unsigned int GetTextureIndex(NiSourceTexture* src_tex);
 
 	/*
 	 * Retrieves the texture index of the texture wrapper that encloses the
@@ -118,7 +119,7 @@ public:
 	 * \return The index of the matching texture, or NO_TEXTURE if a match is
 	 * not found.
 	 */
-	NIFLIB_API unsigned int GetTextureIndex( NiImage * image );
+	NIFLIB_API unsigned int GetTextureIndex(NiImage* image);
 
 	/*!
 	 * Creates a new material and adds it to the end of the array of materials
@@ -128,7 +129,7 @@ public:
 	 * objects that store the texture data.
 	 * \return The index of the newly created texture.
 	 */
-	NIFLIB_API unsigned int CreateTexture( unsigned int version = VER_4_0_0_2 );
+	NIFLIB_API unsigned int CreateTexture(unsigned int version = VER_4_0_0_2);
 
 	/*
 	 * Retrieves the material index of the material that affects a specified
@@ -137,7 +138,7 @@ public:
 	 * \return The index of the material that affects the specified object or
 	 * NO_MATERIAL if no match is found.
 	 */
-	NIFLIB_API unsigned int GetMaterialIndex( NiAVObject * obj );
+	NIFLIB_API unsigned int GetMaterialIndex(NiAVObject* obj);
 
 	/*
 	 * Retrieves the material index of the material that matches the given list
@@ -149,17 +150,24 @@ public:
 	 * \return The index of the material that matches the specified properties,
 	 * or NO_MATERIAL if no match is found.
 	 */
-	NIFLIB_API unsigned int GetMaterialIndex( NiMaterialProperty * mat, NiTexturingProperty * texing, NiTextureProperty * tex, NiMultiTextureProperty * multi, NiSpecularProperty * spec, NiAlphaProperty * alpha, NiStencilProperty * stencil );
+	NIFLIB_API unsigned int GetMaterialIndex(
+		NiMaterialProperty* mat,
+		NiTexturingProperty* texing,
+		NiTextureProperty* tex,
+		NiMultiTextureProperty* multi,
+		NiSpecularProperty* spec,
+		NiAlphaProperty* alpha,
+		NiStencilProperty* stencil);
 
 	/*
 	 * Retrieves the material index of the material that matches the given list
 	 * of properties, if any.
-	 * \param[in] properties An unsorted list of properties that is thought to contain some related to materials.
-	 * \return The index of the material that matches the given properties,
-	 * or NO_MATERIAL if no match is found.
+	 * \param[in] properties An unsorted list of properties that is thought to contain some related
+	 * to materials. \return The index of the material that matches the given properties, or
+	 * NO_MATERIAL if no match is found.
 	 */
-	NIFLIB_API unsigned int GetMaterialIndex( const vector< Ref<NiProperty> > & properties );
-	
+	NIFLIB_API unsigned int GetMaterialIndex(const vector<Ref<NiProperty>>& properties);
+
 	/*
 	 * Creates a new material and adds it to the end of the array of materials
 	 * contained in this collection.  The type of material data that will
@@ -184,7 +192,14 @@ public:
 	 * objects that store the requested types of data.
 	 * \return The index of the newly created material.
 	 */
-	NIFLIB_API unsigned int CreateMaterial( bool color, bool texture, bool multi_tex, bool specular, bool translucenty, unsigned int version = VER_4_0_0_2 );
+	NIFLIB_API unsigned int CreateMaterial(
+		bool color,
+		bool texture,
+		bool multi_tex,
+		bool specular,
+		bool translucenty,
+		unsigned int version = VER_4_0_0_2);
+
 private:
 	/*! The vector of materials that this collection holds. */
 	vector<MaterialWrapper> materials;
@@ -197,7 +212,8 @@ private:
  * color and texture of an object.  It's especially useful to be able to use it
  * to hide the differences between old and new texture properties.
  */
-class MaterialWrapper {
+class MaterialWrapper
+{
 public:
 	/*! Destructor */
 	NIFLIB_API ~MaterialWrapper();
@@ -209,13 +225,13 @@ public:
 	 * \param[in] target The AV object to apply the material and texture
 	 * properties to.
 	 */
-	NIFLIB_API void ApplyToObject( NiAVObject * target );
+	NIFLIB_API void ApplyToObject(NiAVObject* target);
 
 	/*!
 	 * Returns a list of all the properties stored in this material wrapper.
 	 * \return All the properties controlled by this wrapper.
 	 */
-	NIFLIB_API vector< Ref<NiProperty> > GetProperties();
+	NIFLIB_API vector<Ref<NiProperty>> GetProperties();
 
 	//--Color Functions--//
 
@@ -252,7 +268,7 @@ public:
 
 	//--Texturing Functions--//
 
-	NIFLIB_API bool HasTexture( TexType tex );
+	NIFLIB_API bool HasTexture(TexType tex);
 
 	/*
 	 * Retrieves the texture index of the texture that is used by the specified
@@ -261,7 +277,7 @@ public:
 	 * \return The index of the texture used by the specified material at the
 	 * given slot, or NO_TEXTURE if no match is found.
 	 */
-	NIFLIB_API unsigned int GetTextureIndex( TexType slot );
+	NIFLIB_API unsigned int GetTextureIndex(TexType slot);
 
 	/*
 	 * Sets a new texture to the specified texture slot.  Overwrites any
@@ -271,7 +287,7 @@ public:
 	 * to.  Must be an index from the same MatTexCollection that holds this
 	 * material wrapper.
 	 */
-	NIFLIB_API void SetTextureIndex( TexType slot, unsigned int tex_index );
+	NIFLIB_API void SetTextureIndex(TexType slot, unsigned int tex_index);
 
 	/*
 	 * Retrieves the UV Set Index of the texture in the specified slot.  This
@@ -280,7 +296,7 @@ public:
 	 * \param[in] slot The type of texture slot to get the UV set index for.
 	 * \return The UV set index used by the specified texture slot.
 	 */
-	NIFLIB_API unsigned int GetTexUVSetIndex( TexType slot );
+	NIFLIB_API unsigned int GetTexUVSetIndex(TexType slot);
 
 	/*
 	 * Sets the UV Set Index of the texture in the specified slot.  This
@@ -290,7 +306,7 @@ public:
 	 * \param[in] uv_set The new UV set index that will be used by the
 	 * specified texture slot.
 	 */
-	NIFLIB_API void SetTexUVSetIndex( TexType slot, unsigned int uv_set );
+	NIFLIB_API void SetTexUVSetIndex(TexType slot, unsigned int uv_set);
 
 	/*
 	 * Retrieves the texture clamp mode of the specified texture slot.  This
@@ -299,7 +315,7 @@ public:
 	 * \param[in] slot The type of texture slot to get the clamp mode for.
 	 * \return The clamp mode of the specified texture slot.
 	 */
-	NIFLIB_API TexClampMode GetTexClampMode( TexType slot );
+	NIFLIB_API TexClampMode GetTexClampMode(TexType slot);
 
 	/*
 	 * Sets the texture clamp mode of the specified texture slot.  This
@@ -308,7 +324,7 @@ public:
 	 * \param[in] slot The type of texture slot to get the clamp mode for.
 	 * \param[in] mode The new clamp mode for the specified texture slot.
 	 */
-	NIFLIB_API void SetTexClampMode( TexType slot, TexClampMode mode );
+	NIFLIB_API void SetTexClampMode(TexType slot, TexClampMode mode);
 
 	/*
 	 * Retrieves the texture filter mode of the specified texture slot.  This
@@ -316,7 +332,7 @@ public:
 	 * \param[in] slot The type of texture slot to set the filter mode for.
 	 * \return The texture filter mode of the specified texture slot.
 	 */
-	NIFLIB_API TexFilterMode GetTexFilterMode( TexType slot );
+	NIFLIB_API TexFilterMode GetTexFilterMode(TexType slot);
 
 	/*
 	 * Sets the texture filter mode of the specified texture slot.  This
@@ -325,13 +341,21 @@ public:
 	 * \param[in] mode The new texture filter mode for the specified texture
 	 * slot.
 	 */
-	NIFLIB_API void SetTexFilterMode( TexType slot, TexFilterMode mode );
+	NIFLIB_API void SetTexFilterMode(TexType slot, TexFilterMode mode);
 
 private:
 	friend class MatTexCollection;
 
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN MaterialWrapper( NiMaterialProperty * mat, NiTexturingProperty * texing, NiTextureProperty * tex, NiMultiTextureProperty * multi, NiSpecularProperty * spec, NiAlphaProperty * alpha, NiStencilProperty * stencil, MatTexCollection * creator );
+	NIFLIB_HIDDEN MaterialWrapper(
+		NiMaterialProperty* mat,
+		NiTexturingProperty* texing,
+		NiTextureProperty* tex,
+		NiMultiTextureProperty* multi,
+		NiSpecularProperty* spec,
+		NiAlphaProperty* alpha,
+		NiStencilProperty* stencil,
+		MatTexCollection* creator);
 
 	/*! The NiMaterialProperty that this object wraps, if any. */
 	Ref<NiMaterialProperty> mat_prop;
@@ -348,14 +372,15 @@ private:
 	/*! The NiStencilProperty that this object wraps if any */
 	Ref<NiStencilProperty> stencil_prop;
 	/*! A pointer back to the MatTexCollection that created this wrapper */
-	MatTexCollection * _creator;
+	MatTexCollection* _creator;
 };
 
 /*
  * A class that wraps up the objects that diferent versions of NIF files use to
  * store textures and allows them to me manipulated through the same class.
  */
-class TextureWrapper {
+class TextureWrapper
+{
 public:
 	/*! Destructor */
 	NIFLIB_API ~TextureWrapper();
@@ -381,7 +406,7 @@ public:
 	 * file name of the new texture location.
 	 * \param[in] The new file name for the external texture.
 	 */
-	NIFLIB_API void SetExternalTexture( const string & file_name );
+	NIFLIB_API void SetExternalTexture(const string& file_name);
 
 	/*
 	 * Gets the pixel layout of the texture.  This describes the image format
@@ -397,7 +422,7 @@ public:
 	 * them.
 	 * \param[in] layout The new pixel layout for the texture.
 	 */
-	NIFLIB_API void SetPixelLayout( PixelLayout layout );
+	NIFLIB_API void SetPixelLayout(PixelLayout layout);
 	/*
 	 * Gets the mipmap format of the texture.  This indicates whether or not
 	 * the textures will use mipmaps which are smaller versions of the texture
@@ -414,7 +439,7 @@ public:
 	 * function won't affect them.
 	 * \param[in] format The new mipmap format for the texture.
 	 */
-	NIFLIB_API void SetMipMapFormat( MipMapFormat format );
+	NIFLIB_API void SetMipMapFormat(MipMapFormat format);
 
 	/*
 	 * Gets the alpha format of the texture.  This indicates the type of alpha
@@ -430,7 +455,7 @@ public:
 	 * function won't affect them.
 	 * \param[in] format The new alpha format for the texture.
 	 */
-	NIFLIB_API void SetAlphaFormat( AlphaFormat format );
+	NIFLIB_API void SetAlphaFormat(AlphaFormat format);
 
 	/*
 	 * Retrieves the generic name property of the texture object, if it has one.
@@ -444,16 +469,16 @@ public:
 	 * nothing.
 	 * \param[in] The new NiObjectNET name for the texture object.
 	 */
-	NIFLIB_API void SetObjectName( const string & name );
+	NIFLIB_API void SetObjectName(const string& name);
 
 private:
 	friend class MatTexCollection;
 	friend class MaterialWrapper;
 
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN TextureWrapper( NiSourceTexture * src );
+	NIFLIB_HIDDEN TextureWrapper(NiSourceTexture* src);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN TextureWrapper( NiImage * img );
+	NIFLIB_HIDDEN TextureWrapper(NiImage* img);
 
 	/*! The NiSourceTexture that this object wraps, if any. */
 	Ref<NiSourceTexture> src_tex;
@@ -461,6 +486,6 @@ private:
 	Ref<NiImage> image;
 };
 
-} //End namspace Niflib
+} // namespace Niflib
 
 #endif

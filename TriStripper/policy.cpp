@@ -12,42 +12,52 @@
 
 
 
-namespace triangle_stripper {
+namespace triangle_stripper
+{
 
-	namespace detail {
+namespace detail
+{
 
 
 
 
 void policy::Challenge(strip Strip, std::size_t Degree, std::size_t CacheHits)
 {
-	if (Strip.Size() < m_MinStripSize)
+	if(Strip.Size() < m_MinStripSize)
 		return;
 
 	// Cache is disabled, take the longest strip
-	if (! m_Cache) {
+	if(!m_Cache)
+	{
 
-		if (Strip.Size() > m_Strip.Size())
+		if(Strip.Size() > m_Strip.Size())
 			m_Strip = Strip;
 
-	// Cache simulator enabled
-	} else {
+		// Cache simulator enabled
+	}
+	else
+	{
 
 		// Priority 1: Keep the strip with the best cache hit count
-		if (CacheHits > m_CacheHits) {
+		if(CacheHits > m_CacheHits)
+		{
 			m_Strip = Strip;
 			m_Degree = Degree;
 			m_CacheHits = CacheHits;
-
-		} else if (CacheHits == m_CacheHits) {
+		}
+		else if(CacheHits == m_CacheHits)
+		{
 
 			// Priority 2: Keep the strip with the loneliest start triangle
-			if ((m_Strip.Size() != 0) && (Degree < m_Degree)) {
+			if((m_Strip.Size() != 0) && (Degree < m_Degree))
+			{
 				m_Strip = Strip;
 				m_Degree = Degree;
 
-			// Priority 3: Keep the longest strip 
-			} else if (Strip.Size() > m_Strip.Size()) {
+				// Priority 3: Keep the longest strip
+			}
+			else if(Strip.Size() > m_Strip.Size())
+			{
 				m_Strip = Strip;
 				m_Degree = Degree;
 			}
@@ -58,6 +68,6 @@ void policy::Challenge(strip Strip, std::size_t Degree, std::size_t CacheHits)
 
 
 
-	} // namespace detail
+} // namespace detail
 
 } // namespace triangle_stripper

@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _UNIONBV_H_
 #define _UNIONBV_H_
@@ -12,26 +12,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "BoundingVolume.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*!  */
-struct UnionBV {
+struct UnionBV
+{
 	/*! Default Constructor */
 	NIFLIB_API UnionBV();
 	/*! Default Destructor */
 	NIFLIB_API ~UnionBV();
 	/*! Copy Constructor */
-	NIFLIB_API UnionBV( const UnionBV & src );
+	NIFLIB_API UnionBV(const UnionBV& src);
 	/*! Copy Operator */
-	NIFLIB_API UnionBV & operator=( const UnionBV & src );
+	NIFLIB_API UnionBV& operator=(const UnionBV& src);
 	/*! Number of Bounding Volumes. */
 	mutable unsigned int numBv;
 	/*! Bounding Volume. */
-	vector<BoundingVolume > boundingVolumes;
+	vector<BoundingVolume> boundingVolumes;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

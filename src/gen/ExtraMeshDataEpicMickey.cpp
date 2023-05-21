@@ -3,21 +3,29 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/ExtraMeshDataEpicMickey.h"
 using namespace Niflib;
 
-//Constructor
-ExtraMeshDataEpicMickey::ExtraMeshDataEpicMickey() : unknownInt1((int)0), unknownInt2((int)0), unknownInt3((int)0), unknownInt4(0.0f), unknownInt5(0.0f), unknownInt6(0.0f) {};
+// Constructor
+ExtraMeshDataEpicMickey::ExtraMeshDataEpicMickey()
+	: unknownInt1((int)0)
+	, unknownInt2((int)0)
+	, unknownInt3((int)0)
+	, unknownInt4(0.0f)
+	, unknownInt5(0.0f)
+	, unknownInt6(0.0f){};
 
-//Copy Constructor
-ExtraMeshDataEpicMickey::ExtraMeshDataEpicMickey( const ExtraMeshDataEpicMickey & src ) {
+// Copy Constructor
+ExtraMeshDataEpicMickey::ExtraMeshDataEpicMickey(const ExtraMeshDataEpicMickey& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-ExtraMeshDataEpicMickey & ExtraMeshDataEpicMickey::operator=( const ExtraMeshDataEpicMickey & src ) {
+// Copy Operator
+ExtraMeshDataEpicMickey& ExtraMeshDataEpicMickey::operator=(const ExtraMeshDataEpicMickey& src)
+{
 	this->unknownInt1 = src.unknownInt1;
 	this->unknownInt2 = src.unknownInt2;
 	this->unknownInt3 = src.unknownInt3;
@@ -27,8 +35,8 @@ ExtraMeshDataEpicMickey & ExtraMeshDataEpicMickey::operator=( const ExtraMeshDat
 	return *this;
 };
 
-//Destructor
-ExtraMeshDataEpicMickey::~ExtraMeshDataEpicMickey() {};
+// Destructor
+ExtraMeshDataEpicMickey::~ExtraMeshDataEpicMickey(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 

@@ -14,7 +14,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiProperty.h"
-namespace Niflib {
+namespace Niflib
+{
 
 class NiVertexColorProperty;
 typedef Ref<NiVertexColorProperty> NiVertexColorPropertyRef;
@@ -24,7 +25,8 @@ typedef Ref<NiVertexColorProperty> NiVertexColorPropertyRef;
  * NIF file whenever some NiTriShapeData object has vertex colors with non-default
  * settings; if not present, vertex colors have vertex_mode=2 and lighting_mode=1.
  */
-class NiVertexColorProperty : public NiProperty {
+class NiVertexColorProperty : public NiProperty
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiVertexColorProperty();
@@ -41,32 +43,35 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
-	 * Can be used to get the data stored in the flags field for this object.  It is usually better to call more specific flag-toggle functions if they are availiable.
-	 * \return The flag data.
+	 * Can be used to get the data stored in the flags field for this object.  It is usually better
+	 * to call more specific flag-toggle functions if they are availiable. \return The flag data.
 	 */
 	NIFLIB_API unsigned short GetFlags() const;
 
 	/*!
-	 * Can be used to set the data stored in the flags field for this object.  It is usually better to call more specific flag-toggle functions if they are availiable.
-	 * \param[in] value The new flag data.  Will overwrite any existing flag data.
+	 * Can be used to set the data stored in the flags field for this object.  It is usually better
+	 * to call more specific flag-toggle functions if they are availiable. \param[in] value The new
+	 * flag data.  Will overwrite any existing flag data.
 	 */
 	NIFLIB_API void SetFlags(unsigned short value);
 
@@ -98,7 +103,7 @@ public:
 protected:
 	/*!
 	 * Property flags. Appears to be unused until 20.1.0.3.
-	 * 
+	 *
 	 *             Bits 0-2: Unknown
 	 *             Bit 3: Lighting Mode?
 	 *             Bits 4-5: Vertex Mode?
@@ -112,21 +117,33 @@ protected:
 	VertMode vertexMode;
 	/*! The light mode. In Flags from 20.1.0.3 on. */
 	LightMode lightingMode;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

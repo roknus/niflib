@@ -3,25 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/BoundingVolume.h"
-#include "../../include/gen/SphereBV.h"
 #include "../../include/gen/BoxBV.h"
 #include "../../include/gen/CapsuleBV.h"
 #include "../../include/gen/HalfSpaceBV.h"
+#include "../../include/gen/SphereBV.h"
 using namespace Niflib;
 
-//Constructor
-BoundingVolume::BoundingVolume() : collisionType((BoundVolumeType)0) {};
+// Constructor
+BoundingVolume::BoundingVolume()
+	: collisionType((BoundVolumeType)0){};
 
-//Copy Constructor
-BoundingVolume::BoundingVolume( const BoundingVolume & src ) {
+// Copy Constructor
+BoundingVolume::BoundingVolume(const BoundingVolume& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-BoundingVolume & BoundingVolume::operator=( const BoundingVolume & src ) {
+// Copy Operator
+BoundingVolume& BoundingVolume::operator=(const BoundingVolume& src)
+{
 	this->collisionType = src.collisionType;
 	this->sphere = src.sphere;
 	this->box = src.box;
@@ -30,8 +33,8 @@ BoundingVolume & BoundingVolume::operator=( const BoundingVolume & src ) {
 	return *this;
 };
 
-//Destructor
-BoundingVolume::~BoundingVolume() {};
+// Destructor
+BoundingVolume::~BoundingVolume(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

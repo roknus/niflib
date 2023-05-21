@@ -10,54 +10,65 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiPSysEmitterSpeedCtlr.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiPSysEmitterSpeedCtlr::TYPE("NiPSysEmitterSpeedCtlr", &NiPSysModifierFloatCtlr::TYPE );
+// Definition of TYPE constant
+const Type NiPSysEmitterSpeedCtlr::TYPE("NiPSysEmitterSpeedCtlr", &NiPSysModifierFloatCtlr::TYPE);
 
-NiPSysEmitterSpeedCtlr::NiPSysEmitterSpeedCtlr() {
+NiPSysEmitterSpeedCtlr::NiPSysEmitterSpeedCtlr()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiPSysEmitterSpeedCtlr::~NiPSysEmitterSpeedCtlr() {
+NiPSysEmitterSpeedCtlr::~NiPSysEmitterSpeedCtlr()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiPSysEmitterSpeedCtlr::GetType() const {
+const Type& NiPSysEmitterSpeedCtlr::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiPSysEmitterSpeedCtlr::Create() {
+NiObject* NiPSysEmitterSpeedCtlr::Create()
+{
 	return new NiPSysEmitterSpeedCtlr;
 }
 
-void NiPSysEmitterSpeedCtlr::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiPSysEmitterSpeedCtlr::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifierFloatCtlr::Read( in, link_stack, info );
+	NiPSysModifierFloatCtlr::Read(in, link_stack, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysEmitterSpeedCtlr::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiPSysEmitterSpeedCtlr::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifierFloatCtlr::Write( out, link_map, missing_link_stack, info );
+	NiPSysModifierFloatCtlr::Write(out, link_map, missing_link_stack, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiPSysEmitterSpeedCtlr::asString( bool verbose ) const {
+std::string NiPSysEmitterSpeedCtlr::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -69,24 +80,31 @@ std::string NiPSysEmitterSpeedCtlr::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiPSysEmitterSpeedCtlr::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiPSysEmitterSpeedCtlr::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifierFloatCtlr::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPSysModifierFloatCtlr::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiPSysEmitterSpeedCtlr::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiPSysEmitterSpeedCtlr::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPSysModifierFloatCtlr::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiPSysEmitterSpeedCtlr::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiPSysEmitterSpeedCtlr::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPSysModifierFloatCtlr::GetPtrs();
 	return ptrs;
 }

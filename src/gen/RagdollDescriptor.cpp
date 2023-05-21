@@ -3,22 +3,31 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/RagdollDescriptor.h"
 #include "../../include/gen/MotorDescriptor.h"
 using namespace Niflib;
 
-//Constructor
-RagdollDescriptor::RagdollDescriptor() : coneMaxAngle(0.0f), planeMinAngle(0.0f), planeMaxAngle(0.0f), twistMinAngle(0.0f), twistMaxAngle(0.0f), maxFriction(0.0f), enableMotor(false) {};
+// Constructor
+RagdollDescriptor::RagdollDescriptor()
+	: coneMaxAngle(0.0f)
+	, planeMinAngle(0.0f)
+	, planeMaxAngle(0.0f)
+	, twistMinAngle(0.0f)
+	, twistMaxAngle(0.0f)
+	, maxFriction(0.0f)
+	, enableMotor(false){};
 
-//Copy Constructor
-RagdollDescriptor::RagdollDescriptor( const RagdollDescriptor & src ) {
+// Copy Constructor
+RagdollDescriptor::RagdollDescriptor(const RagdollDescriptor& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-RagdollDescriptor & RagdollDescriptor::operator=( const RagdollDescriptor & src ) {
+// Copy Operator
+RagdollDescriptor& RagdollDescriptor::operator=(const RagdollDescriptor& src)
+{
 	this->pivotA = src.pivotA;
 	this->planeA = src.planeA;
 	this->twistA = src.twistA;
@@ -38,8 +47,8 @@ RagdollDescriptor & RagdollDescriptor::operator=( const RagdollDescriptor & src 
 	return *this;
 };
 
-//Destructor
-RagdollDescriptor::~RagdollDescriptor() {};
+// Destructor
+RagdollDescriptor::~RagdollDescriptor(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

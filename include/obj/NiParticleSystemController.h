@@ -18,7 +18,8 @@ All rights reserved.  Please see niflib.h for license. */
 // Include structures
 #include "../Ref.h"
 #include "../gen/Particle.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiObject;
@@ -28,7 +29,8 @@ class NiParticleSystemController;
 typedef Ref<NiParticleSystemController> NiParticleSystemControllerRef;
 
 /*! A generic particle system time controller object. */
-class NiParticleSystemController : public NiTimeController {
+class NiParticleSystemController : public NiTimeController
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiParticleSystemController();
@@ -45,20 +47,22 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
@@ -110,7 +114,7 @@ protected:
 	 * This index targets the particle emitter object (TODO: find out what type of
 	 * object this refers to).
 	 */
-	NiObject * emitter;
+	NiObject* emitter;
 	/*! ? short=0 ? */
 	unsigned short unknownShort2_;
 	/*! ? float=1.0 ? */
@@ -128,7 +132,7 @@ protected:
 	/*! The particle's age. */
 	float particleLifetime;
 	/*! Unknown. */
-	Ref<NiObject > particleLink;
+	Ref<NiObject> particleLink;
 	/*! Timestamp of the last update. */
 	unsigned int particleTimestamp;
 	/*! Unknown short */
@@ -143,39 +147,51 @@ protected:
 	 */
 	unsigned short numValid;
 	/*! Individual particle modifiers? */
-	vector<Particle > particles;
+	vector<Particle> particles;
 	/*! unknown int (=0xffffffff) */
-	Ref<NiObject > unknownLink;
+	Ref<NiObject> unknownLink;
 	/*!
 	 * Link to some optional particle modifiers (NiGravity, NiParticleGrowFade,
 	 * NiParticleBomb, ...)
 	 */
-	Ref<NiParticleModifier > particleExtra;
+	Ref<NiParticleModifier> particleExtra;
 	/*! Unknown int (=0xffffffff) */
-	Ref<NiObject > unknownLink2;
+	Ref<NiObject> unknownLink2;
 	/*! Trailing null byte */
 	byte trailer;
 	/*! Unknown. */
-	Ref<NiColorData > colorData;
+	Ref<NiColorData> colorData;
 	/*! Unknown. */
 	float unknownFloat1;
 	/*! Unknown. */
-	vector<float > unknownFloats2;
+	vector<float> unknownFloats2;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

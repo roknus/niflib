@@ -3,21 +3,23 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/HingeDescriptor.h"
 using namespace Niflib;
 
-//Constructor
-HingeDescriptor::HingeDescriptor() {};
+// Constructor
+HingeDescriptor::HingeDescriptor(){};
 
-//Copy Constructor
-HingeDescriptor::HingeDescriptor( const HingeDescriptor & src ) {
+// Copy Constructor
+HingeDescriptor::HingeDescriptor(const HingeDescriptor& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-HingeDescriptor & HingeDescriptor::operator=( const HingeDescriptor & src ) {
+// Copy Operator
+HingeDescriptor& HingeDescriptor::operator=(const HingeDescriptor& src)
+{
 	this->pivotA = src.pivotA;
 	this->perp2AxleInA1 = src.perp2AxleInA1;
 	this->perp2AxleInA2 = src.perp2AxleInA2;
@@ -29,8 +31,8 @@ HingeDescriptor & HingeDescriptor::operator=( const HingeDescriptor & src ) {
 	return *this;
 };
 
-//Destructor
-HingeDescriptor::~HingeDescriptor() {};
+// Destructor
+HingeDescriptor::~HingeDescriptor(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

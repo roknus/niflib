@@ -9,16 +9,17 @@ All rights reserved.  Please see niflib.h for license. */
 #include "nif_math.h"
 #include <vector>
 
-namespace Niflib {
+namespace Niflib
+{
 
-class NifQHull {
+class NifQHull
+{
 public:
-
 	static vector<Triangle> compute_convex_hull(const vector<Vector3>& verts);
 
 private:
 	explicit NifQHull();
 };
 
-}
+} // namespace Niflib
 #endif

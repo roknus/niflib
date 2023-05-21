@@ -10,56 +10,68 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/BSWindModifier.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type BSWindModifier::TYPE("BSWindModifier", &NiPSysModifier::TYPE );
+// Definition of TYPE constant
+const Type BSWindModifier::TYPE("BSWindModifier", &NiPSysModifier::TYPE);
 
-BSWindModifier::BSWindModifier() : strength(0.0f) {
+BSWindModifier::BSWindModifier()
+	: strength(0.0f)
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-BSWindModifier::~BSWindModifier() {
+BSWindModifier::~BSWindModifier()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & BSWindModifier::GetType() const {
+const Type& BSWindModifier::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * BSWindModifier::Create() {
+NiObject* BSWindModifier::Create()
+{
 	return new BSWindModifier;
 }
 
-void BSWindModifier::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void BSWindModifier::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Read( in, link_stack, info );
-	NifStream( strength, in, info );
+	NiPSysModifier::Read(in, link_stack, info);
+	NifStream(strength, in, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void BSWindModifier::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void BSWindModifier::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::Write( out, link_map, missing_link_stack, info );
-	NifStream( strength, out, info );
+	NiPSysModifier::Write(out, link_map, missing_link_stack, info);
+	NifStream(strength, out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string BSWindModifier::asString( bool verbose ) const {
+std::string BSWindModifier::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -72,24 +84,31 @@ std::string BSWindModifier::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void BSWindModifier::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void BSWindModifier::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPSysModifier::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPSysModifier::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> BSWindModifier::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> BSWindModifier::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPSysModifier::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> BSWindModifier::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> BSWindModifier::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPSysModifier::GetPtrs();
 	return ptrs;
 }

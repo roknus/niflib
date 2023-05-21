@@ -10,54 +10,65 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiTransformController.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiTransformController::TYPE("NiTransformController", &NiKeyframeController::TYPE );
+// Definition of TYPE constant
+const Type NiTransformController::TYPE("NiTransformController", &NiKeyframeController::TYPE);
 
-NiTransformController::NiTransformController() {
+NiTransformController::NiTransformController()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiTransformController::~NiTransformController() {
+NiTransformController::~NiTransformController()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiTransformController::GetType() const {
+const Type& NiTransformController::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiTransformController::Create() {
+NiObject* NiTransformController::Create()
+{
 	return new NiTransformController;
 }
 
-void NiTransformController::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiTransformController::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiKeyframeController::Read( in, link_stack, info );
+	NiKeyframeController::Read(in, link_stack, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiTransformController::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiTransformController::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiKeyframeController::Write( out, link_map, missing_link_stack, info );
+	NiKeyframeController::Write(out, link_map, missing_link_stack, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiTransformController::asString( bool verbose ) const {
+std::string NiTransformController::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -69,24 +80,31 @@ std::string NiTransformController::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiTransformController::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiTransformController::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiKeyframeController::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiKeyframeController::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiTransformController::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiTransformController::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiKeyframeController::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiTransformController::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiTransformController::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiKeyframeController::GetPtrs();
 	return ptrs;
 }

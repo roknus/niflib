@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BSTREADTRANSFORM_H_
 #define _BSTREADTRANSFORM_H_
@@ -12,19 +12,21 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "BSTreadTransformData.h"
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! Bethesda-specific node. */
-struct BSTreadTransform {
+struct BSTreadTransform
+{
 	/*! Default Constructor */
 	NIFLIB_API BSTreadTransform();
 	/*! Default Destructor */
 	NIFLIB_API ~BSTreadTransform();
 	/*! Copy Constructor */
-	NIFLIB_API BSTreadTransform( const BSTreadTransform & src );
+	NIFLIB_API BSTreadTransform(const BSTreadTransform& src);
 	/*! Copy Operator */
-	NIFLIB_API BSTreadTransform & operator=( const BSTreadTransform & src );
+	NIFLIB_API BSTreadTransform& operator=(const BSTreadTransform& src);
 	/*! Name of affected node? */
 	IndexString name;
 	/*! Transform data. */
@@ -36,5 +38,5 @@ struct BSTreadTransform {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

@@ -3,7 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _BOUNDINGVOLUME_H_
 #define _BOUNDINGVOLUME_H_
@@ -11,23 +11,25 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../NIF_IO.h"
 
 // Include structures
-#include "SphereBV.h"
 #include "BoxBV.h"
 #include "CapsuleBV.h"
 #include "HalfSpaceBV.h"
-namespace Niflib {
+#include "SphereBV.h"
+namespace Niflib
+{
 
 
 /*!  */
-struct BoundingVolume {
+struct BoundingVolume
+{
 	/*! Default Constructor */
 	NIFLIB_API BoundingVolume();
 	/*! Default Destructor */
 	NIFLIB_API ~BoundingVolume();
 	/*! Copy Constructor */
-	NIFLIB_API BoundingVolume( const BoundingVolume & src );
+	NIFLIB_API BoundingVolume(const BoundingVolume& src);
 	/*! Copy Operator */
-	NIFLIB_API BoundingVolume & operator=( const BoundingVolume & src );
+	NIFLIB_API BoundingVolume& operator=(const BoundingVolume& src);
 	/*! Type of collision data. */
 	BoundVolumeType collisionType;
 	/*! Sphere */
@@ -42,5 +44,5 @@ struct BoundingVolume {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

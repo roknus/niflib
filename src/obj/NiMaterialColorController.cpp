@@ -10,54 +10,70 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/FixLink.h"
-#include "../../include/ObjectRegistry.h"
-#include "../../include/NIF_IO.h"
 #include "../../include/obj/NiMaterialColorController.h"
+#include "../../include/FixLink.h"
+#include "../../include/NIF_IO.h"
+#include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
-//Definition of TYPE constant
-const Type NiMaterialColorController::TYPE("NiMaterialColorController", &NiPoint3InterpController::TYPE );
+// Definition of TYPE constant
+const Type NiMaterialColorController::TYPE(
+	"NiMaterialColorController",
+	&NiPoint3InterpController::TYPE);
 
-NiMaterialColorController::NiMaterialColorController() {
+NiMaterialColorController::NiMaterialColorController()
+{
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiMaterialColorController::~NiMaterialColorController() {
+NiMaterialColorController::~NiMaterialColorController()
+{
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type & NiMaterialColorController::GetType() const {
+const Type& NiMaterialColorController::GetType() const
+{
 	return TYPE;
 }
 
-NiObject * NiMaterialColorController::Create() {
+NiObject* NiMaterialColorController::Create()
+{
 	return new NiMaterialColorController;
 }
 
-void NiMaterialColorController::Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info ) {
+void NiMaterialColorController::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPoint3InterpController::Read( in, link_stack, info );
+	NiPoint3InterpController::Read(in, link_stack, info);
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiMaterialColorController::Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const {
+void NiMaterialColorController::Write(
+	ostream& out,
+	const map<NiObjectRef, unsigned int>& link_map,
+	list<NiObject*>& missing_link_stack,
+	const NifInfo& info) const
+{
 	//--BEGIN PRE-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPoint3InterpController::Write( out, link_map, missing_link_stack, info );
+	NiPoint3InterpController::Write(out, link_map, missing_link_stack, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiMaterialColorController::asString( bool verbose ) const {
+std::string NiMaterialColorController::asString(bool verbose) const
+{
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
@@ -69,24 +85,31 @@ std::string NiMaterialColorController::asString( bool verbose ) const {
 	//--END CUSTOM CODE--//
 }
 
-void NiMaterialColorController::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info ) {
+void NiMaterialColorController::FixLinks(
+	const map<unsigned int, NiObjectRef>& objects,
+	list<unsigned int>& link_stack,
+	list<NiObjectRef>& missing_link_stack,
+	const NifInfo& info)
+{
 	//--BEGIN PRE-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
-	NiPoint3InterpController::FixLinks( objects, link_stack, missing_link_stack, info );
+	NiPoint3InterpController::FixLinks(objects, link_stack, missing_link_stack, info);
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiMaterialColorController::GetRefs() const {
-	list<Ref<NiObject> > refs;
+std::list<NiObjectRef> NiMaterialColorController::GetRefs() const
+{
+	list<Ref<NiObject>> refs;
 	refs = NiPoint3InterpController::GetRefs();
 	return refs;
 }
 
-std::list<NiObject *> NiMaterialColorController::GetPtrs() const {
-	list<NiObject *> ptrs;
+std::list<NiObject*> NiMaterialColorController::GetPtrs() const
+{
+	list<NiObject*> ptrs;
 	ptrs = NiPoint3InterpController::GetPtrs();
 	return ptrs;
 }

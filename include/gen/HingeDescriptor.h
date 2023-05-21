@@ -3,26 +3,28 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #ifndef _HINGEDESCRIPTOR_H_
 #define _HINGEDESCRIPTOR_H_
 
 #include "../NIF_IO.h"
 
-namespace Niflib {
+namespace Niflib
+{
 
 
 /*! This constraint allows rotation about a specified axis. */
-struct HingeDescriptor {
+struct HingeDescriptor
+{
 	/*! Default Constructor */
 	NIFLIB_API HingeDescriptor();
 	/*! Default Destructor */
 	NIFLIB_API ~HingeDescriptor();
 	/*! Copy Constructor */
-	NIFLIB_API HingeDescriptor( const HingeDescriptor & src );
+	NIFLIB_API HingeDescriptor(const HingeDescriptor& src);
 	/*! Copy Operator */
-	NIFLIB_API HingeDescriptor & operator=( const HingeDescriptor & src );
+	NIFLIB_API HingeDescriptor& operator=(const HingeDescriptor& src);
 	/*! Pivot point around which the object will rotate. */
 	Vector4 pivotA;
 	/*! Vector in the rotation plane which defines the zero angle. */
@@ -46,5 +48,5 @@ struct HingeDescriptor {
 	//--END CUSTOM CODE--//
 };
 
-}
+} // namespace Niflib
 #endif

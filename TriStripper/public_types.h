@@ -18,24 +18,24 @@
 namespace triangle_stripper
 {
 
-	typedef std::size_t index;
-	typedef std::vector<index> indices;
+typedef std::size_t index;
+typedef std::vector<index> indices;
 
-	enum primitive_type
-	{
-		TRIANGLES		= 0x0004,	// = GL_TRIANGLES
-		TRIANGLE_STRIP	= 0x0005	// = GL_TRIANGLE_STRIP
-	};
+enum primitive_type
+{
+	TRIANGLES = 0x0004,		// = GL_TRIANGLES
+	TRIANGLE_STRIP = 0x0005 // = GL_TRIANGLE_STRIP
+};
 
-	struct primitive_group
-	{
-		indices			Indices;
-		primitive_type	Type;
-	};
+struct primitive_group
+{
+	indices Indices;
+	primitive_type Type;
+};
 
-	typedef std::vector<primitive_group> primitive_vector;
+typedef std::vector<primitive_group> primitive_vector;
 
-}
+} // namespace triangle_stripper
 
 
 

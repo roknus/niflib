@@ -11,15 +11,17 @@
 #define TRI_STRIPPER_HEADER_GUARD_CACHE_SIMULATOR_H
 
 #include <algorithm>
-#include <limits>
 #include <deque>
+#include <limits>
 
 
 
 
-namespace triangle_stripper {
+namespace triangle_stripper
+{
 
-	namespace detail {
+namespace detail
+{
 
 
 
@@ -36,7 +38,7 @@ public:
 	size_t size() const;
 
 	void push(index i, bool CountCacheHit = false);
-	void merge(const cache_simulator & Backward, size_t PossibleOverlap);
+	void merge(const cache_simulator& Backward, size_t PossibleOverlap);
 
 	void reset_hitcount();
 	size_t hitcount() const;
@@ -44,9 +46,9 @@ public:
 protected:
 	typedef std::deque<index> indices_deque;
 
-	indices_deque	m_Cache;
-	size_t			m_NbHits;
-	bool			m_PushHits;
+	indices_deque m_Cache;
+	size_t m_NbHits;
+	bool m_PushHits;
 };
 
 
@@ -58,11 +60,9 @@ protected:
 //////////////////////////////////////////////////////////////////////////
 
 inline cache_simulator::cache_simulator()
-	: m_NbHits(0),
-	  m_PushHits(true)
-{
-
-}
+	: m_NbHits(0)
+	, m_PushHits(true)
+{}
 
 
 inline void cache_simulator::clear()
@@ -99,31 +99,33 @@ inline size_t cache_simulator::size() const
 
 inline void cache_simulator::push(const index i, const bool CountCacheHit)
 {
-	if (CountCacheHit || m_PushHits) {
+	if(CountCacheHit || m_PushHits)
+	{
 
-		if (std::find(m_Cache.begin(), m_Cache.end(), i) != m_Cache.end()) {
+		if(std::find(m_Cache.begin(), m_Cache.end(), i) != m_Cache.end())
+		{
 
 			// Should we count the cache hits?
-			if (CountCacheHit)
+			if(CountCacheHit)
 				++m_NbHits;
-			
+
 			// Should we not push the index into the cache if it's a cache hit?
-			if (! m_PushHits)
+			if(!m_PushHits)
 				return;
 		}
 	}
-	    
+
 	// Manage the indices cache as a FIFO structure
 	m_Cache.push_front(i);
 	m_Cache.pop_back();
 }
 
 
-inline void cache_simulator::merge(const cache_simulator & Backward, const size_t PossibleOverlap)
+inline void cache_simulator::merge(const cache_simulator& Backward, const size_t PossibleOverlap)
 {
 	const size_t Overlap = std::min(PossibleOverlap, size());
 
-	for (size_t i = 0; i < Overlap; ++i)
+	for(size_t i = 0; i < Overlap; ++i)
 		push(Backward.m_Cache[i], true);
 
 	m_NbHits += Backward.m_NbHits;
@@ -144,7 +146,7 @@ inline size_t cache_simulator::hitcount() const
 
 
 
-	} // namespace detail
+} // namespace detail
 
 } // namespace triangle_stripper
 

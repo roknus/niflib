@@ -6,7 +6,7 @@
 
 // evil hack to allow testing of private and protected data
 #define private public
-#define protected public 
+#define protected public
 
 #include "niflib.h"
 #include "obj/NiNode.h"
@@ -34,7 +34,6 @@ BOOST_AUTO_TEST_CASE(ninode_setskinflag_test)
 
 // mock test to stop boost from complaining
 BOOST_AUTO_TEST_CASE(ninode_test)
-{
-}
+{}
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -17,7 +17,8 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../Ref.h"
-namespace Niflib {
+namespace Niflib
+{
 
 // Forward define of referenced NIF objects
 class NiImage;
@@ -31,7 +32,8 @@ typedef Ref<NiTextureEffect> NiTextureEffectRef;
  * the environment map (note that the bump map is ignored if no NiTextureEffect
  * object is present).
  */
-class NiTextureEffect : public NiDynamicEffect {
+class NiTextureEffect : public NiDynamicEffect
+{
 public:
 	/*! Constructor */
 	NIFLIB_API NiTextureEffect();
@@ -48,38 +50,40 @@ public:
 	 * A factory function used during file reading to create an instance of this type of object.
 	 * \return A pointer to a newly allocated instance of this type of object.
 	 */
-	NIFLIB_API static NiObject * Create();
+	NIFLIB_API static NiObject* Create();
 
 	/*!
 	 * Summarizes the information contained in this object in English.
-	 * \param[in] verbose Determines whether or not detailed information about large areas of data will be printed out.
-	 * \return A string containing a summary of the information within the object in English.  This is the function that Niflyze calls to generate its analysis, so the output is the same.
+	 * \param[in] verbose Determines whether or not detailed information about large areas of data
+	 * will be printed out. \return A string containing a summary of the information within the
+	 * object in English.  This is the function that Niflyze calls to generate its analysis, so the
+	 * output is the same.
 	 */
-	NIFLIB_API virtual string asString( bool verbose = false ) const;
+	NIFLIB_API virtual string asString(bool verbose = false) const;
 
 	/*!
 	 * Used to determine the type of a particular instance of this object.
 	 * \return The type constant for the actual type of the object.
 	 */
-	NIFLIB_API virtual const Type & GetType() const;
+	NIFLIB_API virtual const Type& GetType() const;
 
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
-	 * Retrives the model projection matrix of this effect.  This always seems to be set to the identity.
-	 * \return The model projection matrix.
+	 * Retrives the model projection matrix of this effect.  This always seems to be set to the
+	 * identity. \return The model projection matrix.
 	 */
 	NIFLIB_API Matrix33 GetModelProjectionMatrix() const;
 
 	/*!
-	 * Sets the model projection matrix of this effect.  This always seems to be set to the identity.
-	 * \param[in] value The new model projection matrix.
+	 * Sets the model projection matrix of this effect.  This always seems to be set to the
+	 * identity. \param[in] value The new model projection matrix.
 	 */
-	NIFLIB_API void SetModelProjectionMatrix( Matrix33 value );
+	NIFLIB_API void SetModelProjectionMatrix(Matrix33 value);
 
 	/*!
-	 * Retrieves the model projection transform of this effect.  This always seems to be set to (0,0,0).
-	 * \return The model projection transform.
+	 * Retrieves the model projection transform of this effect.  This always seems to be set to
+	 * (0,0,0). \return The model projection transform.
 	 */
 	NIFLIB_API Vector3 GetModelProjectionTransform() const;
 
@@ -87,7 +91,7 @@ public:
 	 * Sets the model projection transform of this effect.  This always seems to be set to (0,0,0).
 	 * \param[in] value The new model projection transform.
 	 */
-	NIFLIB_API void SetModelProjectionTransform( Vector3 value );
+	NIFLIB_API void SetModelProjectionTransform(Vector3 value);
 
 	/*!
 	 * Retrieves the texture filtering mode used by this effect.
@@ -99,7 +103,7 @@ public:
 	 * Sets the texture filtering mode used by this effect.
 	 * \param[in] value The new texture filtering mode.
 	 */
-	NIFLIB_API void SetTextureFiltering( TexFilterMode value );
+	NIFLIB_API void SetTextureFiltering(TexFilterMode value);
 
 	/*!
 	 * Retrieves the texture clamping mode used by this effect.
@@ -111,7 +115,7 @@ public:
 	 * Sets the texture clamping mode used by this effect.
 	 * \param[in] value The new texture clamping mode.
 	 */
-	NIFLIB_API void SetTextureClamping( TexClampMode value );
+	NIFLIB_API void SetTextureClamping(TexClampMode value);
 
 	/*!
 	 * Retrieves the texture type used by this effect.  Valid values are:
@@ -131,7 +135,7 @@ public:
 	 * 3: FOG_MAP
 	 * \param[in] value The new texture type.
 	 */
-	NIFLIB_API void SetTextureType( EffectType value );
+	NIFLIB_API void SetTextureType(EffectType value);
 
 	/*!
 	 * Retrieves the texture coordinate generation mode.  Valid values are:
@@ -153,19 +157,19 @@ public:
 	 * 4: DIFFUSE_CUBE_MAP
 	 * \return The new texture coordinate generation mode.
 	 */
-	NIFLIB_API void SetCoordinateGenerationType( CoordGenType value );
+	NIFLIB_API void SetCoordinateGenerationType(CoordGenType value);
 
 	/*!
 	 * Retrieves the source texture index.
 	 * \return The source texture index.
 	 */
-	NIFLIB_API Ref<NiSourceTexture > GetSourceTexture() const;
+	NIFLIB_API Ref<NiSourceTexture> GetSourceTexture() const;
 
 	/*!
 	 * Sets the source texture index.
 	 * \param[in] value The new source texture index.
 	 */
-	NIFLIB_API void SetSourceTexture( Ref<NiSourceTexture > value );
+	NIFLIB_API void SetSourceTexture(Ref<NiSourceTexture> value);
 
 	/*!
 	 * Retrieves the clipping plane behavior.  Valid values are:
@@ -181,7 +185,7 @@ public:
 	 * 1: Enabled
 	 * \param[in] value The new clipping plane behavior.
 	 */
-	NIFLIB_API void SetClippingPlane( byte value );
+	NIFLIB_API void SetClippingPlane(byte value);
 
 	/*!
 	 * Retrieves a Playstation 2 - specific value.  Can just be left at the default of 0.
@@ -193,7 +197,7 @@ public:
 	 * Sets a Playstation 2 - specific value.  Can just be left at the default of 0.
 	 * \param[in] value The new PS2 L value.
 	 */
-	NIFLIB_API void SetPs2L( unsigned short value );
+	NIFLIB_API void SetPs2L(unsigned short value);
 
 	/*!
 	 * Retrieves a Playstation 2 - specific value.  Can just be left at the default of 0xFFB5.
@@ -205,7 +209,7 @@ public:
 	 * Sets a Playstation 2 - specific value.  Can just be left at the default of 0xFFB5.
 	 * \param[in] value The new PS2 K value.
 	 */
-	NIFLIB_API void SetPs2K( unsigned short value );
+	NIFLIB_API void SetPs2K(unsigned short value);
 
 	//--END CUSTOM CODE--//
 protected:
@@ -224,9 +228,9 @@ protected:
 	/*! The method that will be used to generate UV coordinates for the texture effect. */
 	CoordGenType coordinateGenerationType;
 	/*! Image index. */
-	Ref<NiImage > image;
+	Ref<NiImage> image;
 	/*! Source texture index. */
-	Ref<NiSourceTexture > sourceTexture;
+	Ref<NiSourceTexture> sourceTexture;
 	/*! Determines whether a clipping plane is used.  0 means that a plane is not used. */
 	byte clippingPlane;
 	/*! Unknown: (1,0,0)? */
@@ -239,21 +243,33 @@ protected:
 	short ps2K;
 	/*! Unknown: 0. */
 	unsigned short unknownShort;
+
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void Read(
+		istream& in,
+		list<unsigned int>& link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void Write( ostream& out, const map<NiObjectRef,unsigned int> & link_map, list<NiObject *> & missing_link_stack, const NifInfo & info ) const;
+	NIFLIB_HIDDEN virtual void Write(
+		ostream& out,
+		const map<NiObjectRef, unsigned int>& link_map,
+		list<NiObject*>& missing_link_stack,
+		const NifInfo& info) const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual void FixLinks( const map<unsigned int,NiObjectRef> & objects, list<unsigned int> & link_stack, list<NiObjectRef> & missing_link_stack, const NifInfo & info );
+	NIFLIB_HIDDEN virtual void FixLinks(
+		const map<unsigned int, NiObjectRef>& objects,
+		list<unsigned int>& link_stack,
+		list<NiObjectRef>& missing_link_stack,
+		const NifInfo& info);
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual list<NiObjectRef> GetRefs() const;
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
-	NIFLIB_HIDDEN virtual list<NiObject *> GetPtrs() const;
+	NIFLIB_HIDDEN virtual list<NiObject*> GetPtrs() const;
 };
 
 //--BEGIN FILE FOOT CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-} //End Niflib namespace
+} // namespace Niflib
 #endif

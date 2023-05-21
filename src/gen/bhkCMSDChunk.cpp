@@ -3,21 +3,30 @@ All rights reserved.  Please see niflib.h for license. */
 
 //---THIS FILE WAS AUTOMATICALLY GENERATED.  DO NOT EDIT---//
 
-//To change this file, alter the niftools/docsys/gen_niflib.py Python script.
+// To change this file, alter the niftools/docsys/gen_niflib.py Python script.
 
 #include "../../include/gen/bhkCMSDChunk.h"
 using namespace Niflib;
 
-//Constructor
-bhkCMSDChunk::bhkCMSDChunk() : materialIndex((unsigned int)0), unknownShort1((unsigned short)0), transformIndex((unsigned short)0), numVertices((unsigned int)0), numIndices((unsigned int)0), numStrips((unsigned int)0), numIndices2((unsigned int)0) {};
+// Constructor
+bhkCMSDChunk::bhkCMSDChunk()
+	: materialIndex((unsigned int)0)
+	, unknownShort1((unsigned short)0)
+	, transformIndex((unsigned short)0)
+	, numVertices((unsigned int)0)
+	, numIndices((unsigned int)0)
+	, numStrips((unsigned int)0)
+	, numIndices2((unsigned int)0){};
 
-//Copy Constructor
-bhkCMSDChunk::bhkCMSDChunk( const bhkCMSDChunk & src ) {
+// Copy Constructor
+bhkCMSDChunk::bhkCMSDChunk(const bhkCMSDChunk& src)
+{
 	*this = src;
 };
 
-//Copy Operator
-bhkCMSDChunk & bhkCMSDChunk::operator=( const bhkCMSDChunk & src ) {
+// Copy Operator
+bhkCMSDChunk& bhkCMSDChunk::operator=(const bhkCMSDChunk& src)
+{
 	this->translation = src.translation;
 	this->materialIndex = src.materialIndex;
 	this->unknownShort1 = src.unknownShort1;
@@ -33,8 +42,8 @@ bhkCMSDChunk & bhkCMSDChunk::operator=( const bhkCMSDChunk & src ) {
 	return *this;
 };
 
-//Destructor
-bhkCMSDChunk::~bhkCMSDChunk() {};
+// Destructor
+bhkCMSDChunk::~bhkCMSDChunk(){};
 
 //--BEGIN MISC CUSTOM CODE--//
 
