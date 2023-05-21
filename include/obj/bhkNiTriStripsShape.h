@@ -166,7 +166,7 @@ protected:
 	/*! Unknown. */
 	unsigned int unknownInt1;
 	/*! Unknown. */
-	Niflib::array<4, unsigned int> unknownInts1;
+	array<4, unsigned int> unknownInts1;
 	/*! Unknown */
 	unsigned int unknownInt2;
 	/*! Scale. Usually (1.0, 1.0, 1.0). */

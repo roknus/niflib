@@ -16,8 +16,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiObject.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -69,7 +67,7 @@ protected:
 	/*! Unknown. */
 	Ref<NiNode> root;
 	/*! Unknown. */
-	Niflib::array<5, byte> unknownBytes;
+	array<5, byte> unknownBytes;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

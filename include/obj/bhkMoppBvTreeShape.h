@@ -91,7 +91,7 @@ public:
 	 * Get the shape's bounding volume code.  The code is specific to the Havok Physics engine.
 	 * \return A byte vector containing the code representing the MOPP.
 	 */
-	NIFLIB_API vector<byte> GetMoppCode() const;
+	NIFLIB_API vector<uint8_t> GetMoppCode() const;
 
 	/*!
 	 * Sets the shape's bounding volume code.  The code is specific to the Havok Physics engine.
@@ -171,7 +171,7 @@ protected:
 	/*! The shape's material. */
 	SkyrimHavokMaterial skyrimMaterial;
 	/*! Unknown bytes. */
-	Niflib::array<8, byte> unknown8Bytes;
+	array<8, byte> unknown8Bytes;
 	/*! Unknown float, might be scale. */
 	float unknownFloat;
 	/*! Number of bytes for MOPP data. */

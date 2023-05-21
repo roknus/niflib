@@ -15,9 +15,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiObjectNET.h"
+#include "nif_math.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 

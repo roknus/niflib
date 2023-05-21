@@ -254,7 +254,7 @@ vector<float> NiBSplineCompTransformInterpolator::GetScaleControlData() const
 {
 	vector<float> value;
 	if((scaleOffset != USHRT_MAX) && splineData && basisData)
-	{ // has translation data
+	{ // has scale data
 		int nctrl = basisData->GetNumControlPoints();
 		int npts = nctrl * SizeofScale;
 		vector<short> points = splineData->GetShortControlPointRange(scaleOffset, npts);
@@ -317,7 +317,7 @@ vector<Key<Vector3>> NiBSplineCompTransformInterpolator::SampleTranslateKeys(
 {
 	vector<Key<Vector3>> value;
 	if((translationOffset != USHRT_MAX) && splineData && basisData)
-	{ // has rotation data
+	{ // has translation data
 		int nctrl = basisData->GetNumControlPoints();
 		int npts = nctrl * SizeofTrans;
 		vector<short> points = splineData->GetShortControlPointRange(translationOffset, npts);
@@ -355,7 +355,7 @@ vector<Key<float>> NiBSplineCompTransformInterpolator::SampleScaleKeys(int npoin
 	const
 {
 	vector<Key<float>> value;
-	if((scaleOffset != USHRT_MAX) && splineData && basisData) // has rotation data
+	if((scaleOffset != USHRT_MAX) && splineData && basisData) // has scale data
 	{
 		int nctrl = basisData->GetNumControlPoints();
 		int npts = nctrl * SizeofScale;

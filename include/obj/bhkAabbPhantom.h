@@ -62,7 +62,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. */
-	Niflib::array<15, int> unknownInts1;
+	array<15, int> unknownInts1;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

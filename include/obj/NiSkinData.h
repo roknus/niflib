@@ -20,7 +20,6 @@ class NiGeometry;
 #include "NiObject.h"
 
 // Include structures
-#include "../Ref.h"
 #include "../gen/SkinData.h"
 #include "../gen/SkinTransform.h"
 namespace Niflib

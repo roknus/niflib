@@ -142,7 +142,7 @@ std::list<NiObject*> NiBinaryExtraData::GetPtrs() const
 
 //--BEGIN MISC CUSTOM CODE--//
 
-vector<byte> NiBinaryExtraData::GetData() const
+vector<uint8_t> NiBinaryExtraData::GetData() const
 {
 	return binaryData.data;
 };

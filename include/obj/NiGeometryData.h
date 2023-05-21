@@ -14,9 +14,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiObject.h"
+#include "nif_math.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -257,7 +256,7 @@ public:
 
 	// Methods for saving bitangents and tangents saved in upper byte.
 	// \return The current value.
-	NIFLIB_API byte GetTspaceFlag() const;
+	NIFLIB_API uint8_t GetTspaceFlag() const;
 
 	// Methods for saving bitangents and tangents saved in upper byte.
 	// \param[in] value The new value.
@@ -345,7 +344,7 @@ protected:
 	 */
 	float radius;
 	/*! Unknown, always 0? */
-	Niflib::array<13, short> unknown13Shorts;
+	array<13, short> unknown13Shorts;
 	/*!
 	 * Do we have vertex colors? These are usually used to fine-tune the lighting of
 	 * the model.

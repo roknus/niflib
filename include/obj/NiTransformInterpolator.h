@@ -14,9 +14,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiKeyBasedInterpolator.h"
+#include "nif_math.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -139,7 +138,7 @@ protected:
 	/*! Scale. */
 	float scale;
 	/*! Unknown. */
-	Niflib::array<3, byte> unknownBytes;
+	array<3, byte> unknownBytes;
 	/*! Refers to NiTransformData. */
 	Ref<NiTransformData> data;
 

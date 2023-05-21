@@ -66,7 +66,7 @@ protected:
 	 * Four UV data groups. Appear to be U translation, V translation, U
 	 * scaling/tiling, V scaling/tiling.
 	 */
-	Niflib::array<4, KeyGroup<float>> uvGroups;
+	array<4, KeyGroup<float>> uvGroups;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

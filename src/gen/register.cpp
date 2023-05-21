@@ -122,6 +122,7 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/obj/NiBinaryExtraData.h"
 #include "../../include/obj/NiBinaryVoxelData.h"
 #include "../../include/obj/NiBinaryVoxelExtraData.h"
+#include "../../include/obj/NiBlendAccumTransformInterpolator.h"
 #include "../../include/obj/NiBlendBoolInterpolator.h"
 #include "../../include/obj/NiBlendFloatInterpolator.h"
 #include "../../include/obj/NiBlendInterpolator.h"
@@ -601,6 +602,9 @@ void RegisterObjects()
 	ObjectRegistry::RegisterObject("NiBinaryVoxelData", NiBinaryVoxelData::Create);
 	ObjectRegistry::RegisterObject("NiBlendBoolInterpolator", NiBlendBoolInterpolator::Create);
 	ObjectRegistry::RegisterObject("NiBlendFloatInterpolator", NiBlendFloatInterpolator::Create);
+	ObjectRegistry::RegisterObject(
+		"NiBlendAccumTransformInterpolator",
+		NiBlendAccumTransformInterpolator::Create);
 	ObjectRegistry::RegisterObject("NiBlendPoint3Interpolator", NiBlendPoint3Interpolator::Create);
 	ObjectRegistry::RegisterObject(
 		"NiBlendTransformInterpolator",

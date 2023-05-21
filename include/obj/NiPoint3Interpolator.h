@@ -14,9 +14,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiKeyBasedInterpolator.h"
-
-// Include structures
-#include "../Ref.h"
+#include "nif_math.h"
 namespace Niflib
 {
 

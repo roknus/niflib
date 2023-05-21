@@ -64,7 +64,7 @@ protected:
 	/*! Number of extra bytes. */
 	mutable byte numExtraBytes;
 	/*! Unknown. */
-	Niflib::array<7, byte> unknownBytes;
+	array<7, byte> unknownBytes;
 	/*! Unknown. */
 	vector<byte> unknownExtraBytes;
 

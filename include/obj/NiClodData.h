@@ -79,11 +79,11 @@ protected:
 	/*! Unknown. */
 	unsigned short unknownShort;
 	/*! Unknown. */
-	vector<Niflib::array<6, unsigned short>> unknownClodShorts1;
+	vector<array<6, unsigned short>> unknownClodShorts1;
 	/*! Unknown. */
 	vector<unsigned short> unknownClodShorts2;
 	/*! Unknown. */
-	vector<Niflib::array<6, unsigned short>> unknownClodShorts3;
+	vector<array<6, unsigned short>> unknownClodShorts3;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

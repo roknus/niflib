@@ -28,7 +28,7 @@ struct ParticleDesc
 	/*! Unknown. */
 	Vector3 translation;
 	/*! Unknown. */
-	Niflib::array<3, float> unknownFloats1;
+	array<3, float> unknownFloats1;
 	/*! Unknown. */
 	float unknownFloat1;
 	/*! Unknown. */

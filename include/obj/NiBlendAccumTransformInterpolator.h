@@ -7,31 +7,28 @@ All rights reserved.  Please see niflib.h for license. */
 // the next update.                                                          //
 //-----------------------------------NOTICE----------------------------------//
 
-#ifndef _NIBOOLINTERPOLATOR_H_
-#define _NIBOOLINTERPOLATOR_H_
+#ifndef _NIBLENDACCUMTRASNFORMINTERPOLATOR_H_
+#define _NIBLENDACCUMTRASNFORMINTERPOLATOR_H_
 
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "NiKeyBasedInterpolator.h"
-
+#include "NiBlendInterpolator.h"
 namespace Niflib
 {
 
-// Forward define of referenced NIF objects
-class NiBoolData;
-class NiBoolInterpolator;
-typedef Ref<NiBoolInterpolator> NiBoolInterpolatorRef;
+class NiBlendAccumTransformInterpolator;
+typedef Ref<NiBlendAccumTransformInterpolator> NiBlendAccumTransformInterpolatorRef;
 
-/*! Unknown. */
-class NiBoolInterpolator : public NiKeyBasedInterpolator
+/*! An interpolator for a float. */
+class NiBlendAccumTransformInterpolator : public NiBlendInterpolator
 {
 public:
 	/*! Constructor */
-	NIFLIB_API NiBoolInterpolator();
+	NIFLIB_API NiBlendAccumTransformInterpolator();
 
 	/*! Destructor */
-	NIFLIB_API virtual ~NiBoolInterpolator();
+	NIFLIB_API virtual ~NiBlendAccumTransformInterpolator();
 
 	/*!
 	 * A constant value which uniquly identifies objects of this type.
@@ -61,52 +58,9 @@ public:
 
 	//--BEGIN MISC CUSTOM CODE--//
 
-	/*!
-	 * Gets the boolean value stored in this object.  Perhaps this is the current interpolated
-	 * value, the value when posed, or at time index 0. \return The boolean value stored in this
-	 * object.
-	 */
-	NIFLIB_API bool GetBoolValue() const;
-
-	/*!
-	 * Sets the boolean value stored in this object.  Perhaps this is the current interpolated
-	 * value, the value when posed, or at time index 0. \param[in] value The new boolean value to
-	 * store in this object.
-	 */
-	NIFLIB_API void SetBoolValue(bool value);
-
-	/*!
-	 * Gets the NiBoolData object that this interpolator links to, if any.
-	 * \return The NiBoolData object that this interpolator links to, or NULL if one is not linked.
-	 */
-	NIFLIB_API Ref<NiBoolData> GetData() const;
-
-	/*!
-	 * Sets the NiBoolData object that this interpolator links to, if any.
-	 * \return The NiBoolData object that this interpolator should now link to, or NULL to clear the
-	 * current one.
-	 */
-	NIFLIB_API void SetData(NiBoolData* value);
-
-	/*!
-	 * This function will adjust the times in all the keys stored in the data
-	 * objects referenced by this interpolator such that phase will equal 0 and
-	 * frequency will equal one.  In other words, it will cause the key times
-	 * to be in seconds starting from zero.
-	 * \param[in] phase The phase shift to remove from any keys stored in this
-	 * object.
-	 * \param[in] frequency The frequency to normalize to 1.0 for any keys
-	 * stored in this object
-	 */
-	NIFLIB_API virtual void NormalizeKeys(float phase, float frequency);
-
 	//--END CUSTOM CODE--//
 protected:
-	/*! Value when posed?  At time 0? */
-	bool boolValue;
-	/*! Refers to a NiBoolData object. */
-	Ref<NiBoolData> data;
-
+	float unk30[58]; // 30
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual void Read(

@@ -17,7 +17,6 @@ All rights reserved.  Please see niflib.h for license. */
 #include "NiInterpolator.h"
 
 // Include structures
-#include "../Ref.h"
 #include "../gen/BSTreadTransform.h"
 namespace Niflib
 {

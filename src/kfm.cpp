@@ -11,7 +11,31 @@ namespace Niflib
 void KfmEventString::Read(istream& in, unsigned int version)
 {
 	unk_int = ReadUInt(in);
-	event = ReadString(in);
+
+	int len = ReadInt(in);
+	if(len == 0x05646e65)
+	{
+		auto unk = ReadByte(in);
+		auto unk2 = ReadByte(in);
+		auto unk3 = ReadByte(in);
+		auto unk4 = ReadInt(in);
+		auto unk5 = ReadByte(in);
+		return;
+	}
+	else if(len > 0x4000)
+	{
+		throw runtime_error("String too long. Not a NIF file or unsupported format?");
+	}
+
+	if(len > 0)
+	{
+		event.resize(len);
+		in.read((char*)&event[0], len);
+		if(in.fail())
+			throw runtime_error("premature end of stream");
+	}
+
+	// event = ReadString(in);
 };
 
 void KfmEventString::Write(ostream& out, unsigned int version)
@@ -26,25 +50,29 @@ void KfmEvent::Read(istream& in, unsigned int version)
 	type = ReadUInt(in);
 	if(type != 5)
 	{
-		unk_float = ReadFloat(in);
+		duration = ReadFloat(in);
 		event_strings.resize(ReadUInt(in));
-		for(vector<KfmEventString>::iterator it = event_strings.begin(); it != event_strings.end();
-			it++)
-			it->Read(in, version);
-		unk_int3 = ReadUInt(in);
+		for(KfmEventString& event_string : event_strings)
+			event_string.Read(in, version);
+		auto num_text_key_pairs = ReadUInt(in);
+		for(int i = 0; i < num_text_key_pairs; i++)
+		{
+			auto unknown_id = ReadUInt(in);
+			auto unknown1 = ReadUInt(in);
+		}
 	};
 };
 
 void KfmAction::Read(istream& in, unsigned int version)
 {
+	event_code = ReadUInt(in);
 	if(version <= VER_KFM_1_2_4b)
 		action_name = ReadString(in);
 	action_filename = ReadString(in);
 	unk_int1 = ReadUInt(in);
 	events.resize(ReadUInt(in));
-	for(vector<KfmEvent>::iterator it = events.begin(); it != events.end(); it++)
-		it->Read(in, version);
-	unk_int2 = ReadUInt(in);
+	for(int i = 0; i < events.size(); i++)
+		events[i].Read(in, version);
 };
 
 unsigned int Kfm::Read(string const& file_name)
@@ -54,7 +82,10 @@ unsigned int Kfm::Read(string const& file_name)
 	if(in.eof())
 		throw runtime_error(
 			"End of file reached prematurely. This KFM may be corrupt or improperly supported.");
-	ReadByte(in); // this should fail, and trigger the in.eof() flag
+
+	byte tmp = 0;
+	in.read((char*)&tmp, 1);
+	// ReadByte(in); // this should fail, and trigger the in.eof() flag
 	if(!in.eof())
 		throw runtime_error(
 			"End of file not reached. This KFM may be corrupt or improperly supported.");
@@ -107,9 +138,9 @@ unsigned int Kfm::Read(istream& in)
 		unk_float1 = ReadFloat(in);
 		unk_float2 = ReadFloat(in);
 		actions.resize(ReadUInt(in));
+		for(auto& kfm_action : actions)
+			kfm_action.Read(in, version);
 		unk_int3 = ReadUInt(in);
-		for(vector<KfmAction>::iterator it = actions.begin(); it != actions.end(); it++)
-			it->Read(in, version);
 	};
 
 	// Retrieve action names

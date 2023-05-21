@@ -16,8 +16,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiPSysModifier.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 

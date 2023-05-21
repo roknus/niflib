@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "bhkConstraint.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -64,7 +65,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*!  */
-	Niflib::array<41, int> unknownInts1;
+	array<41, int> unknownInts1;
 	/*! Unknown */
 	short unknownShort1;
 	/*! A count or flag? */

@@ -349,7 +349,7 @@ vector<Key<Vector3>> NiBSplineTransformInterpolator::SampleTranslateKeys(int npo
 vector<Key<float>> NiBSplineTransformInterpolator::SampleScaleKeys(int npoints, int degree) const
 {
 	vector<Key<float>> value;
-	if((scaleOffset != USHRT_MAX) && splineData && basisData) // has rotation data
+	if((scaleOffset != USHRT_MAX) && splineData && basisData) // has scale data
 	{
 		int nctrl = basisData->GetNumControlPoints();
 		int npts = nctrl * SizeofScale;

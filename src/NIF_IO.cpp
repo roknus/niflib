@@ -122,7 +122,6 @@ float SwapEndian(float in)
 
 int ReadInt(istream& in)
 {
-
 	int tmp = 0;
 	in.read((char*)&tmp, 4);
 	if(in.fail())
@@ -162,7 +161,6 @@ short ReadShort(istream& in)
 
 byte ReadByte(istream& in)
 {
-
 	byte tmp = 0;
 	in.read((char*)&tmp, 1);
 	if(in.fail())
@@ -181,10 +179,12 @@ float ReadFloat(istream& in)
 
 string ReadString(istream& in)
 {
-	unsigned int len = ReadUInt(in);
+	int len = ReadInt(in);
 	string out;
 	if(len > 0x4000)
+	{
 		throw runtime_error("String too long. Not a NIF file or unsupported format?");
+	}
 	if(len > 0)
 	{
 		out.resize(len);

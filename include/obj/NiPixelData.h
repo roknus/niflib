@@ -106,6 +106,10 @@ public:
 	 */
 	NIFLIB_API void SetColors(const vector<Color4>& new_pixels, bool generate_mipmaps);
 
+	NIFLIB_API const vector<vector<byte>>& GetPixelData() const { return pixelData; }
+
+	NIFLIB_API unsigned int GetNumMipmap() const { return numMipmaps; }
+
 	//--END CUSTOM CODE--//
 protected:
 	/*! Total number of pixels */

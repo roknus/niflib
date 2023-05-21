@@ -48,7 +48,6 @@ void EnumerateObjects(
 	NiObject* root,
 	map<Type*, unsigned int>& type_map,
 	map<NiObjectRef, unsigned int>& link_map);
-NiObjectRef FindRoot(vector<NiObjectRef> const& objects);
 NiObjectRef GetObjectByType(NiObject* root, const Type& type);
 
 /*!

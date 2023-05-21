@@ -10,9 +10,9 @@ All rights reserved.  Please see niflib.h for license. */
 #include <iostream>
 #include <stdexcept>
 
-using namespace std;
 namespace Niflib
 {
+using namespace std;
 
 #ifndef PI
 #	define PI                                                                                     \
@@ -111,9 +111,9 @@ struct TexCoord
 /*! Represents a triangle face formed between three vertices referenced by number */
 struct Triangle
 {
-	unsigned short v1; /*!< The index of the first vertex. */
-	unsigned short v2; /*!< The index of the second vertex. */
-	unsigned short v3; /*!< The index of the third vertex. */
+	unsigned short v1 = 0; /*!< The index of the first vertex. */
+	unsigned short v2 = 0; /*!< The index of the second vertex. */
+	unsigned short v3 = 0; /*!< The index of the third vertex. */
 
 	/*! Default constructor */
 	NIFLIB_API Triangle() {}
@@ -526,7 +526,7 @@ struct Vector4
 /* Stores two floating point numbers.  Used as a row of a Matrix22 */
 struct Float2
 {
-	float data[2]; /*!< The two floating point numbers stored as an array. */
+	float data[2] = { 0.f, 0.f }; /*!< The two floating point numbers stored as an array. */
 
 	/*! The bracket operator makes it possible to use this structure like a C++ array.
 	 * \param[in] n The index into the data array.  Should be 0 or 1.
@@ -619,7 +619,7 @@ struct Matrix22
  * attr_vector3 and attr_color3 type attributes. */
 struct Float3
 {
-	float data[3]; /*!< The three floating point numbers stored as an array. */
+	float data[3] = { 0.f, 0.f, 0.f }; /*!< The three floating point numbers stored as an array. */
 
 	/*! The bracket operator makes it possible to use this structure like a C++ array.
 	 * \param[in] n The index into the data array.  Should be 0, 1, or 2.
@@ -783,7 +783,7 @@ struct Matrix33
 /* Stores four floating point numbers.  Used as a row of a Matrix44. */
 struct Float4
 {
-	float data[4]; /*!< The four floating point numbers stored as an array. */
+	float data[4] = { 0 }; /*!< The four floating point numbers stored as an array. */
 
 	/*! The bracket operator makes it possible to use this structure like a C++ array.
 	 * \param[in] n The index into the data array.  Should be 0, 1, 2, or 3.
@@ -1124,9 +1124,9 @@ struct Matrix44
 /*! Stores a color along with alpha translucency */
 struct Color3
 {
-	float r; /*!< The red component of this color.  Should be between 0.0f and 1.0f. */
-	float g; /*!< The green component of this color.  Should be between 0.0f and 1.0f. */
-	float b; /*!< The blue component of this color.  Should be between 0.0f and 1.0f. */
+	float r = 0.f; /*!< The red component of this color.  Should be between 0.0f and 1.0f. */
+	float g = 0.f; /*!< The green component of this color.  Should be between 0.0f and 1.0f. */
+	float b = 0.f; /*!< The blue component of this color.  Should be between 0.0f and 1.0f. */
 
 	/*! Default constructor */
 	NIFLIB_API Color3() {}
@@ -1302,10 +1302,10 @@ struct Color4
  * to represent rotation.*/
 struct Quaternion
 {
-	float w; /*!< The W scalar component of this Quaternion. */
-	float x; /*!< The X vector component of this Quaternion. */
-	float y; /*!< The Y vector component of this Quaternion. */
-	float z; /*!< The Z vector component of this Quaternion. */
+	float w = 0.f; /*!< The W scalar component of this Quaternion. */
+	float x = 0.f; /*!< The X vector component of this Quaternion. */
+	float y = 0.f; /*!< The Y vector component of this Quaternion. */
+	float z = 0.f; /*!< The Z vector component of this Quaternion. */
 
 	/*! Default constructor. */
 	NIFLIB_API Quaternion() {}

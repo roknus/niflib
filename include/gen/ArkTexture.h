@@ -38,7 +38,7 @@ struct ArkTexture
 	/*! Unknown. */
 	Ref<NiTexturingProperty> texturingProperty;
 	/*! Unknown. */
-	Niflib::array<9, byte> unknownBytes;
+	array<9, byte> unknownBytes;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };

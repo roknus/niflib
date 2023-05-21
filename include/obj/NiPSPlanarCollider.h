@@ -77,7 +77,7 @@ protected:
 	/*! Unknown. */
 	byte unknownByte4;
 	/*! Unknown. */
-	Niflib::array<8, float> unknownFloats5;
+	array<8, float> unknownFloats5;
 	/*! Unknown. */
 	Ref<NiNode> unknownLink6;
 

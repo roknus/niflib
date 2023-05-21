@@ -68,9 +68,9 @@ protected:
 	/*! Contains a string like "Gamebryo_1_1" or "4.1.0.12" */
 	IndexString importerName;
 	/*! Unknown. */
-	Niflib::array<13, byte> unknownBytes;
+	array<13, byte> unknownBytes;
 	/*! Unknown. */
-	Niflib::array<7, float> unknownFloats;
+	array<7, float> unknownFloats;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

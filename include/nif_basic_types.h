@@ -47,8 +47,8 @@ struct IndexString : public std::string
 		assign(ref);
 		return *this;
 	}
-	operator std::string const&() const { return *this; }
-	operator std::string&() { return *this; }
+	// operator std::string const &() const { return *this; }
+	// operator std::string &() { return *this; }
 };
 
 struct Char8String : public std::string
@@ -70,8 +70,8 @@ struct Char8String : public std::string
 		assign(ref);
 		return *this;
 	}
-	operator std::string const&() const { return *this; }
-	operator std::string&() { return *this; }
+	// operator std::string const &() const { return *this; }
+	// operator std::string &() { return *this; }
 };
 
 //--Non-mathematical Basic Types--//

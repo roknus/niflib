@@ -14,6 +14,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "bhkConstraint.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -62,7 +63,7 @@ protected:
 	/*! Pivot A. */
 	Vector4 pivotA;
 	/*! 4x4 rotation matrix, rotates the child entity. */
-	Niflib::array<4, Vector4> rotationMatrixA;
+	array<4, Vector4> rotationMatrixA;
 	/*! Pivot B. */
 	Vector4 pivotB;
 	/*! Describes the axis the object is able to travel along. Unit vector. */

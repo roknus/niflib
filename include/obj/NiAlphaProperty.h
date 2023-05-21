@@ -162,7 +162,7 @@ public:
 	 * Used to get the current threshold value that will be used with the alpha test function to
 	 * determine whether a particular pixel will be drawn. \return The current alpha test threshold.
 	 */
-	NIFLIB_API byte GetTestThreshold() const;
+	NIFLIB_API uint8_t GetTestThreshold() const;
 
 	/*!
 	 * Used to set the threshold value that will be used with the alpha test function to determine

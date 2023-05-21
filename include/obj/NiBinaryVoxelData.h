@@ -14,6 +14,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiObject.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -66,9 +67,9 @@ protected:
 	/*! Unknown. Is this^3 the Unknown Bytes 1 size? */
 	unsigned short unknownShort3;
 	/*! Unknown. */
-	Niflib::array<7, float> unknown7Floats;
+	array<7, float> unknown7Floats;
 	/*! Unknown. Always a multiple of 7. */
-	Niflib::array<7, Niflib::array<12, byte>> unknownBytes1;
+	array<7, array<12, byte>> unknownBytes1;
 	/*! Unknown. */
 	mutable unsigned int numUnknownVectors;
 	/*! Vectors on the unit sphere. */
@@ -78,7 +79,7 @@ protected:
 	/*! Unknown. */
 	vector<byte> unknownBytes2;
 	/*! Unknown. */
-	Niflib::array<5, unsigned int> unknown5Ints;
+	array<5, unsigned int> unknown5Ints;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

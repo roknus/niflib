@@ -82,7 +82,7 @@ protected:
 	/*! The number of palette entries.  Always = 256. */
 	unsigned int numEntries;
 	/*! The color palette. */
-	Niflib::array<256, ByteColor4> palette;
+	array<256, ByteColor4> palette;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

@@ -10,51 +10,58 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
-#include "../../include/obj/NiBlendBoolInterpolator.h"
+#include "../../include/obj/NiBlendAccumTransformInterpolator.h"
 #include "../../include/FixLink.h"
 #include "../../include/NIF_IO.h"
 #include "../../include/ObjectRegistry.h"
 using namespace Niflib;
 
 // Definition of TYPE constant
-const Type NiBlendBoolInterpolator::TYPE("NiBlendBoolInterpolator", &NiBlendInterpolator::TYPE);
+const Type NiBlendAccumTransformInterpolator::TYPE(
+	"NiBlendAccumTransformInterpolator",
+	&NiBlendInterpolator::TYPE);
 
-NiBlendBoolInterpolator::NiBlendBoolInterpolator()
-	: boolValue((byte)0)
+NiBlendAccumTransformInterpolator::NiBlendAccumTransformInterpolator()
 {
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-NiBlendBoolInterpolator::~NiBlendBoolInterpolator()
+NiBlendAccumTransformInterpolator::~NiBlendAccumTransformInterpolator()
 {
 	//--BEGIN DESTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-const Type& NiBlendBoolInterpolator::GetType() const
+const Type& NiBlendAccumTransformInterpolator::GetType() const
 {
 	return TYPE;
 }
 
-NiObject* NiBlendBoolInterpolator::Create()
+NiObject* NiBlendAccumTransformInterpolator::Create()
 {
-	return new NiBlendBoolInterpolator;
+	return new NiBlendAccumTransformInterpolator;
 }
 
-void NiBlendBoolInterpolator::Read(istream& in, list<unsigned int>& link_stack, const NifInfo& info)
+void NiBlendAccumTransformInterpolator::Read(
+	istream& in,
+	list<unsigned int>& link_stack,
+	const NifInfo& info)
 {
 	//--BEGIN PRE-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
 	NiBlendInterpolator::Read(in, link_stack, info);
-	NifStream(boolValue, in, info);
+	for(int i = 0; i < 58; i++)
+	{
+		NifStream(unk30[i], in, info);
+	}
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiBlendBoolInterpolator::Write(
+void NiBlendAccumTransformInterpolator::Write(
 	ostream& out,
 	const map<NiObjectRef, unsigned int>& link_map,
 	list<NiObject*>& missing_link_stack,
@@ -64,27 +71,27 @@ void NiBlendBoolInterpolator::Write(
 	//--END CUSTOM CODE--//
 
 	NiBlendInterpolator::Write(out, link_map, missing_link_stack, info);
-	NifStream(boolValue, out, info);
+	NifStream(unk30[0], out, info);
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-std::string NiBlendBoolInterpolator::asString(bool verbose) const
+std::string NiBlendAccumTransformInterpolator::asString(bool verbose) const
 {
 	//--BEGIN PRE-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 
 	stringstream out;
-	out << NiBlendInterpolator::asString();
-	out << "  Bool Value:  " << boolValue << endl;
+	// out << NiBlendInterpolator::asString();
+	// out << "  Float Value:  " << floatValue << endl;
 	return out.str();
 
 	//--BEGIN POST-STRING CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
 
-void NiBlendBoolInterpolator::FixLinks(
+void NiBlendAccumTransformInterpolator::FixLinks(
 	const map<unsigned int, NiObjectRef>& objects,
 	list<unsigned int>& link_stack,
 	list<NiObjectRef>& missing_link_stack,
@@ -99,14 +106,14 @@ void NiBlendBoolInterpolator::FixLinks(
 	//--END CUSTOM CODE--//
 }
 
-std::list<NiObjectRef> NiBlendBoolInterpolator::GetRefs() const
+std::list<NiObjectRef> NiBlendAccumTransformInterpolator::GetRefs() const
 {
 	list<Ref<NiObject>> refs;
 	refs = NiBlendInterpolator::GetRefs();
 	return refs;
 }
 
-std::list<NiObject*> NiBlendBoolInterpolator::GetPtrs() const
+std::list<NiObject*> NiBlendAccumTransformInterpolator::GetPtrs() const
 {
 	list<NiObject*> ptrs;
 	ptrs = NiBlendInterpolator::GetPtrs();
@@ -115,14 +122,5 @@ std::list<NiObject*> NiBlendBoolInterpolator::GetPtrs() const
 
 //--BEGIN MISC CUSTOM CODE--//
 
-uint8_t NiBlendBoolInterpolator::GetBoolValue() const
-{
-	return boolValue;
-}
-
-void NiBlendBoolInterpolator::SetBoolValue(byte value)
-{
-	boolValue = value;
-}
 
 //--END CUSTOM CODE--//

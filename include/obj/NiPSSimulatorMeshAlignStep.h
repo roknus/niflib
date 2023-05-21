@@ -14,7 +14,9 @@ All rights reserved.  Please see niflib.h for license. */
 
 //--END CUSTOM CODE--//
 
+#include "Key.h"
 #include "NiPSSimulatorStep.h"
+#include "nif_math.h"
 namespace Niflib
 {
 

@@ -65,7 +65,7 @@ public:
 	 * Retrieves the binary data stored in this object.
 	 * \return The binary data stored in this object.
 	 */
-	NIFLIB_API vector<byte> GetData() const;
+	NIFLIB_API vector<uint8_t> GetData() const;
 
 	/*!
 	 * Sets the binary data stored in this object.  Removes any previous data.

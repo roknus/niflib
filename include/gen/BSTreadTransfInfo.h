@@ -30,7 +30,7 @@ struct BSTreadTransfInfo
 	/*! Unknown Flag */
 	float unknownFloat1;
 	/*! Data */
-	Niflib::array<2, BSTreadTransfSubInfo> data;
+	array<2, BSTreadTransfSubInfo> data;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };

@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiProperty.h"
+#include "nif_math.h"
 namespace Niflib
 {
 

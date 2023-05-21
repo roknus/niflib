@@ -16,8 +16,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiObject.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -71,17 +69,17 @@ protected:
 	/*! Unknown. */
 	bool hasData;
 	/*! Unknown. Matrix? */
-	Niflib::array<21, float> unknownFloats1;
+	array<21, float> unknownFloats1;
 	/*! Unknown. */
 	unsigned short unknownShort;
 	/*! Child? */
 	Ref<NiObject> child;
 	/*! Unknown. */
-	Niflib::array<12, float> unknownFloats2;
+	array<12, float> unknownFloats2;
 	/*! A count. */
 	mutable unsigned int count;
 	/*! Unknown. */
-	vector<Niflib::array<5, byte>> unknownArray;
+	vector<array<5, byte>> unknownArray;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

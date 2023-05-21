@@ -15,6 +15,8 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/NIF_IO.h"
 #include "../../include/ObjectRegistry.h"
 #include "../../include/obj/bhkBoxShape.h"
+
+#include <algorithm>
 using namespace Niflib;
 
 // Definition of TYPE constant
@@ -151,7 +153,7 @@ Vector3 bhkBoxShape::GetDimensions() const
 void bhkBoxShape::SetDimensions(const Vector3& value)
 {
 	dimensions = value;
-	minimumSize = min(min(value.x, value.y), value.z);
+	minimumSize = std::min(std::min(value.x, value.y), value.z);
 }
 
 void bhkBoxShape::CalcMassProperties(

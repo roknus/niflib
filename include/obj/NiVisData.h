@@ -13,6 +13,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
+#include "Key.h"
 #include "NiObject.h"
 namespace Niflib
 {

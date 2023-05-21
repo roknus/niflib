@@ -178,6 +178,11 @@ public:
 	 * \return The number of control points used in the spline curve.
 	 */
 	NIFLIB_API virtual int GetNumControlPoints() const;
+
+	bool HasTranslation() const { return translationOffset != USHRT_MAX; }
+	bool HasRotation() const { return rotationOffset != USHRT_MAX; }
+	bool HasScale() const { return scaleOffset != USHRT_MAX; }
+
 	//--END CUSTOM CODE--//
 protected:
 	/*! Base translation when translate curve not defined. */

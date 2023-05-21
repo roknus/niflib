@@ -19,8 +19,6 @@ class NiSingleInterpController;
 
 #include "NiSequence.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -30,6 +28,7 @@ class NiControllerManager;
 class NiStringPalette;
 class BSAnimNotes;
 class NiControllerSequence;
+class NiObjectNET;
 typedef Ref<NiControllerSequence> NiControllerSequenceRef;
 
 /*! Root node in .kf files (version 10.0.1.0 and up). */

@@ -15,8 +15,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiAVObject.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 

@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiPSysModifier.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -74,7 +75,7 @@ protected:
 	/*! Unknown */
 	float color2StartPercent;
 	/*! Colors */
-	Niflib::array<3, Color4> colors;
+	array<3, Color4> colors;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

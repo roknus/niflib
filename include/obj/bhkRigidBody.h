@@ -335,12 +335,12 @@ public:
 	 * Returns the unknown 7 shorts
 	 * \return An array containing the 7 unknown shorts within this object.
 	 */
-	NIFLIB_API virtual Niflib::array<7, unsigned short> GetUnknown7Shorts() const;
+	NIFLIB_API virtual array<7, unsigned short> GetUnknown7Shorts() const;
 
 	/*! Replaces the unknown 7 shorts with new data
 	 * \param in An array containing the new data.  Size is 7.
 	 */
-	NIFLIB_API virtual void SetUnknown7Shorts(const Niflib::array<7, unsigned short>& in);
+	NIFLIB_API virtual void SetUnknown7Shorts(const array<7, unsigned short>& in);
 
 
 	//--END CUSTOM CODE--//
@@ -350,7 +350,7 @@ protected:
 	/*! Unknown. */
 	int unknownInt2;
 	/*! Unknown. Could be 3 floats. */
-	Niflib::array<3, int> unknown3Ints;
+	array<3, int> unknown3Ints;
 	/*! The collision response. See hkResponseType for hkpWorld default implementations. */
 	hkResponseType collisionResponse_;
 	/*! Unknown */
@@ -361,7 +361,7 @@ protected:
 	 */
 	unsigned short processContactCallbackDelay_;
 	/*! Unknown. */
-	Niflib::array<2, unsigned short> unknown2Shorts;
+	array<2, unsigned short> unknown2Shorts;
 	/*! Copy of Layer value? */
 	OblivionLayer layerCopy;
 	/*! Copy of Col Filter value? */
@@ -376,7 +376,7 @@ protected:
 	 *             Skyrim defaults: 0 56896 1343 0 0 1 65535 (fourth and fifth element
 	 * *must* be zero)
 	 */
-	Niflib::array<7, unsigned short> unknown7Shorts;
+	array<7, unsigned short> unknown7Shorts;
 	/*!
 	 * A vector that moves the body by the specified amount. Only enabled in
 	 * bhkRigidBodyT objects.

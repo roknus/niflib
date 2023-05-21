@@ -14,6 +14,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiPSysModifier.h"
+#include "nif_math.h"
+
 namespace Niflib
 {
 

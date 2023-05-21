@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiObject.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -62,7 +63,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! unknown */
-	Niflib::array<6, unsigned int> unknown1;
+	array<6, unsigned int> unknown1;
 	/*! unknown */
 	unsigned short unknown2;
 	/*! unknown */
@@ -72,13 +73,13 @@ protected:
 	/*! unknown */
 	Vector3 vector2;
 	/*! unknown */
-	Niflib::array<4, short> unknown3;
+	array<4, short> unknown3;
 	/*! unknown */
 	byte unknown4;
 	/*! unknown */
 	unsigned int unknown5;
 	/*! unknown */
-	Niflib::array<24, short> unknown6;
+	array<24, short> unknown6;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

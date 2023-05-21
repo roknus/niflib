@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "bhkConstraint.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -62,7 +63,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown */
-	Niflib::array<4, byte> unknown4Bytes;
+	array<4, byte> unknown4Bytes;
 	/*! Unknown */
 	Vector3 unknownFloats1;
 	/*! Unknown */

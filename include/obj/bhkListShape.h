@@ -122,7 +122,7 @@ protected:
 	/*! The shape's material. */
 	SkyrimHavokMaterial skyrimMaterial;
 	/*! Unknown. Set to (0.0,0.0,-0.0,0.0,0.0,-0.0), where -0.0 is 0x80000000 in hex. */
-	Niflib::array<6, float> unknownFloats;
+	array<6, float> unknownFloats;
 	/*! Count. */
 	mutable unsigned int numUnknownInts;
 	/*! Unknown. */

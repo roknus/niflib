@@ -62,7 +62,7 @@ public:
 	 * Gets the boolean value stored in this object.  Perhaps this is the current interpolated
 	 * value. \return The boolean value stored in this object.
 	 */
-	NIFLIB_API byte GetBoolValue() const;
+	NIFLIB_API uint8_t GetBoolValue() const;
 
 	/*!
 	 * Sets the boolean value stored in this object.  Perhaps this is the current interpolated
@@ -73,7 +73,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! The interpolated bool? */
-	byte boolValue;
+	uint8_t boolValue;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

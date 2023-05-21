@@ -137,7 +137,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. */
-	Niflib::array<8, byte> unknown8Bytes;
+	array<8, byte> unknown8Bytes;
 	/*! First point on the capsule's axis. */
 	Vector3 firstPoint;
 	/*! Matches first capsule radius. */

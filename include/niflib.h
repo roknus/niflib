@@ -52,9 +52,9 @@ POSSIBILITY OF SUCH DAMAGE. */
 #include <string>
 #include <vector>
 
-using namespace std;
 namespace Niflib
 {
+using namespace std;
 
 // Classes used
 class NiObject;
@@ -132,6 +132,9 @@ NIFLIB_API Header ReadHeader(string const& file_name);
 NIFLIB_API list<Ref<NiObject>> ResolveMissingLinkStack(
 	NiObject* root,
 	const list<NiObject*>& missing_link_stack);
+
+
+NIFLIB_API Ref<NiObject> FindRoot(vector<Ref<NiObject>> const& objects);
 
 /*!
  * Reads the given input stream and returns a vector of object references

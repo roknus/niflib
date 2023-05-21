@@ -97,7 +97,7 @@ protected:
 	/*! Unknown. */
 	float unknownFloat1;
 	/*! Unknown. */
-	Niflib::array<4, byte> unknown4Bytes;
+	array<4, byte> unknown4Bytes;
 	/*! Unknown */
 	Vector4 unknownFloats1;
 	/*! A shell with that radius is added around the shape. */

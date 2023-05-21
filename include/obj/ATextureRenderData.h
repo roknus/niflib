@@ -17,7 +17,6 @@ All rights reserved.  Please see niflib.h for license. */
 #include "NiObject.h"
 
 // Include structures
-#include "../Ref.h"
 #include "../gen/ChannelData.h"
 #include "../gen/MipMap.h"
 namespace Niflib
@@ -81,14 +80,14 @@ protected:
 	/*! Bits per pixel, 0 (?), 8, 24 or 32. */
 	byte bitsPerPixel;
 	/*! Zero? */
-	Niflib::array<3, byte> unknown3Bytes;
+	array<3, byte> unknown3Bytes;
 	/*!
 	 * [96,8,130,0,0,65,0,0] if 24 bits per pixel
 	 *             [129,8,130,32,0,65,12,0] if 32 bits per pixel
 	 *             [34,0,0,0,0,0,0,0] if 8 bits per pixel
 	 *             [4,0,0,0,0,0,0,0] if 0 (?) bits per pixel
 	 */
-	Niflib::array<8, byte> unknown8Bytes;
+	array<8, byte> unknown8Bytes;
 	/*! Seems to always be zero. */
 	unsigned int unknownInt;
 	/*! Unknown.  Could be reference pointer. */
@@ -102,7 +101,7 @@ protected:
 	/*! Unknown. */
 	byte unknownByte1;
 	/*! Channel Data */
-	Niflib::array<4, ChannelData> channels;
+	array<4, ChannelData> channels;
 	/*! Link to NiPalette, for 8-bit textures. */
 	Ref<NiPalette> palette;
 	/*! Number of mipmaps in the texture. */

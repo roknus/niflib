@@ -60,7 +60,7 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. */
-	Niflib::array<6, float> unknownFloats;
+	array<6, float> unknownFloats;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

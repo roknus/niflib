@@ -62,7 +62,7 @@ protected:
 	/*! Unknown. */
 	byte unknown3;
 	/*! Looks like 9 links and some string data. */
-	Niflib::array<292, byte> unknown292Bytes;
+	array<292, byte> unknown292Bytes;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

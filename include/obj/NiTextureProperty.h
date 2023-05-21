@@ -15,8 +15,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiProperty.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -78,13 +76,13 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Property flags. */
-	Niflib::array<2, unsigned int> unknownInts1;
+	array<2, unsigned int> unknownInts1;
 	/*! Property flags. */
 	unsigned short flags;
 	/*! Link to the texture image. */
 	Ref<NiImage> image;
 	/*! Unknown.  0? */
-	Niflib::array<2, unsigned int> unknownInts2;
+	array<2, unsigned int> unknownInts2;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

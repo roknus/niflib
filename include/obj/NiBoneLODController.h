@@ -16,7 +16,6 @@ All rights reserved.  Please see niflib.h for license. */
 #include "NiTimeController.h"
 
 // Include structures
-#include "../Ref.h"
 #include "../gen/NodeGroup.h"
 #include "../gen/SkinShapeGroup.h"
 namespace Niflib

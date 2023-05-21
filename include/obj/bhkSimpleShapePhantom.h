@@ -60,9 +60,9 @@ public:
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. */
-	Niflib::array<7, float> unkownFloats;
+	array<7, float> unkownFloats;
 	/*! Unknown. (1,0,0,0,0) x 3. */
-	Niflib::array<3, Niflib::array<5, float>> unknownFloats2;
+	array<3, array<5, float>> unknownFloats2;
 	/*! Unknown. */
 	float unknownFloat;
 

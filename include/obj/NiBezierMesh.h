@@ -16,8 +16,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiAVObject.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -81,13 +79,13 @@ protected:
 	/*! Unknown (illegal link?). */
 	unsigned int unknown5;
 	/*! data. */
-	vector<Niflib::array<2, float>> points2;
+	vector<array<2, float>> points2;
 	/*! unknown */
 	unsigned int unknown6;
 	/*! data count 2. */
 	mutable unsigned short count2;
 	/*! data count. */
-	vector<Niflib::array<4, unsigned short>> data2;
+	vector<array<4, unsigned short>> data2;
 
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */

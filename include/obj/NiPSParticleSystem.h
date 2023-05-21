@@ -109,7 +109,7 @@ protected:
 	/*! Unknown */
 	int unknown21;
 	/*! Unknown */
-	Niflib::array<4, byte> unknown22;
+	array<4, byte> unknown22;
 	/*! Unknown. */
 	int unknown27;
 	/*! Unknown. */

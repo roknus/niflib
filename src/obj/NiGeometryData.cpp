@@ -16,6 +16,8 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/ObjectRegistry.h"
 #include "../../include/obj/AbstractAdditionalGeometryData.h"
 #include "../../include/obj/NiPSysData.h"
+
+#include <algorithm>
 using namespace Niflib;
 
 // Definition of TYPE constant
@@ -676,7 +678,7 @@ static void CalcCenteredSphere(const vector<Vector3>& vertices, Vector3& center,
 	{
 		Vector3 diff = vertices[i] - center;
 		float mag = diff.Magnitude();
-		radius = max(radius, mag);
+		radius = std::max(radius, mag);
 	}
 }
 
@@ -889,7 +891,7 @@ void NiGeometryData::SetBound(Vector3 const& center, float radius)
 }
 
 
-byte NiGeometryData::GetTspaceFlag() const
+uint8_t NiGeometryData::GetTspaceFlag() const
 {
 	return (numUvSets | bsNumUvSets) >> 8;
 }

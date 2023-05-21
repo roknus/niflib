@@ -15,8 +15,6 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "NiDynamicEffect.h"
 
-// Include structures
-#include "../Ref.h"
 namespace Niflib
 {
 
@@ -177,7 +175,7 @@ public:
 	 * 1: Enabled
 	 * \return The clipping plane behavior.
 	 */
-	NIFLIB_API byte GetClippingPlane() const;
+	NIFLIB_API uint8_t GetClippingPlane() const;
 
 	/*!
 	 * Sets the clipping plane behavior.  Valid values are:

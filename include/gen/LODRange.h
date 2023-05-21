@@ -30,7 +30,7 @@ struct LODRange
 	/*! End of Range. */
 	float farExtent;
 	/*! Unknown (0,0,0). */
-	Niflib::array<3, unsigned int> unknownInts;
+	array<3, unsigned int> unknownInts;
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 };

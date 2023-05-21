@@ -312,7 +312,7 @@ protected:
 	/*! List of node properties. */
 	vector<Ref<NiProperty>> properties;
 	/*! Always 2,0,2,0. */
-	Niflib::array<4, unsigned int> unknown1;
+	array<4, unsigned int> unknown1;
 	/*! 0 or 1. */
 	byte unknown2;
 	/*! Do we have a bounding box? */

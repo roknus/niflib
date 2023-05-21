@@ -175,7 +175,7 @@ void NiSkinPartition::Read(istream& in, list<unsigned int>& link_stack, const Ni
 		};
 		if(info.version >= 0x0A010000)
 		{
-			if((skinPartitionBlocks[i1].hasFaces && (skinPartitionBlocks[i1].numStrips != 0)))
+			if(skinPartitionBlocks[i1].hasFaces && (skinPartitionBlocks[i1].numStrips != 0))
 			{
 				skinPartitionBlocks[i1].strips.resize(skinPartitionBlocks[i1].numStrips);
 				for(unsigned int i4 = 0; i4 < skinPartitionBlocks[i1].strips.size(); i4++)
@@ -191,7 +191,7 @@ void NiSkinPartition::Read(istream& in, list<unsigned int>& link_stack, const Ni
 		};
 		if(info.version <= 0x0A000102)
 		{
-			if((skinPartitionBlocks[i1].numStrips == 0))
+			if(skinPartitionBlocks[i1].numStrips == 0)
 			{
 				skinPartitionBlocks[i1].triangles.resize(skinPartitionBlocks[i1].numTriangles);
 				for(unsigned int i4 = 0; i4 < skinPartitionBlocks[i1].triangles.size(); i4++)
@@ -376,7 +376,7 @@ void NiSkinPartition::Write(
 		};
 		if(info.version <= 0x0A000102)
 		{
-			if((skinPartitionBlocks[i1].numStrips == 0))
+			if(skinPartitionBlocks[i1].numStrips == 0)
 			{
 				for(unsigned int i4 = 0; i4 < skinPartitionBlocks[i1].triangles.size(); i4++)
 				{
@@ -386,7 +386,7 @@ void NiSkinPartition::Write(
 		};
 		if(info.version >= 0x0A010000)
 		{
-			if((skinPartitionBlocks[i1].hasFaces && (skinPartitionBlocks[i1].numStrips == 0)))
+			if(skinPartitionBlocks[i1].hasFaces && (skinPartitionBlocks[i1].numStrips == 0))
 			{
 				for(unsigned int i4 = 0; i4 < skinPartitionBlocks[i1].triangles.size(); i4++)
 				{
@@ -541,7 +541,7 @@ std::string NiSkinPartition::asString(bool verbose) const
 			array_output_count++;
 		};
 		out << "    Has Faces:  " << skinPartitionBlocks[i1].hasFaces << endl;
-		if((skinPartitionBlocks[i1].numStrips != 0))
+		if(skinPartitionBlocks[i1].numStrips != 0)
 		{
 			array_output_count = 0;
 			for(unsigned int i3 = 0; i3 < skinPartitionBlocks[i1].strips.size(); i3++)
@@ -563,7 +563,7 @@ std::string NiSkinPartition::asString(bool verbose) const
 				};
 			};
 		};
-		if((skinPartitionBlocks[i1].numStrips == 0))
+		if(skinPartitionBlocks[i1].numStrips == 0)
 		{
 			array_output_count = 0;
 			for(unsigned int i3 = 0; i3 < skinPartitionBlocks[i1].triangles.size(); i3++)
@@ -1094,7 +1094,7 @@ size_t indexOf(I begin, I end, const V& val)
 namespace std
 {
 template<>
-struct less<Triangle> : public binary_function<Triangle, Triangle, bool>
+struct less<Triangle>
 {
 	bool operator()(const Triangle& s1, const Triangle& s2) const
 	{
@@ -1109,7 +1109,7 @@ struct less<Triangle> : public binary_function<Triangle, Triangle, bool>
 	}
 };
 template<>
-struct less<BoneWeight> : public binary_function<BoneWeight, BoneWeight, bool>
+struct less<BoneWeight>
 {
 	bool operator()(const BoneWeight& lhs, const BoneWeight& rhs)
 	{

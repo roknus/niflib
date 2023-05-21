@@ -15,6 +15,7 @@ All rights reserved.  Please see niflib.h for license. */
 //--END CUSTOM CODE--//
 
 #include "NiObject.h"
+#include "nif_math.h"
 namespace Niflib
 {
 
@@ -68,13 +69,13 @@ protected:
 	/*! Unknown */
 	short unknownShort2;
 	/*! NXS */
-	Niflib::array<3, byte> unknownBytes0;
+	array<3, byte> unknownBytes0;
 	/*! Unknown */
 	byte unknownByte1;
 	/*! MESH */
-	Niflib::array<4, byte> unknownBytes1;
+	array<4, byte> unknownBytes1;
 	/*! Unknown */
-	Niflib::array<8, byte> unknownBytes2;
+	array<8, byte> unknownBytes2;
 	/*! Unknown */
 	float unknownFloat2;
 	/*! Unknown */
@@ -88,11 +89,11 @@ protected:
 	/*! Vertices */
 	vector<Vector3> vertices;
 	/*! Unknown */
-	Niflib::array<982, byte> unknownBytes3;
+	array<982, byte> unknownBytes3;
 	/*! Unknown */
-	Niflib::array<368, short> unknownShorts1;
+	array<368, short> unknownShorts1;
 	/*! Unknown */
-	Niflib::array<3328, unsigned int> unknownInts1;
+	array<3328, unsigned int> unknownInts1;
 	/*! Unknown */
 	byte unknownByte2;
 
