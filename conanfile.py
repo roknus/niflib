@@ -1,16 +1,16 @@
 from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
+from conan.tools.scm import Git
 
 import os;
 
 class NiflibConan(ConanFile):
 	name = "niflib"
 	version = "1.0"
-	license = "<Put the package license here>"
-	author = "Roknus roknus@gmail.com"
-	url = "<Package recipe repository url here, for issues about the package>"
-	description = "<Description of Hello here>"
-	topics = ("<Put some tag here>", "<here>", "<and here>")
+	license = "BSD-3-Clause"
+	author = "Niftools"
+	url = "https://github.com/roknus/niflib"
+	description = "Niftools C++ library for Nif IO"
 	settings = "os", "compiler", "build_type", "arch"
 	options = {"shared": [True, False], "fPIC": [True, False]}
 	default_options = {"shared": False, "fPIC": True}
@@ -51,6 +51,10 @@ class NiflibConan(ConanFile):
 		# No test yet
 		#if not self.conf.get("tools.build:skip_test", default=False):
 		#	cmake.test()
+
+	def export(self):
+		git = Git(self)
+		git.coordinates_to_conandata()
 
 	def package(self):
 		cmake = CMake(self)

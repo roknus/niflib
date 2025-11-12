@@ -1,0 +1,53 @@
+{
+	"version": 4,
+	"configurePresets": [
+		{
+			"name": "default",
+			"generator": "Ninja",
+			"hidden": true,
+			"architecture": {
+				"value": "x64",
+				"strategy": "external"
+			}
+		},
+		{
+			"name": "ninja-msvc-release",
+			"displayName": "ninja-msvc-release",
+			"description": "Ninja generator with MSVC compilator Release",
+			"inherits": "default",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "ninja-msvc-debug",
+			"displayName": "ninja-msvc-debug",
+			"description": "Ninja generator with MSVC compilator Debug",
+			"inherits": "ninja-msvc-release",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "emscripten-release",
+			"displayName": "emscripten-release",
+			"description": "Emscripten generator Release",
+			"inherits": "default",
+			"binaryDir": "${sourceDir}/build/${presetName}",
+			"cacheVariables": {
+				"CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "emscripten-debug",
+			"displayName": "emscripten-debug",
+			"description": "Emscripten generator Debug",
+			"inherits": "emscripten-release",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		}
+	]
+}

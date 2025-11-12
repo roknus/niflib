@@ -347,3 +347,6 @@ ASALocalRun/
 healthchecksdb
 
 CMakeUserPresets.json
+
+# VSCode settings
+.vscode/*
