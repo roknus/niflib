@@ -37,6 +37,9 @@ class NiflibConan(ConanFile):
 		deps.generate()
 
 	def layout(self):
+		# Define build folder structure with compiler and build_type names
+		self.folders.build_folder_vars = ["settings.compiler", "settings.build_type"]
+		# Use the standard cmake_layout with our custom build folder structure
 		cmake_layout(self)
 
 	def config_options(self):

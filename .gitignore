@@ -346,4 +346,9 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
+# CMake user presets
 CMakeUserPresets.json
+
+# Conan files
+.conanrc
+.conan2/
