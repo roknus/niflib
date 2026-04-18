@@ -6,6 +6,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "gen/enums.h"
 #include "nif_versions.h"
+#include <cstdint>
 #include <stdarg.h>
 #include <string>
 
@@ -82,8 +83,8 @@ typedef unsigned char byte;
 //--Structures--//
 
 /*!
- * Used to specify optional ways the NIF file is to be written or retrieve information about
- * the way an existing file was stored.
+ * Used to specify optional ways the NIF file is to be written or retrieve
+ * information about the way an existing file was stored.
  */
 struct NifInfo
 {
@@ -103,17 +104,17 @@ struct NifInfo
 	unsigned version;
 	unsigned userVersion;
 	unsigned userVersion2;
-	/*! Specifies which low-level number storage format to use. Should match the processor type for
-	 * the target system. */
+	/*! Specifies which low-level number storage format to use. Should match the
+	 * processor type for the target system. */
 	EndianType endian;
-	/*! This is only supported in Oblivion.  It contains the name of the person who created the NIF
-	 * file. */
+	/*! This is only supported in Oblivion.  It contains the name of the person
+	 * who created the NIF file. */
 	string creator;
-	/*! This is only supported in Oblivion.  It seems to contain the type of script or program used
-	 * to export the file. */
+	/*! This is only supported in Oblivion.  It seems to contain the type of
+	 * script or program used to export the file. */
 	string exportInfo1;
-	/*! This is only supported in Oblivion.  It seems to contain the more specific script or options
-	 * of the above. */
+	/*! This is only supported in Oblivion.  It seems to contain the more specific
+	 * script or options of the above. */
 	string exportInfo2;
 };
 
@@ -129,14 +130,14 @@ struct array
 	// XXX ellipsis does not work when T = float
 	// XXX see for instance http://support.microsoft.com/kb/71424
 	/*
-		array(size_t n, ...) {
-			va_list argptr;
-			va_start(argptr, n);
-			for ( size_t i = 0; i < n && i < size; ++i )
-				data[i] = va_arg( argptr, T );
-			for ( size_t i = n; i < size; ++i )
-				data[i] = T();
-		}
+			array(size_t n, ...) {
+					va_list argptr;
+					va_start(argptr, n);
+					for ( size_t i = 0; i < n && i < size; ++i )
+							data[i] = va_arg( argptr, T );
+					for ( size_t i = n; i < size; ++i )
+							data[i] = T();
+			}
 	*/
 	array(size_t n, T t0)
 	{
@@ -209,8 +210,8 @@ private:
 	T data[size];
 };
 
-// TODO:  This is temporary to make it compile.  Should eventually be adjusted to display 1's and
-// 0's insted of as an int.
+// TODO:  This is temporary to make it compile.  Should eventually be adjusted
+// to display 1's and 0's insted of as an int.
 typedef unsigned short Flags;
 } // namespace Niflib
 #endif

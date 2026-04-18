@@ -352,3 +352,7 @@ CMakeUserPresets.json
 # Conan files
 .conanrc
 .conan2/
+
+# VSCode files
+.vscode/
+.devcontainer/
